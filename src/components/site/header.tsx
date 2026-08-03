@@ -15,12 +15,10 @@ const NAV = [
 ];
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
+    const onScroll = () => {};
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
