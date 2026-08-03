@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ChevronDown, ArrowRight, UserCheck, Plane, Gavel } from "lucide-react";
 
 const PRODUCTS = [
@@ -17,16 +17,10 @@ const NAV = [
 export function Header() {
   const [productsOpen, setProductsOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => {};
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
       <div className="contained-nav flex h-[52px] items-center justify-between px-5">
-        <a href="/" className="flex items-center gap-2.5">
+        <a href="/" className="flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ring)]">
           <span className="font-cal text-[18px] font-semibold text-graphite tracking-tight">
             Noruva Labs
           </span>
@@ -41,7 +35,7 @@ export function Header() {
             >
               <a
                 href={item.href}
-                className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-[13px] font-medium text-slate transition-colors hover:text-graphite"
+                className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-[13px] font-medium text-slate transition-colors hover:text-graphite focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ring)]"
               >
                 {item.label}
                 {item.label === "Products" && <ChevronDown className="h-3.5 w-3.5 opacity-50" />}
@@ -71,7 +65,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <a
             href="#faq"
-            className="hidden text-[13px] font-medium text-slate transition-colors hover:text-graphite sm:inline"
+            className="hidden text-[13px] font-medium text-slate transition-colors hover:text-graphite sm:inline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ring)]"
           >
             Sign in
           </a>
