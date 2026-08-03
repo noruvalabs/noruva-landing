@@ -1,0 +1,154 @@
+---
+import Base from '../../layouts/Base.astro';
+import { Header } from '../../components/site/header';
+import { Footer } from '../../components/site/sections';
+import { ArrowRight, Plane, MapPin, FileCheck, Clock } from 'lucide-react';
+
+const FEATURES = [
+  {
+    icon: "MapPin",
+    title: "Route eligibility",
+    body: "Answer eligibility questions and map the applicant to the right visa route. No more guesswork on which path to take.",
+  },
+  {
+    icon: "FileCheck",
+    title: "Evidence checklists",
+    body: "Generate the exact evidence checklist for each route. Missing or expiring documents surface before they become a refusal.",
+  },
+  {
+    icon: "Clock",
+    title: "Deadline tracking",
+    body: "Track deadlines across a whole caseload. Never miss a filing date or renewal window again.",
+  },
+  {
+    icon: "Plane",
+    title: "Case management",
+    body: "Manage multiple cases from one dashboard. Status updates, document links and next steps at a glance.",
+  },
+];
+
+const STEPS = [
+  { n: "01", title: "Intake the applicant", body: "Answer a few questions about the applicant's situation, nationality, and goals." },
+  { n: "02", title: "Match the route", body: "The assistant identifies the best visa route and explains the requirements." },
+  { n: "03", title: "Build the checklist", body: "Generate a document checklist with expiry tracking and missing item alerts." },
+  { n: "04", title: "Track and file", body: "Monitor deadlines, upload documents, and prepare the final submission package." },
+];
+---
+
+<Base
+  title="Immigration Assistant — Noruva Labs"
+  description="Route guidance, document checklists and deadline tracking per case. Every case, every document, every deadline."
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <!-- Hero -->
+      <section class="relative overflow-hidden pt-32 pb-20">
+        <div class="pointer-events-none absolute inset-0 glow-purple" />
+        <div class="container-page relative">
+          <span class="inline-flex items-center gap-2 rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
+            <Plane class="h-3.5 w-3.5 text-action-blue" />
+            Immigration Assistant
+          </span>
+          <h1 class="mt-5 text-[42px] leading-[1.08] tracking-[0.4px] text-graphite md:text-heading-lg lg:text-display">
+            Every case,
+            <br />
+            every document, every deadline
+          </h1>
+          <p class="mt-6 max-w-lg text-subheading text-slate">
+            Walk an applicant or consultant through the right route, build the document checklist,
+            flag missing evidence, and keep track of deadlines across a whole caseload.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#cta" class="btn-pill btn-ink">
+              Start a trial <ArrowRight class="h-4 w-4" />
+            </a>
+            <a href="#features" class="btn-pill btn-ghost">
+              See features
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- Features -->
+      <section id="features" class="container-page py-24">
+        <div class="max-w-xl">
+          <span class="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption tracking-[0.08em] text-slate uppercase">
+            Features
+          </span>
+          <h2 class="mt-4 text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
+            Never miss a
+            <br />
+            document or deadline
+          </h2>
+        </div>
+        <div class="mt-12 grid gap-5 sm:grid-cols-2">
+          {FEATURES.map((f) => (
+            <article class="card-surface p-6">
+              <div class="flex h-8 w-8 items-center justify-center rounded-full bg-silver">
+                <span class="h-4 w-4 text-action-blue" />
+              </div>
+              <h3 class="mt-4 text-heading-sm text-graphite">{f.title}</h3>
+              <p class="mt-1.5 text-body-sm text-slate">{f.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- How it works -->
+      <section class="container-page py-24">
+        <div class="max-w-xl">
+          <span class="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption tracking-[0.08em] text-slate uppercase">
+            How it works
+          </span>
+          <h2 class="mt-4 text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
+            Four steps to
+            <br />
+            cleaner cases
+          </h2>
+        </div>
+        <div class="mt-12 space-y-4">
+          {STEPS.map((s) => (
+            <article class="card-surface grid gap-6 p-6 md:grid-cols-[60px_1fr]">
+              <span class="font-cal text-heading-lg text-action-blue">{s.n}</span>
+              <div>
+                <h3 class="text-heading text-graphite">{s.title}</h3>
+                <p class="mt-2 text-body text-slate">{s.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- CTA -->
+      <section id="cta" class="container-page pb-24">
+        <div class="relative overflow-hidden rounded-xl bg-action-blue/20 border border-action-blue/30 px-6 py-20 text-center">
+          <div class="relative">
+            <h2 class="mx-auto max-w-2xl text-[34px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
+              Ready to streamline your caseload?
+            </h2>
+            <p class="mx-auto mt-4 max-w-md text-body text-slate">
+              Start a trial of Immigration Assistant today — or talk to our engineers about a custom
+              workflow for your consultancy.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+              <a href="#pricing" class="btn-pill bg-action-blue text-white hover:bg-action-blue/80">
+                Start a trial
+              </a>
+              <a href="/" class="btn-pill border border-silver text-graphite hover:bg-silver/30">
+                Back to home
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>

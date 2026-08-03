@@ -1,0 +1,154 @@
+---
+import Base from '../../layouts/Base.astro';
+import { Header } from '../../components/site/header';
+import { Footer } from '../../components/site/sections';
+import { ArrowRight, UserCheck, FileText, BarChart3, Users } from 'lucide-react';
+
+const FEATURES = [
+  {
+    icon: "UserCheck",
+    title: "Role-specific question sets",
+    body: "Generate tailored interview questions from the job spec and levelling guide. Every loop starts with structure, not guesswork.",
+  },
+  {
+    icon: "FileText",
+    title: "Live note capture",
+    body: "Capture notes during the conversation without breaking flow. Notes are tagged to questions and candidates automatically.",
+  },
+  {
+    icon: "BarChart3",
+    title: "Rubric scoring",
+    body: "Score candidates against a consistent rubric. Bias-flagged language and comparable briefs for the whole panel.",
+  },
+  {
+    icon: "Users",
+    title: "Candidate briefs",
+    body: "Generate a structured brief after each interview. The hiring committee reads the same document the same way.",
+  },
+];
+
+const STEPS = [
+  { n: "01", title: "Parse the job spec", body: "Upload the role description and levelling guide. The assistant extracts key skills, seniority signals and must-haves." },
+  { n: "02", title: "Build the interview loop", body: "Generate a structured loop with role-specific questions, time allocations and scoring criteria." },
+  { n: "03", title: "Capture notes live", body: "Interviewers take notes during the conversation. The assistant organises them by question and candidate." },
+  { n: "04", title: "Score and compare", body: "Produce scorecards with rubric-based ratings. Compare candidates side-by-side with bias detection." },
+];
+---
+
+<Base
+  title="Interview Assistant — Noruva Labs"
+  description="Structured question sets, live notes and comparable candidate scorecards. Hire on evidence, not on who interviewed best."
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <!-- Hero -->
+      <section class="relative overflow-hidden pt-32 pb-20">
+        <div class="pointer-events-none absolute inset-0 glow-purple" />
+        <div class="container-page relative">
+          <span class="inline-flex items-center gap-2 rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
+            <UserCheck class="h-3.5 w-3.5 text-action-blue" />
+            Interview Assistant
+          </span>
+          <h1 class="mt-5 text-[42px] leading-[1.08] tracking-[0.4px] text-graphite md:text-heading-lg lg:text-display">
+            Hire on evidence,
+            <br />
+            not on who interviewed best
+          </h1>
+          <p class="mt-6 max-w-lg text-subheading text-slate">
+            Generate a role-specific interview loop from the job spec, capture notes while the
+            conversation happens, and produce a scorecard the whole panel reads the same way.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#cta" class="btn-pill btn-ink">
+              Start a trial <ArrowRight class="h-4 w-4" />
+            </a>
+            <a href="#features" class="btn-pill btn-ghost">
+              See features
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- Features -->
+      <section id="features" class="container-page py-24">
+        <div class="max-w-xl">
+          <span class="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption tracking-[0.08em] text-slate uppercase">
+            Features
+          </span>
+          <h2 class="mt-4 text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
+            Structured hiring,
+            <br />
+            start to finish
+          </h2>
+        </div>
+        <div class="mt-12 grid gap-5 sm:grid-cols-2">
+          {FEATURES.map((f) => (
+            <article class="card-surface p-6">
+              <div class="flex h-8 w-8 items-center justify-center rounded-full bg-silver">
+                <span class="h-4 w-4 text-action-blue" />
+              </div>
+              <h3 class="mt-4 text-heading-sm text-graphite">{f.title}</h3>
+              <p class="mt-1.5 text-body-sm text-slate">{f.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- How it works -->
+      <section class="container-page py-24">
+        <div class="max-w-xl">
+          <span class="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption tracking-[0.08em] text-slate uppercase">
+            How it works
+          </span>
+          <h2 class="mt-4 text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
+            Four steps to
+            <br />
+            better interviews
+          </h2>
+        </div>
+        <div class="mt-12 space-y-4">
+          {STEPS.map((s) => (
+            <article class="card-surface grid gap-6 p-6 md:grid-cols-[60px_1fr]">
+              <span class="font-cal text-heading-lg text-action-blue">{s.n}</span>
+              <div>
+                <h3 class="text-heading text-graphite">{s.title}</h3>
+                <p class="mt-2 text-body text-slate">{s.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- CTA -->
+      <section id="cta" class="container-page pb-24">
+        <div class="relative overflow-hidden rounded-xl bg-action-blue/20 border border-action-blue/30 px-6 py-20 text-center">
+          <div class="relative">
+            <h2 class="mx-auto max-w-2xl text-[34px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
+              Ready to hire with structure?
+            </h2>
+            <p class="mx-auto mt-4 max-w-md text-body text-slate">
+              Start a trial of Interview Assistant today — or talk to our engineers about a custom
+              hiring workflow for your team.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+              <a href="#pricing" class="btn-pill bg-action-blue text-white hover:bg-action-blue/80">
+                Start a trial
+              </a>
+              <a href="/" class="btn-pill border border-silver text-graphite hover:bg-silver/30">
+                Back to home
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>

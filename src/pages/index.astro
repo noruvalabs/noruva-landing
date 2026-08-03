@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import { Header } from '../components/site/header';
+import { Hero, LogoMarquee } from '../components/site/hero';
+import { HorizontalRail, ScrollStory } from '../components/site/scroll-sections';
+import { Capabilities, Faq, FinalCta, Footer, Quotes, Stats, UseCases } from '../components/site/sections';
+---
+
+<Base
+  title="Noruva Labs — Interview, Immigration & Law AI assistants"
+  description="Noruva Labs is a software company behind Interview Assistant, Immigration Assistant and Law Assistant — plus custom agentic AI builds for teams with their own workflows."
+  ogTitle="Noruva Labs — Interview, Immigration & Law AI assistants"
+  ogDescription="Three AI assistants for hiring, immigration and legal work, plus custom agentic AI engineering services."
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <Hero client:load />
+      <LogoMarquee />
+      <div class="section-separator w-full" />
+      <ScrollStory client:load />
+      <div class="section-separator w-full" />
+      <HorizontalRail client:load />
+      <div class="section-separator w-full" />
+      <Capabilities client:load />
+      <div class="section-separator w-full" />
+      <Stats client:load />
+      <div class="section-separator w-full" />
+      <UseCases client:load />
+      <div class="section-separator w-full" />
+      <Quotes client:load />
+      <div class="section-separator w-full" />
+      <Faq client:load />
+      <div class="section-separator w-full" />
+      <FinalCta client:load />
+    </main>
+    <Footer />
+  </div>
+</Base>

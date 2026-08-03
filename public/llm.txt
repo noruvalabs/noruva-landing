@@ -1,0 +1,41 @@
+# Noruva Labs
+
+> Noruva Labs is a software company building applied AI products and custom agentic systems.
+
+## About
+
+Noruva Labs builds three AI assistants and provides custom agentic AI engineering services:
+
+- **Interview Assistant** — Structured question sets, live notes and comparable candidate scorecards.
+- **Immigration Assistant** — Route guidance, document checklists and deadline tracking per case.
+- **Law Assistant** — Research, summaries and drafting with a citation behind every claim.
+- **Agentic AI services** — Custom agents designed, built and integrated into your existing stack.
+
+## Products
+
+### Interview Assistant
+Turns a job description into a structured interview loop: tailored questions, live note capture, rubric scoring and a candidate brief the panel can actually compare.
+
+### Immigration Assistant
+Walks an applicant or consultant through the right route, builds the document checklist, flags missing evidence, and keeps track of deadlines across a whole caseload.
+
+### Law Assistant
+Research, summarisation and drafting grounded in your own matter files and public sources — every answer carries a citation back to the paragraph it came from.
+
+## Services
+
+- Discovery & scoping
+- Custom integrations
+- Evaluations and rollout
+- Engineering support
+
+## Contact
+
+- Website: https://noruva.dev
+- Built in Amsterdam and Toronto
+
+## Compliance
+
+- SOC 2 Type II
+- GDPR
+- ISO 27001
