@@ -273,7 +273,7 @@ export function Footer() {
       <div className="container-page grid gap-8 py-10 sm:grid-cols-2 md:grid-cols-[1.2fr_repeat(3,0.6fr)] md:gap-10 md:py-14">
         <div>
           <div className="flex items-center gap-2">
-            <img src="/logo.svg" alt="Noruva Labs" className="h-8 w-auto" />
+            <img src="/logo.svg" alt="Noruva Labs" className="h-10 w-auto" />
             <span className="font-cal text-heading-sm text-graphite">Noruva Labs</span>
           </div>
           <p className="mt-3 max-w-xs text-body-sm text-slate">
