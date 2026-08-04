@@ -1,0 +1,128 @@
+---
+import Base from '../layouts/Base.astro';
+import { Header } from '../components/site/header';
+import { Footer } from '../components/site/sections';
+import { Mail, MapPin, Phone } from 'lucide-react';
+---
+
+<Base
+  title="Contact — Noruva Labs"
+  description="Get in touch with Noruva Labs. Whether you need a demo, have a question, or want to discuss a custom agentic AI build."
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <section class="relative overflow-hidden pt-32 pb-20">
+        <div class="pointer-events-none absolute inset-0 glow-purple" />
+        <div class="container-page relative">
+          <span class="inline-flex items-center gap-2 rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
+            <Mail class="h-3.5 w-3.5 text-action-blue" />
+            Contact
+          </span>
+          <h1 class="mt-5 text-[42px] leading-[1.08] tracking-[0.4px] text-graphite md:text-heading-lg lg:text-display">
+            Let's talk
+          </h1>
+          <p class="mt-6 max-w-lg text-subheading text-slate">
+            Whether you want a demo of one of our products, have a question, or want to discuss a
+            custom agentic AI build for your team — we'd love to hear from you.
+          </p>
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <section class="container-page py-24">
+        <div class="grid gap-12 md:grid-cols-2">
+          <div>
+            <h2 class="text-heading-lg text-graphite">Send us a message</h2>
+            <p class="mt-2 text-body text-slate">Fill out the form and we'll get back to you within one business day.</p>
+            <form class="mt-8 space-y-5">
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label for="name" class="mb-1.5 block text-caption font-medium text-graphite">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full rounded-md border border-silver/60 bg-white/5 px-4 py-2.5 text-body text-graphite outline-none transition-colors focus:border-action-blue focus:ring-2 focus:ring-action-blue/20"
+                  />
+                </div>
+                <div>
+                  <label for="email" class="mb-1.5 block text-caption font-medium text-graphite">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full rounded-md border border-silver/60 bg-white/5 px-4 py-2.5 text-body text-graphite outline-none transition-colors focus:border-action-blue focus:ring-2 focus:ring-action-blue/20"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="subject" class="mb-1.5 block text-caption font-medium text-graphite">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  class="w-full rounded-md border border-silver/60 bg-white/5 px-4 py-2.5 text-body text-graphite outline-none transition-colors focus:border-action-blue focus:ring-2 focus:ring-action-blue/20"
+                />
+              </div>
+              <div>
+                <label for="message" class="mb-1.5 block text-caption font-medium text-graphite">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  class="w-full rounded-md border border-silver/60 bg-white/5 px-4 py-2.5 text-body text-graphite outline-none transition-colors focus:border-action-blue focus:ring-2 focus:ring-action-blue/20 resize-none"
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn-pill bg-action-blue text-white hover:bg-action-blue/80"
+              >
+                Send message
+              </button>
+            </form>
+          </div>
+          <div>
+            <h2 class="text-heading-lg text-graphite">Other ways to reach us</h2>
+            <p class="mt-2 text-body text-slate">Prefer a direct line? Here's how to reach us.</p>
+            <div class="mt-8 space-y-6">
+              <div class="flex items-start gap-4">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-silver/50">
+                  <Mail class="h-5 w-5 text-action-blue" />
+                </div>
+                <div>
+                  <p class="text-body font-medium text-graphite">Email</p>
+                  <p class="text-body text-slate">hello@noruvalabs.com</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-silver/50">
+                  <Phone class="h-5 w-5 text-action-blue" />
+                </div>
+                <div>
+                  <p class="text-body font-medium text-graphite">Phone</p>
+                  <p class="text-body text-slate">+1 (555) 000-0000</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-silver/50">
+                  <MapPin class="h-5 w-5 text-action-blue" />
+                </div>
+                <div>
+                  <p class="text-body font-medium text-graphite">Office</p>
+                  <p class="text-body text-slate">San Francisco, CA</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>

@@ -217,7 +217,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-radius: 9999px;
+  border-radius: 8px;
   padding: 12px 24px;
   font-size: 16px;
   letter-spacing: -0.19px;
@@ -269,7 +269,7 @@
   max-width: 1100px;
   margin-inline: auto;
   margin-top: 16px;
-  border-radius: 20px;
+  border-radius: 8px;
   background: rgba(10, 6, 22, 0.9);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(80, 60, 140, 0.3);

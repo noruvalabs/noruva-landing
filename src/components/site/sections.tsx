@@ -271,7 +271,7 @@ export function Footer() {
   const cols = [
     ["Products", ["Interview Assistant", "Immigration Assistant", "Law Assistant", "Agentic AI services"]],
     ["Company", ["About", "Careers", "Security", "Contact"]],
-    ["Resources", ["Docs", "Changelog", "Status", "Privacy"]],
+    ["Resources", ["Docs", "Blog", "Changelog", "Status", "Privacy"]],
   ] as const;
 
   return (

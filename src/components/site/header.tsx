@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, ArrowRight, UserCheck, Plane, Gavel } from "lucide-react";
+import { ChevronDown, UserCheck, Plane, Gavel } from "lucide-react";
 
 const PRODUCTS = [
   { label: "Interview Assistant", href: "/products/interview", icon: UserCheck, body: "Structured hiring loops" },
@@ -11,7 +11,8 @@ const NAV = [
   { label: "Products", href: "#platform" },
   { label: "Capabilities", href: "#agents" },
   { label: "Services", href: "#runtime" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Header() {
@@ -21,6 +22,7 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
       <div className="contained-nav flex h-[52px] items-center justify-between px-5">
         <a href="/" className="flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ring)]">
+          <img src="/logo.svg" alt="Noruva Labs" className="h-12 w-auto" />
           <span className="font-cal text-[18px] font-semibold text-graphite tracking-tight">
             Noruva Labs
           </span>
@@ -35,7 +37,7 @@ export function Header() {
             >
               <a
                 href={item.href}
-                className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-[13px] font-medium text-slate transition-colors hover:text-graphite focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ring)]"
+                className="flex items-center gap-1 rounded-md px-3 py-1.5 text-[13px] font-medium text-slate transition-colors hover:text-graphite focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ring)]"
               >
                 {item.label}
                 {item.label === "Products" && <ChevronDown className="h-3.5 w-3.5 opacity-50" />}
@@ -62,21 +64,6 @@ export function Header() {
             </div>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
-          <a
-            href="#faq"
-            className="hidden text-[13px] font-medium text-slate transition-colors hover:text-graphite sm:inline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ring)]"
-          >
-            Sign in
-          </a>
-          <a
-            href="#cta"
-            className="flex items-center gap-1.5 rounded-full border border-silver/60 bg-transparent px-4 py-1.5 text-[13px] font-medium text-graphite transition-all hover:bg-silver/30"
-          >
-            Get started
-            <ArrowRight className="h-3.5 w-3.5" />
-          </a>
-        </div>
       </div>
     </header>
   );

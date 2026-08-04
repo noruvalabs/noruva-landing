@@ -1,0 +1,179 @@
+---
+import Base from '../layouts/Base.astro';
+import { Header } from '../components/site/header';
+import { Footer } from '../components/site/sections';
+import { ArrowRight, Clock, Calendar } from 'lucide-react';
+
+const FEATURED = {
+  date: "Jul 15, 2026",
+  readTime: "8 min read",
+  title: "Interview Assistant 2.0: Real-time bias detection and panel scoring",
+  body: "We shipped a major upgrade to Interview Assistant with real-time bias detection, comparable panel scorecards and a new structured debrief flow. Here's what changed and why it matters for hiring teams.",
+  tag: "Product",
+  author: "Noruva Labs Team",
+};
+
+const POSTS = [
+  {
+    date: "Jun 28, 2026",
+    readTime: "6 min read",
+    title: "Immigration Assistant now covers 12 visa routes across 4 countries",
+    body: "The immigration assistant now handles visitor, student, skilled worker, family and investor routes across the US, UK, Canada and Australia. We walk through how route matching works under the hood.",
+    tag: "Product",
+    author: "Noruva Labs Team",
+  },
+  {
+    date: "May 22, 2026",
+    readTime: "12 min read",
+    title: "Building custom agentic AI for a 200-partner law firm",
+    body: "We published a case study on how we built a precedent-aware research agent for a 200-partner law firm using their own clause bank. From ingestion to citation verification — the full build.",
+    tag: "Engineering",
+    author: "Noruva Labs Team",
+  },
+  {
+    date: "Apr 10, 2026",
+    readTime: "5 min read",
+    title: "Noruva Labs raises seed round to expand AI product line",
+    body: "We closed a seed round to expand our team and ship more products. Read about our plans for the next 12 months and why we're betting on applied AI over general-purpose chatbots.",
+    tag: "Company",
+    author: "Noruva Labs Team",
+  },
+  {
+    date: "Mar 5, 2026",
+    readTime: "7 min read",
+    title: "Law Assistant: Why citations matter more than answers",
+    body: "We launched Law Assistant with paragraph-level citations, precedent-aware drafting and a verification flow partners can trust. Here's our design philosophy behind cited research.",
+    tag: "Product",
+    author: "Noruva Labs Team",
+  },
+  {
+    date: "Feb 18, 2026",
+    readTime: "10 min read",
+    title: "How we evaluate agentic AI systems for reliability",
+    body: "Building an AI agent that works once is easy. Building one that works every time is hard. We share our evaluation framework for testing agentic systems in production-like environments.",
+    tag: "Engineering",
+    author: "Noruva Labs Team",
+  },
+  {
+    date: "Jan 30, 2026",
+    readTime: "4 min read",
+    title: "Why we chose Astro for our marketing site",
+    body: "After trying Next.js, Remix and a few others, we settled on Astro for noruvalabs.com. Here's why static-first, island architecture made sense for a landing page that needs to load fast.",
+    tag: "Engineering",
+    author: "Noruva Labs Team",
+  },
+  {
+    date: "Jan 12, 2026",
+    readTime: "6 min read",
+    title: "The case for narrow AI agents over general-purpose chatbots",
+    body: "General-purpose AI assistants are impressive but rarely good at any one thing. We explain why we're building narrow, domain-specific agents and how they outperform chatbots in real workflows.",
+    tag: "Company",
+    author: "Noruva Labs Team",
+  },
+  {
+    date: "Dec 20, 2025",
+    readTime: "9 min read",
+    title: "Designing structured interview loops with AI",
+    body: "Most interview loops are unstructured and inconsistent. We designed Interview Assistant to generate role-specific loops from job specs, with scoring rubrics and bias detection built in.",
+    tag: "Product",
+    author: "Noruva Labs Team",
+  },
+];
+---
+
+<Base
+  title="Blog — Noruva Labs"
+  description="Insights on agentic AI, product development and engineering from the Noruva Labs team."
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <section class="relative overflow-hidden pt-32 pb-20">
+        <div class="pointer-events-none absolute inset-0 glow-purple" />
+        <div class="container-page relative">
+          <h1 class="text-[42px] leading-[1.08] tracking-[0.4px] text-graphite md:text-heading-lg lg:text-display">
+            Blog
+          </h1>
+          <p class="mt-4 max-w-lg text-subheading text-slate">
+            Insights on agentic AI, product development and engineering from the Noruva Labs team.
+          </p>
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <section class="container-page py-20">
+        <a href="#" class="group block">
+          <article class="card-surface overflow-hidden transition-colors hover:bg-silver/10">
+            <div class="grid gap-8 p-8 md:grid-cols-[1fr_1.4fr]">
+              <div class="flex items-center justify-center rounded-lg bg-silver/30 p-10">
+                <span class="font-cal text-[64px] font-semibold text-action-blue/20">01</span>
+              </div>
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="rounded-md bg-action-blue/10 px-2.5 py-0.5 font-inter text-caption font-medium text-action-blue">{FEATURED.tag}</span>
+                  <span class="flex items-center gap-1.5 font-inter text-caption text-stone">
+                    <Calendar class="h-3 w-3" /> {FEATURED.date}
+                  </span>
+                  <span class="flex items-center gap-1.5 font-inter text-caption text-stone">
+                    <Clock class="h-3 w-3" /> {FEATURED.readTime}
+                  </span>
+                </div>
+                <h2 class="mt-4 text-heading-lg text-graphite group-hover:text-action-blue transition-colors">{FEATURED.title}</h2>
+                <p class="mt-3 max-w-lg text-body text-slate leading-relaxed">{FEATURED.body}</p>
+                <span class="mt-5 inline-flex items-center gap-1.5 text-body-sm font-medium text-action-blue">
+                  Read article <ArrowRight class="h-4 w-4" />
+                </span>
+              </div>
+            </div>
+          </article>
+        </a>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <section class="container-page py-20">
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {POSTS.map((post) => (
+            <a href="#" class="group block">
+              <article class="card-surface flex h-full flex-col p-6 transition-colors hover:bg-silver/10">
+                <div class="flex items-center gap-3">
+                  <span class="rounded-md bg-silver/50 px-2.5 py-0.5 font-inter text-caption text-slate">{post.tag}</span>
+                  <span class="flex items-center gap-1.5 font-inter text-caption text-stone">
+                    <Clock class="h-3 w-3" /> {post.readTime}
+                  </span>
+                </div>
+                <h3 class="mt-4 text-heading-sm text-graphite group-hover:text-action-blue transition-colors leading-snug">{post.title}</h3>
+                <p class="mt-2 flex-1 text-body-sm text-slate leading-relaxed">{post.body}</p>
+                <div class="mt-5 flex items-center justify-between">
+                  <span class="font-inter text-caption text-stone">{post.date}</span>
+                  <span class="flex items-center gap-1 text-caption font-medium text-action-blue opacity-0 transition-opacity group-hover:opacity-100">
+                    Read <ArrowRight class="h-3 w-3" />
+                  </span>
+                </div>
+              </article>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="container-page pb-24">
+        <div class="rounded-lg border border-silver/40 bg-silver/10 px-8 py-12 text-center">
+          <h2 class="text-heading text-graphite">Stay up to date</h2>
+          <p class="mt-2 text-body text-slate">Get notified when we publish new articles.</p>
+          <div class="mt-6 flex flex-wrap justify-center gap-3">
+            <input
+              type="email"
+              placeholder="you@company.com"
+              class="w-64 rounded-md border border-silver/60 bg-white/5 px-4 py-2.5 text-body text-graphite outline-none transition-colors focus:border-action-blue focus:ring-2 focus:ring-action-blue/20"
+            />
+            <button class="btn-pill bg-action-blue text-white hover:bg-action-blue/80">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>
