@@ -14,7 +14,6 @@ Astro + React landing site for Noruva Labs — Interview Assistant, Immigration 
 | `npm run format` | Run Prettier |
 
 ## Stack
-
 - Astro (static output)
 - React 19
 - Tailwind CSS v4
