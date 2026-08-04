@@ -13,11 +13,11 @@ const CAPS = [
 
 export function Capabilities() {
   return (
-    <section id="runtime" className="container-page py-24">
+    <section id="runtime" className="container-page py-16 md:py-24">
       <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <SectionLabel>Products & services</SectionLabel>
-          <h2 className="mt-4 text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
+          <h2 className="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
             Software first,
             <br />
             AI where it earns it
@@ -111,7 +111,7 @@ const CASES = [
 
 export function UseCases() {
   return (
-    <section className="container-page space-y-6 py-24">
+    <section className="container-page space-y-6 py-16 md:py-24">
       <div className="max-w-xl">
         <SectionLabel>In practice</SectionLabel>
         <h2 className="mt-4 text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
@@ -120,7 +120,7 @@ export function UseCases() {
       </div>
       {CASES.map((c, i) => (
         <Reveal key={c.label}>
-          <article className="card-surface grid gap-8 p-8 md:grid-cols-2 md:p-10">
+          <article className="card-surface grid gap-6 p-6 md:grid-cols-2 md:gap-8 md:p-8 lg:p-10">
             <div className={i % 2 === 1 ? "md:order-2" : ""}>
               <span className="rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
                 {c.label}
@@ -182,7 +182,7 @@ const QUOTES = [
 
 export function Quotes() {
   return (
-    <section className="border-y border-silver py-24">
+    <section className="border-y border-silver py-16 md:py-24">
       <div className="container-page grid gap-5 md:grid-cols-3">
         {QUOTES.map((q, i) => (
           <Reveal key={q.n} delay={i * 80}>
@@ -209,11 +209,11 @@ const FAQ = [
 
 export function Faq() {
   return (
-    <section id="faq" className="container-page py-24">
+    <section id="faq" className="container-page py-16 md:py-24">
       <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
         <div>
           <SectionLabel>FAQ</SectionLabel>
-          <h2 className="mt-4 text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
+          <h2 className="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
             Questions we
             <br />
             get weekly
@@ -240,13 +240,13 @@ export function FinalCta() {
   const y = useScrollY();
   return (
     <section id="cta" className="container-page pb-24">
-      <div className="relative overflow-hidden rounded-xl bg-action-blue/20 border border-action-blue/30 px-6 py-20 text-center">
+      <div className="relative overflow-hidden rounded-xl bg-action-blue/20 border border-action-blue/30 px-5 py-14 text-center sm:px-6 sm:py-20">
         <div
           className="pointer-events-none absolute inset-0 opacity-10 grid-lines"
           style={{ transform: `translate3d(0, ${(y % 600) * 0.08}px, 0)` }}
         />
         <div className="relative">
-          <h2 className="mx-auto max-w-2xl text-[34px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
+          <h2 className="mx-auto max-w-2xl text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[34px] md:text-heading-lg">
             Pick a product, or bring us a problem
           </h2>
           <p className="mx-auto mt-4 max-w-md text-body text-slate">
@@ -276,7 +276,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-silver">
-      <div className="container-page grid gap-10 py-14 md:grid-cols-[1.2fr_repeat(3,0.6fr)]">
+      <div className="container-page grid gap-8 py-10 sm:grid-cols-2 md:grid-cols-[1.2fr_repeat(3,0.6fr)] md:gap-10 md:py-14">
         <div>
           <div className="flex items-center gap-2">
             <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-ink font-cal text-caption text-white">
@@ -304,7 +304,7 @@ export function Footer() {
           </div>
         ))}
       </div>
-      <div className="container-page flex flex-wrap items-center justify-between gap-3 border-t border-silver py-6">
+      <div className="container-page flex flex-col items-center gap-3 border-t border-silver py-6 text-center sm:flex-row sm:justify-between sm:text-left">
         <p className="font-inter text-caption text-stone">© 2026 Noruva Labs B.V.</p>
         <p className="font-inter text-caption text-stone">SOC 2 Type II · GDPR · ISO 27001</p>
       </div>

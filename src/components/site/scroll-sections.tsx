@@ -41,7 +41,7 @@ export function ScrollStory() {
           <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <SectionLabel>What we build</SectionLabel>
-              <h2 className="mt-4 text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
+              <h2 className="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
                 Three products,
                 <br />
                 one engineering team
@@ -164,7 +164,7 @@ export function HorizontalRail() {
             style={{ transform: `translate3d(${-shift}px, 0, 0)`, transition: "transform 120ms linear" }}
           >
             {RAIL.map((r, i) => (
-              <article key={r.title} className="card-surface w-[320px] shrink-0 p-6">
+              <article key={r.title} className="card-surface w-[280px] shrink-0 p-6 sm:w-[320px]">
                 <span className="font-inter text-caption text-stone">
                   0{i + 1} / 0{RAIL.length}
                 </span>

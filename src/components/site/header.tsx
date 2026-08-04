@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, UserCheck, Plane, Gavel } from "lucide-react";
+import { ChevronDown, ChevronRight, UserCheck, Plane, Gavel, Menu, X } from "lucide-react";
 
 const PRODUCTS = [
   { label: "Interview Assistant", href: "/products/interview", icon: UserCheck, body: "Structured hiring loops" },
@@ -16,24 +16,28 @@ const NAV = [
 ];
 
 export function Header() {
-  const [productsOpen, setProductsOpen] = useState(false);
+  const [desktopOpen, setDesktopOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
-      <div className="contained-nav flex h-[52px] items-center justify-between px-5">
+      <div className="contained-nav flex h-[52px] items-center justify-between px-3 sm:px-5">
         <a href="/" className="flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ring)]">
-          <img src="/logo.svg" alt="Noruva Labs" className="h-12 w-auto" />
+          <img src="/logo.svg" alt="Noruva Labs" className="h-10 w-auto" />
           <span className="font-cal text-[18px] font-semibold text-graphite tracking-tight">
             Noruva Labs
           </span>
         </a>
+
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV.map((item) => (
             <div
               key={item.label}
               className="relative"
-              onMouseEnter={() => item.label === "Products" && setProductsOpen(true)}
-              onMouseLeave={() => item.label === "Products" && setProductsOpen(false)}
+              onMouseEnter={() => item.label === "Products" && setDesktopOpen(true)}
+              onMouseLeave={() => item.label === "Products" && setDesktopOpen(false)}
             >
               <a
                 href={item.href}
@@ -42,8 +46,8 @@ export function Header() {
                 {item.label}
                 {item.label === "Products" && <ChevronDown className="h-3.5 w-3.5 opacity-50" />}
               </a>
-              {item.label === "Products" && productsOpen && (
-                <div className="absolute top-full left-0 mt-1 w-[320px] rounded-xl border border-silver/40 bg-[#0d0820]/95 p-2 backdrop-blur-xl shadow-2xl">
+              {item.label === "Products" && desktopOpen && (
+                <div className="absolute top-full left-0 mt-1 w-[320px] rounded-xl border border-silver/40 bg-[#0c1a2e]/95 p-2 backdrop-blur-xl shadow-2xl">
                   {PRODUCTS.map((p) => (
                     <a
                       key={p.label}
@@ -64,7 +68,67 @@ export function Header() {
             </div>
           ))}
         </nav>
+
+        {/* Mobile hamburger */}
+        <button
+          className="flex items-center justify-center rounded-md p-2 text-slate transition-colors hover:text-graphite lg:hidden"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="contained-nav mt-2 px-4 py-4 lg:hidden">
+          <nav className="flex flex-col gap-1">
+            {NAV.map((item) => (
+              <div key={item.label}>
+                {item.label === "Products" ? (
+                  <>
+                    <button
+                      className="flex w-full items-center justify-between rounded-md px-3 py-2 text-[14px] font-medium text-slate transition-colors hover:text-graphite"
+                      onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                    >
+                      {item.label}
+                      <ChevronRight className={`h-4 w-4 transition-transform ${mobileProductsOpen ? "rotate-90" : ""}`} />
+                    </button>
+                    {mobileProductsOpen && (
+                      <div className="ml-3 mt-1 space-y-1 border-l border-silver/30 pl-3">
+                        {PRODUCTS.map((p) => (
+                          <a
+                            key={p.label}
+                            href={p.href}
+                            className="flex items-center gap-3 rounded-md px-3 py-2 transition-colors hover:bg-silver/20"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-silver/50">
+                              <p.icon className="h-3.5 w-3.5 text-action-blue" />
+                            </div>
+                            <div>
+                              <p className="text-[13px] font-medium text-graphite">{p.label}</p>
+                              <p className="text-[11px] text-slate">{p.body}</p>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <a
+                    href={item.href}
+                    className="block rounded-md px-3 py-2 text-[14px] font-medium text-slate transition-colors hover:text-graphite"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

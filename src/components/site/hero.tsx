@@ -25,13 +25,13 @@ export function Hero() {
           maskImage: "radial-gradient(70% 60% at 50% 35%, #000 30%, transparent 100%)",
         }}
       />
-      <div className="container-page relative grid items-center gap-14 py-28 lg:grid-cols-[1.03fr_1fr] lg:py-36">
+      <div className="container-page relative grid items-center gap-10 py-20 lg:grid-cols-[1.03fr_1fr] lg:gap-14 lg:py-36">
         <div style={{ transform: `translate3d(0, ${p * -0.06}px, 0)` }}>
           <span className="inline-flex items-center gap-2 rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
             <span className="h-1.5 w-1.5 rounded-full bg-action-blue" />
             A software company building applied AI
           </span>
-          <h1 className="mt-5 text-[42px] leading-[1.08] tracking-[0.4px] text-graphite md:text-heading-lg lg:text-display">
+          <h1 className="mt-5 text-[32px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[42px] md:text-heading-lg lg:text-display">
             Software that
             <br />
             thinks through
@@ -60,7 +60,7 @@ export function Hero() {
         </div>
 
         <div className="relative lg:pl-10 lg:pr-4" style={{ transform: `translate3d(0, ${p * -0.14}px, 0)` }}>
-          <div className="card-surface overflow-hidden">
+          <div className="card-surface overflow-hidden text-[11px] sm:text-[12px]">
             <div className="flex items-center gap-2 border-b border-silver px-4 py-3">
               <Terminal className="h-4 w-4 text-stone" />
               <p className="font-inter text-caption text-stone">run · interview.assistant · live</p>
@@ -68,11 +68,11 @@ export function Hero() {
                 p50 2.4s
               </span>
             </div>
-            <div className="space-y-1.5 p-4 font-inter text-caption">
+            <div className="space-y-1.5 p-3 font-inter text-[10px] sm:p-4 sm:text-caption">
               {LOG.map((l, i) => (
-                <div key={l.t} className="flex gap-3">
-                  <span className="text-stone tabular-nums">{l.t}</span>
-                  <span className={i === LOG.length - 1 ? "text-action-blue" : "text-slate"}>{l.m}</span>
+                <div key={l.t} className="flex gap-2 sm:gap-3">
+                  <span className="shrink-0 text-stone tabular-nums">{l.t}</span>
+                  <span className={`truncate ${i === LOG.length - 1 ? "text-action-blue" : "text-slate"}`}>{l.m}</span>
                 </div>
               ))}
             </div>
@@ -82,9 +82,9 @@ export function Hero() {
                 ["Sessions run", "48k"],
                 ["Client teams", "60+"],
               ].map(([k, v]) => (
-                <div key={k} className="border-r border-silver px-4 py-3 last:border-r-0">
-                  <p className="font-cal text-heading-sm text-graphite">{v}</p>
-                  <p className="font-inter text-[10px] text-stone uppercase">{k}</p>
+                <div key={k} className="border-r border-silver px-2 py-2 last:border-r-0 sm:px-4 sm:py-3">
+                  <p className="font-cal text-body-sm text-graphite sm:text-heading-sm">{v}</p>
+                  <p className="font-inter text-[9px] text-stone uppercase sm:text-[10px]">{k}</p>
                 </div>
               ))}
             </div>
