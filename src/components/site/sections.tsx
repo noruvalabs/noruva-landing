@@ -186,7 +186,7 @@ export function Quotes() {
       <div className="container-page grid gap-5 md:grid-cols-3">
         {QUOTES.map((q, i) => (
           <Reveal key={q.n} delay={i * 80}>
-            <figure className="h-full rounded-xl bg-white/5 p-6">
+            <figure className="card-surface h-full p-6">
               <blockquote className="text-body text-graphite">"{q.q}"</blockquote>
               <figcaption className="mt-6 font-inter text-caption text-stone">
                 {q.n} · {q.r}
