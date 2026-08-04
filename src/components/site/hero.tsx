@@ -18,13 +18,7 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden">
       {/* Gradient glow background */}
       <div className="pointer-events-none absolute inset-0 glow-purple" />
-      <div
-        className="pointer-events-none absolute inset-0 grid-lines opacity-[0.2]"
-        style={{
-          transform: `translate3d(0, ${p * 0.12}px, 0)`,
-          maskImage: "radial-gradient(70% 60% at 50% 35%, #000 30%, transparent 100%)",
-        }}
-      />
+
       <div className="container-page relative grid items-center gap-10 py-20 lg:grid-cols-[1.03fr_1fr] lg:gap-14 lg:py-36">
         <div style={{ transform: `translate3d(0, ${p * -0.06}px, 0)` }}>
           <span className="inline-flex items-center gap-2 rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
@@ -124,7 +118,7 @@ const LOGOS = ["Northbeam", "Kestrel", "Fielded", "Vantiq", "Orbital", "Halden",
 
 export function LogoMarquee() {
   return (
-    <section className="border-y border-silver py-6">
+    <section className="py-6">
       <p className="container-page mb-4 text-center font-inter text-caption text-stone">
         Trusted by hiring teams, immigration consultancies and law firms
       </p>

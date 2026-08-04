@@ -61,11 +61,8 @@ const STATS = [
 export function Stats() {
   const y = useScrollY();
   return (
-    <section className="relative overflow-hidden border-y border-silver">
-      <div
-        className="pointer-events-none absolute inset-0 grid-lines opacity-20"
-        style={{ transform: `translate3d(0, ${(y % 800) * -0.05}px, 0)` }}
-      />
+    <section className="relative overflow-hidden">
+
       <div className="container-page relative grid gap-8 py-20 sm:grid-cols-2 lg:grid-cols-4">
         {STATS.map(([v, k], i) => (
           <Reveal key={k} delay={i * 80}>
@@ -182,7 +179,7 @@ const QUOTES = [
 
 export function Quotes() {
   return (
-    <section className="border-y border-silver py-16 md:py-24">
+    <section className="py-16 md:py-24">
       <div className="container-page grid gap-5 md:grid-cols-3">
         {QUOTES.map((q, i) => (
           <Reveal key={q.n} delay={i * 80}>
@@ -241,10 +238,7 @@ export function FinalCta() {
   return (
     <section id="cta" className="container-page pb-24">
       <div className="relative overflow-hidden rounded-xl bg-action-blue/20 border border-action-blue/30 px-5 py-14 text-center sm:px-6 sm:py-20">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-10 grid-lines"
-          style={{ transform: `translate3d(0, ${(y % 600) * 0.08}px, 0)` }}
-        />
+
         <div className="relative">
           <h2 className="mx-auto max-w-2xl text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[34px] md:text-heading-lg">
             Pick a product, or bring us a problem
@@ -279,9 +273,7 @@ export function Footer() {
       <div className="container-page grid gap-8 py-10 sm:grid-cols-2 md:grid-cols-[1.2fr_repeat(3,0.6fr)] md:gap-10 md:py-14">
         <div>
           <div className="flex items-center gap-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-ink font-cal text-caption text-white">
-              N
-            </span>
+            <img src="/logo.svg" alt="Noruva Labs" className="h-8 w-auto" />
             <span className="font-cal text-heading-sm text-graphite">Noruva Labs</span>
           </div>
           <p className="mt-3 max-w-xs text-body-sm text-slate">
