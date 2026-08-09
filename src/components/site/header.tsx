@@ -109,6 +109,19 @@ export function Header() {
           ))}
         </nav>
 
+        {/* Desktop right action button */}
+        <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href="https://ai.noruvalabs.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-md bg-graphite px-3.5 py-1.5 text-[13px] font-bold text-white transition-opacity hover:opacity-90 shadow-xs flex items-center gap-1.5"
+          >
+            <span>Try Free</span>
+            <span className="text-[10px] font-mono text-emerald-400">ai.noruvalabs.com</span>
+          </a>
+        </div>
+
         {/* Mobile hamburger */}
         <button
           className="flex items-center justify-center rounded-md p-2 text-slate transition-colors hover:text-graphite lg:hidden"

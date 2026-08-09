@@ -61,53 +61,43 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 glow-purple" />
 
-      <div className="container-page relative grid items-center gap-10 py-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-10 lg:py-20">
+      <div className="container-page relative grid items-center gap-10 py-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10 lg:py-20">
         {/* Left Column - Text & CTAs */}
         <div className="min-w-0 w-full" style={{ transform: `translate3d(0, ${p * -0.04}px, 0)` }}>
-          <span className="inline-flex items-center gap-2 rounded-md border border-silver bg-white px-3 py-1 font-inter text-[11px] font-semibold tracking-[0.05em] uppercase text-graphite shadow-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            NoruvaAI Meeting Copilot is Live
+          <span className="inline-flex items-center gap-2 rounded-full border border-silver bg-white px-3.5 py-1 font-inter text-[11px] font-semibold tracking-[0.05em] uppercase text-graphite shadow-xs">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            Real-time AI Copilot is Live
           </span>
 
-          <h1 className="mt-4 text-[32px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
-            Software that
+          <h1 className="mt-4 text-[34px] leading-[1.08] tracking-tight text-graphite sm:text-[46px] md:text-heading-lg lg:text-[54px] font-bold font-cal">
+            Hear the question.
             <br />
-            thinks through
-            <br />
-            hard decisions
+            <span className="text-emerald-600 underline decoration-emerald-300/80 underline-offset-4 font-extrabold">See the answer.</span>
           </h1>
 
-          <p className="mt-5 max-w-md text-subheading text-slate leading-relaxed">
-            Noruva Labs builds specialized AI products — including our live{" "}
-            <a
-              href="https://ai.noruvalabs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-action-blue underline decoration-action-blue/30 underline-offset-4 hover:decoration-action-blue"
-            >
-              NoruvaAI Meeting Copilot
-            </a>{" "}
-            and upcoming <strong>Torii Immigration Assistant</strong>, Law, and Learning platforms.
+          <p className="mt-5 max-w-md text-[16px] sm:text-[18px] text-slate leading-relaxed">
+            NoruvaAI listens to your call, transcribes every question the instant it's asked, and hands you the right answer in real time — across interviews, sales calls, and meetings.
           </p>
 
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="mt-7 flex flex-wrap items-center gap-3">
             <a
               href="https://ai.noruvalabs.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-pill btn-ink group"
+              className="btn-pill bg-graphite text-white hover:bg-zinc-800 shadow-md font-bold text-[15px] px-5 py-2.5 rounded-md flex items-center gap-2 group"
             >
-              Try NoruvaAI Free <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              <span>Try NoruvaAI Free</span>
+              <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 text-emerald-400" />
             </a>
-            <a href="#platform" className="btn-pill btn-ghost">
-              See products
+            <a href="#platform" className="btn-pill btn-ghost px-5 py-2.5 text-[15px] font-semibold">
+              See All Products
             </a>
           </div>
 
           <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2.5 font-inter text-caption text-slate">
             <li className="inline-flex items-center gap-1.5 font-semibold text-graphite">
-              <Check className="h-3.5 w-3.5 text-action-blue" />
-              <a href="https://ai.noruvalabs.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-action-blue">
+              <Check className="h-3.5 w-3.5 text-emerald-600" />
+              <a href="https://ai.noruvalabs.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-emerald-700">
                 NoruvaAI Live (ai.noruvalabs.com)
               </a>
             </li>
@@ -120,7 +110,7 @@ export function Hero() {
           </ul>
         </div>
 
-        {/* Right Column - Interactive App Preview Console */}
+        {/* Right Column - Browser Mockup Console Window */}
         <div
           className="relative min-w-0 w-full max-w-full"
           style={{
@@ -128,7 +118,20 @@ export function Hero() {
             transition: "transform 0.1s ease-out",
           }}
         >
-          <div className="card-surface overflow-hidden border-silver shadow-xl max-w-full">
+          <div className="card-surface overflow-hidden border-silver shadow-xl max-w-full rounded-xl">
+            {/* macOS Browser Chrome Controls */}
+            <div className="flex items-center justify-between border-b border-silver bg-paper/90 px-3.5 py-2">
+              <div className="flex items-center gap-1.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+              </div>
+              <span className="font-mono text-[10px] font-semibold text-stone bg-white px-3 py-0.5 rounded border border-silver">
+                {currentProduct.liveUrl || "noruvalabs.com/products"}
+              </span>
+              <span className="text-[10px] font-mono text-emerald-600 font-bold">● LIVE</span>
+            </div>
+
             {/* Header Product Selector Tabs */}
             <div className="flex items-center border-b border-silver bg-paper overflow-x-auto p-1.5 gap-1 scrollbar-none max-w-full">
               {PRODUCTS_PREVIEW.map((prod, idx) => (
@@ -160,7 +163,7 @@ export function Hero() {
                       {currentProduct.status}
                     </span>
                   </div>
-                  <p className="font-cal text-[14px] font-bold text-action-blue mt-0.5">"{currentProduct.headline}"</p>
+                  <p className="font-cal text-[14px] font-bold text-emerald-700 mt-0.5">"{currentProduct.headline}"</p>
                 </div>
 
                 {currentProduct.liveUrl ? (
@@ -168,9 +171,10 @@ export function Hero() {
                     href={currentProduct.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-md bg-action-blue px-3.5 py-1.5 text-[12px] font-bold text-white shadow-xs hover:opacity-90 transition-opacity shrink-0"
+                    className="inline-flex items-center gap-1.5 rounded-md bg-graphite px-3.5 py-1.5 text-[12px] font-bold text-white shadow-xs hover:opacity-90 transition-opacity shrink-0"
                   >
-                    Try Free <ExternalLink className="h-3.5 w-3.5" />
+                    <span>Try Free</span>
+                    <ExternalLink className="h-3.5 w-3.5 text-emerald-400" />
                   </a>
                 ) : (
                   <span className="inline-flex items-center gap-1 rounded-md bg-paper border border-silver px-3 py-1 text-[11px] font-bold text-stone shrink-0">
@@ -183,27 +187,27 @@ export function Hero() {
               {currentProduct.type === "meeting-ui" && (
                 <div className="space-y-3 font-inter text-[11px]">
                   {/* Video call frame */}
-                  <div className="relative rounded-lg bg-[#112d2b] p-3 text-white overflow-hidden shadow-inner min-h-[140px] flex flex-col justify-between">
-                    <div className="flex items-center justify-between font-mono text-[10px] opacity-80">
-                      <span>NoruvaAI · Live call</span>
+                  <div className="relative rounded-lg bg-[#0e2a26] p-3.5 text-white overflow-hidden shadow-inner min-h-[140px] flex flex-col justify-between">
+                    <div className="flex items-center justify-between font-mono text-[10px] opacity-90">
+                      <span className="font-bold">NoruvaAI · Live Call</span>
                       <div className="flex items-center gap-2">
-                        <span className="rounded bg-white/20 px-1.5 py-0.5 text-[9px]">Answer ready</span>
+                        <span className="rounded bg-white/20 px-1.5 py-0.5 text-[9px] font-bold text-emerald-300">Answer ready</span>
                         <span className="flex items-center gap-1 text-red-400 font-bold">🔴 REC</span>
                       </div>
                     </div>
                     {/* Interviewer avatar */}
                     <div className="my-3 flex items-center justify-center gap-3">
-                      <div className="h-12 w-12 rounded-full border-2 border-emerald-400/60 bg-gradient-to-br from-emerald-600 to-teal-800 flex items-center justify-center font-bold text-[14px]">
+                      <div className="h-12 w-12 rounded-full border-2 border-emerald-400/80 bg-gradient-to-br from-emerald-600 to-teal-800 flex items-center justify-center font-bold text-[14px]">
                         AI
                       </div>
                       <div>
-                        <p className="font-semibold text-[12px]">Interviewer</p>
-                        <p className="text-[10px] text-emerald-300">Speaking...</p>
+                        <p className="font-bold text-[12px]">Interviewer</p>
+                        <p className="text-[10px] text-emerald-300 font-medium">Speaking...</p>
                       </div>
                     </div>
                     <div className="flex justify-between items-end">
-                      <span className="rounded bg-black/40 px-2 py-0.5 text-[9px]">Interviewer</span>
-                      <div className="h-8 w-10 rounded border border-white/20 bg-slate/60 flex items-center justify-center text-[9px]">You</div>
+                      <span className="rounded bg-black/50 px-2 py-0.5 text-[9px]">Interviewer</span>
+                      <div className="h-8 w-10 rounded border border-white/30 bg-slate/70 flex items-center justify-center text-[9px] font-bold">You</div>
                     </div>
                   </div>
 
