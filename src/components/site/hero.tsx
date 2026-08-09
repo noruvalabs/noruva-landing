@@ -97,7 +97,7 @@ export function Hero() {
             {currentProduct.badgeText}
           </span>
 
-          <h1 className="mt-4 text-[34px] leading-[1.08] tracking-tight text-graphite sm:text-[46px] md:text-heading-lg lg:text-[54px] font-bold font-cal">
+          <h1 className="mt-4 text-[28px] sm:text-[38px] md:text-[46px] lg:text-[54px] leading-[1.1] tracking-tight text-graphite font-bold font-cal">
             {currentProduct.headlineLead}
             <br />
             <span className={`${currentProduct.headlineHighlightClass} underline-offset-4 font-extrabold`}>
@@ -105,21 +105,21 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="mt-5 max-w-md text-[16px] sm:text-[18px] text-slate leading-relaxed">
+          <p className="mt-4 max-w-md text-[15px] sm:text-[17px] md:text-[18px] text-slate leading-relaxed">
             {currentProduct.tagline}
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-3">
             <a
               href={currentProduct.ctaUrl}
               target={currentProduct.ctaExternal ? "_blank" : undefined}
               rel={currentProduct.ctaExternal ? "noopener noreferrer" : undefined}
-              className="btn-pill bg-graphite text-white hover:bg-zinc-800 shadow-md font-bold text-[15px] px-5 py-2.5 rounded-md flex items-center gap-2 group"
+              className="btn-pill justify-center bg-graphite text-white hover:bg-zinc-800 shadow-md font-bold text-[14px] sm:text-[15px] px-5 py-2.5 rounded-md flex items-center gap-2 group"
             >
               <span>{currentProduct.ctaText}</span>
               <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 text-emerald-400" />
             </a>
-            <a href="#platform" className="btn-pill btn-ghost px-5 py-2.5 text-[15px] font-semibold">
+            <a href="#platform" className="btn-pill justify-center btn-ghost px-5 py-2.5 text-[14px] sm:text-[15px] font-semibold">
               See All Products
             </a>
           </div>

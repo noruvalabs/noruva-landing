@@ -186,6 +186,18 @@ export function Header() {
               </div>
             ))}
           </nav>
+          {/* Mobile action CTA */}
+          <div className="mt-3 pt-3 border-t border-silver/50">
+            <a
+              href="https://ai.noruvalabs.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-pill w-full justify-center bg-graphite text-white font-bold text-[14px] py-2.5 rounded-md shadow-sm"
+              onClick={() => setMobileOpen(false)}
+            >
+              Try Noruva AI Free →
+            </a>
+          </div>
         </div>
       )}
     </header>
