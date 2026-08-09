@@ -5,51 +5,69 @@ import { Reveal, SectionLabel } from "./reveal";
 const CAPS = [
   {
     icon: Video,
-    title: "Meeting Assistant",
-    body: "Live transcripts, automated action item extraction, and executive debrief summaries.",
+    title: "NoruvaAI Copilot",
+    body: "Live transcripts, automated action item extraction, and real-time call copilot.",
     status: "Live",
-    statusColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    statusColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
+    iconBg: "bg-emerald-100 text-emerald-700 border-emerald-300",
+    cardBg: "bg-gradient-to-br from-emerald-50/80 via-white to-teal-50/40 border-emerald-200 shadow-emerald-500/5",
+    accentColor: "text-emerald-700 font-bold",
     link: "https://ai.noruvalabs.com",
   },
   {
     icon: Plane,
-    title: "Immigration Assistant",
-    body: "Route guidance, document checklists and deadline tracking per case.",
+    title: "Torii Immigration",
+    body: "Route guidance, document checklists, auto-filled forms, and deadline tracking.",
     status: "Coming Soon",
-    statusColor: "bg-paper text-stone border-silver",
-    link: null,
+    statusColor: "bg-blue-100 text-blue-800 border-blue-300",
+    iconBg: "bg-blue-100 text-blue-700 border-blue-300",
+    cardBg: "bg-gradient-to-br from-blue-50/80 via-white to-indigo-50/40 border-blue-200 shadow-blue-500/5",
+    accentColor: "text-blue-700 font-bold",
+    link: "/products/immigration",
   },
   {
     icon: Gavel,
     title: "Law Assistant",
-    body: "Research, summaries and drafting with a citation behind every claim.",
+    body: "Precedent-grounded research, matter summaries, and clause drafting with paragraph citations.",
     status: "Coming Soon",
-    statusColor: "bg-paper text-stone border-silver",
-    link: null,
+    statusColor: "bg-slate-100 text-slate-800 border-slate-300",
+    iconBg: "bg-slate-100 text-[#153E6E] border-slate-300",
+    cardBg: "bg-gradient-to-br from-slate-100/80 via-white to-indigo-50/40 border-slate-300 shadow-slate-500/5",
+    accentColor: "text-[#153E6E] font-bold",
+    link: "/products/law",
   },
   {
     icon: GraduationCap,
     title: "Learning Assistant",
     body: "Adaptive courseware, automated tutoring, interactive quizzes and student progress tracking.",
     status: "Coming Soon",
-    statusColor: "bg-paper text-stone border-silver",
-    link: null,
+    statusColor: "bg-purple-100 text-purple-800 border-purple-300",
+    iconBg: "bg-purple-100 text-purple-700 border-purple-300",
+    cardBg: "bg-gradient-to-br from-purple-50/80 via-white to-fuchsia-50/40 border-purple-200 shadow-purple-500/5",
+    accentColor: "text-purple-700 font-bold",
+    link: "/products/learning",
   },
   {
     icon: Puzzle,
-    title: "Agentic AI services",
-    body: "Custom agents designed, built and integrated into your existing stack.",
+    title: "Agentic AI Services",
+    body: "Custom agentic systems designed, built and integrated directly into your existing enterprise stack.",
     status: "Available",
-    statusColor: "bg-paper text-graphite border-silver",
-    link: null,
+    statusColor: "bg-amber-100 text-amber-800 border-amber-300",
+    iconBg: "bg-amber-100 text-amber-700 border-amber-300",
+    cardBg: "bg-gradient-to-br from-amber-50/80 via-white to-orange-50/40 border-amber-200 shadow-amber-500/5",
+    accentColor: "text-amber-700 font-bold",
+    link: "/contact",
   },
   {
     icon: Wrench,
-    title: "Engineering support",
-    body: "Our team stays on after launch: evals, tuning, monitoring, iteration.",
+    title: "Engineering Support",
+    body: "Our engineers stay on after launch: continuous evals, model tuning, latency monitoring, and safety audits.",
     status: "Included",
-    statusColor: "bg-paper text-slate border-silver",
-    link: null,
+    statusColor: "bg-teal-100 text-teal-800 border-teal-300",
+    iconBg: "bg-teal-100 text-teal-700 border-teal-300",
+    cardBg: "bg-gradient-to-br from-teal-50/80 via-white to-cyan-50/40 border-teal-200 shadow-teal-500/5",
+    accentColor: "text-teal-700 font-bold",
+    link: "/contact",
   },
 ];
 
@@ -64,12 +82,12 @@ export function Capabilities() {
             <br />
             AI where it earns it
           </h2>
-          <p className="mt-4 max-w-sm text-body text-slate">
-            We build specialized AI products starting with our live Meeting Assistant engine.
+          <p className="mt-4 max-w-sm text-body text-slate leading-relaxed">
+            We build specialized AI products — starting with our live NoruvaAI call copilot and Torii immigration suite.
           </p>
           <a
             href="#faq"
-            className="mt-6 inline-flex items-center gap-1.5 text-body-sm text-action-blue font-medium hover:underline"
+            className="mt-6 inline-flex items-center gap-1.5 text-body-sm text-action-blue font-bold hover:underline"
           >
             Read how we work <ArrowRight className="h-4 w-4" />
           </a>
@@ -77,29 +95,30 @@ export function Capabilities() {
         <div className="grid gap-5 sm:grid-cols-2">
           {CAPS.map((c, i) => (
             <Reveal key={c.title} delay={i * 60}>
-              <article className="card-surface h-full p-6 transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)] flex flex-col justify-between">
+              <article className={`card-surface h-full p-6 transition-all duration-300 hover:shadow-xl flex flex-col justify-between ${c.cardBg}`}>
                 <div>
                   <div className="flex items-center justify-between">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-silver/60 border border-silver/80">
-                      <c.icon className="h-4 w-4 text-action-blue" />
+                    <div className={`flex h-9 w-9 items-center justify-center rounded-lg border ${c.iconBg}`}>
+                      <c.icon className="h-4.5 w-4.5" />
                     </div>
                     {c.status && (
-                      <span className={`rounded px-2 py-0.5 text-[9px] font-bold border uppercase tracking-wider ${c.statusColor}`}>
+                      <span className={`rounded-md px-2 py-0.5 text-[9px] font-bold border uppercase tracking-wider ${c.statusColor}`}>
                         {c.status}
                       </span>
                     )}
                   </div>
                   <h3 className="mt-4 text-heading-sm font-bold font-cal text-graphite">{c.title}</h3>
-                  <p className="mt-1.5 text-body-sm text-slate">{c.body}</p>
+                  <p className="mt-1.5 text-body-sm text-slate leading-relaxed">{c.body}</p>
                 </div>
                 {c.link && (
                   <a
                     href={c.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-1 font-inter text-caption font-bold text-action-blue hover:underline"
+                    target={c.link.startsWith("http") ? "_blank" : undefined}
+                    rel={c.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className={`mt-4 inline-flex items-center gap-1 font-inter text-caption ${c.accentColor} hover:underline`}
                   >
-                    Launch Live App (ai.noruvalabs.com) →
+                    <span>{c.status === "Live" ? "Try Live App" : "Learn More"}</span>
+                    <span>→</span>
                   </a>
                 )}
               </article>
@@ -305,22 +324,30 @@ export function FinalCta() {
   const y = useScrollY();
   return (
     <section id="cta" className="container-page pb-24">
-      <div className="relative overflow-hidden rounded-2xl bg-white border border-silver px-5 py-14 text-center shadow-lg sm:px-6 sm:py-20">
-
-        <div className="relative">
-          <h2 className="mx-auto max-w-2xl text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[34px] md:text-heading-lg">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-zinc-900 via-slate-900 to-[#153E6E] border border-zinc-800 px-6 py-16 text-center shadow-2xl sm:px-10 sm:py-20 text-white">
+        <div className="pointer-events-none absolute inset-0 bg-radial from-emerald-500/10 via-transparent to-transparent" />
+        <div className="relative z-10">
+          <span className="inline-block rounded-full bg-emerald-500/20 border border-emerald-400/30 px-3.5 py-1 font-inter text-[11px] font-semibold tracking-wider text-emerald-300 uppercase mb-4">
+            ● NoruvaAI Live at ai.noruvalabs.com
+          </span>
+          <h2 className="mx-auto max-w-2xl text-[28px] leading-[1.1] tracking-tight text-white sm:text-[36px] md:text-heading-lg font-bold font-cal">
             Pick a product, or bring us a problem
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-body text-slate">
-            Trial Meeting, Immigration, Law or Learning Assistant today — or talk to our engineers about a
-            custom agentic AI build for your own workflow.
+          <p className="mx-auto mt-4 max-w-md text-body text-slate-300 leading-relaxed">
+            Trial NoruvaAI Copilot live today at ai.noruvalabs.com — or talk to our engineers about a
+            custom agentic build for your team.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="https://ai.noruvalabs.com" target="_blank" rel="noopener noreferrer" className="btn-pill btn-ink">
-              Start Meeting AI Trial →
+            <a
+              href="https://ai.noruvalabs.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-pill bg-emerald-500 text-zinc-950 hover:bg-emerald-400 font-bold text-[15px] px-6 py-3 shadow-lg"
+            >
+              Try NoruvaAI Free →
             </a>
-            <a href="#platform" className="btn-pill btn-ghost">
-              Talk to our team
+            <a href="/contact" className="btn-pill bg-white/10 border border-white/20 text-white hover:bg-white/20 font-semibold text-[15px] px-6 py-3">
+              Talk to Our Engineers
             </a>
           </div>
         </div>

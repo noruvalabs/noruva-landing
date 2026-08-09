@@ -4,48 +4,63 @@ import { SectionLabel } from "./reveal";
 const STEPS = [
   {
     n: "01",
-    title: "Meeting Assistant",
-    body: "Captures live meeting transcripts, automatically extracts action items, organizes speaker debriefs, and syncs key decisions across your organization.",
+    title: "NoruvaAI Copilot",
+    headline: "Hear the question. See the answer.",
+    body: "Captures live meeting calls, transcribes questions in real-time, extracts action items, and hands you instant answers across Google Meet, Zoom, Webex, and LeetCode.",
     stat: ["Meetings structured", "48k"],
     status: "Live",
-    statusColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    statusColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
+    cardBg: "bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/60 border-emerald-200 shadow-emerald-500/5",
+    accentColor: "text-emerald-600",
     link: "https://ai.noruvalabs.com",
   },
   {
     n: "02",
-    title: "Immigration Assistant",
-    body: "Walks an applicant or consultant through the right route, builds the document checklist, flags missing evidence, and keeps track of deadlines across a whole caseload.",
+    title: "Torii Immigration",
+    headline: "File your visa application correctly.",
+    body: "Torii walks you from 'which forms do I even need?' to a submission-ready packet: branching intake, document checklists, auto-filled forms, and deadline tracking.",
     stat: ["Case types covered", "120+"],
     status: "Coming Soon",
-    statusColor: "bg-paper text-stone border-silver",
-    link: null,
+    statusColor: "bg-blue-100 text-blue-800 border-blue-300",
+    cardBg: "bg-gradient-to-br from-blue-50/90 via-white to-indigo-50/60 border-blue-200 shadow-blue-500/5",
+    accentColor: "text-blue-600",
+    link: "/products/immigration",
   },
   {
     n: "03",
     title: "Law Assistant",
-    body: "Research, summarisation and drafting grounded in your own matter files and public sources — every answer carries a citation back to the paragraph it came from.",
+    headline: "Precedent-grounded research & drafting.",
+    body: "Research, summarisation and drafting grounded in your own matter files and public sources — every answer carries a citation back to the exact paragraph.",
     stat: ["Answers with citations", "100%"],
     status: "Coming Soon",
-    statusColor: "bg-paper text-stone border-silver",
-    link: null,
+    statusColor: "bg-slate-100 text-slate-800 border-slate-300",
+    cardBg: "bg-gradient-to-br from-slate-100/90 via-white to-indigo-50/60 border-slate-300 shadow-slate-500/5",
+    accentColor: "text-[#153E6E]",
+    link: "/products/law",
   },
   {
     n: "04",
     title: "Learning Assistant",
+    headline: "Personalized study loops for every course.",
     body: "Generates interactive curriculum, adaptive quizzes and personalized study loops for students, corporate teams and educational institutions.",
     stat: ["Active learners", "15k+"],
     status: "Coming Soon",
-    statusColor: "bg-paper text-stone border-silver",
-    link: null,
+    statusColor: "bg-purple-100 text-purple-800 border-purple-300",
+    cardBg: "bg-gradient-to-br from-purple-50/90 via-white to-fuchsia-50/60 border-purple-200 shadow-purple-500/5",
+    accentColor: "text-purple-600",
+    link: "/products/learning",
   },
   {
     n: "05",
-    title: "Agentic AI services",
+    title: "Agentic AI Services",
+    headline: "Custom enterprise agent systems.",
     body: "Beyond our products we design, build and run custom agent systems inside your stack: tool integrations, evaluations, approvals and deployment support from our engineers.",
     stat: ["Typical first build", "6 wks"],
     status: "Available",
-    statusColor: "bg-paper text-graphite border-silver",
-    link: null,
+    statusColor: "bg-amber-100 text-amber-800 border-amber-300",
+    cardBg: "bg-gradient-to-br from-amber-50/90 via-white to-orange-50/60 border-amber-200 shadow-amber-500/5",
+    accentColor: "text-amber-600",
+    link: "/contact",
   },
 ];
 
@@ -62,42 +77,46 @@ export function ScrollStory() {
           <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <SectionLabel>What we build</SectionLabel>
-              <h2 className="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
+              <h2 className="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg font-bold font-cal">
                 Four products,
                 <br />
                 one engineering team
               </h2>
               <p className="mt-4 max-w-sm text-body text-slate">
-                Keep scrolling to walk through our live products and upcoming software suite.
+                Walk through our live apps and upcoming software suite.
               </p>
 
               <ol className="mt-8 space-y-3">
                 {STEPS.map((s, i) => (
                   <li key={s.n} className="flex items-center gap-3">
                     <span
-                      className={`flex h-7 w-7 items-center justify-center rounded-md font-inter text-caption transition-colors duration-300 ${
-                        i <= index ? "bg-graphite text-white font-bold" : "bg-silver/80 text-stone"
+                      className={`flex h-7 w-7 items-center justify-center rounded-md font-inter text-caption transition-colors duration-300 font-bold ${
+                        i === index
+                          ? "bg-graphite text-white shadow-xs"
+                          : i < index
+                          ? "bg-emerald-100 text-emerald-800 font-bold"
+                          : "bg-silver/80 text-stone"
                       }`}
                     >
                       {s.n}
                     </span>
                     <span
                       className={`font-inter text-body-sm transition-colors duration-300 ${
-                        i === index ? "text-graphite font-bold" : "text-stone"
+                        i === index ? "text-graphite font-bold" : "text-slate"
                       }`}
                     >
                       {s.title}
                     </span>
-                    <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded border uppercase tracking-wider ${s.statusColor}`}>
+                    <span className={`text-[9px] font-bold px-2 py-0.5 rounded border uppercase tracking-wider ${s.statusColor}`}>
                       {s.status}
                     </span>
                   </li>
                 ))}
               </ol>
 
-              <div className="mt-8 h-px w-full bg-silver">
+              <div className="mt-8 h-1.5 w-full rounded-full bg-silver/60 overflow-hidden">
                 <div
-                  className="h-px bg-action-blue transition-[width] duration-150"
+                  className="h-full bg-graphite transition-[width] duration-150 rounded-full"
                   style={{ width: `${progress * 100}%` }}
                 />
               </div>
@@ -107,65 +126,47 @@ export function ScrollStory() {
               {STEPS.map((s, i) => (
                 <article
                   key={s.n}
-                  className="card-surface absolute inset-x-0 top-0 p-8 shadow-md border-silver transition-all duration-300"
+                  className={`card-surface absolute inset-x-0 top-0 p-8 shadow-lg transition-all duration-300 ${s.cardBg}`}
                   style={{
                     opacity: i === index ? 1 : 0,
                     transform:
                       i === index
                         ? "translateY(0) scale(1)"
-                        : `translateY(${i < index ? -24 : 24}px) scale(0.97)`,
+                        : `translate3d(0, ${i < index ? -24 : 24}px, 0) scale(0.97)`,
                     pointerEvents: i === index ? "auto" : "none",
                   }}
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="inline-block rounded-md bg-paper border border-silver px-3 py-1 font-inter text-[11px] font-bold tracking-[0.05em] uppercase text-graphite">
-                      {i === STEPS.length - 1 ? "Services" : `Product ${s.n}`}
-                    </span>
-                    <span className={`rounded px-2.5 py-0.5 text-[10px] font-bold border uppercase tracking-wider ${s.statusColor}`}>
+                    <span className="font-mono text-caption text-stone">{s.n} / 05</span>
+                    <span className={`rounded-md px-2.5 py-1 text-[10px] font-bold border uppercase tracking-wider ${s.statusColor}`}>
                       {s.status}
                     </span>
                   </div>
 
-                  <h3 className="mt-5 text-heading font-bold font-cal text-graphite">{s.title}</h3>
-                  <p className="mt-3 max-w-lg text-subheading text-slate leading-relaxed">{s.body}</p>
+                  <h3 className="mt-4 text-heading-lg text-graphite font-bold font-cal">{s.title}</h3>
+                  <p className={`text-[15px] font-bold mt-1 ${s.accentColor}`}>"{s.headline}"</p>
+                  <p className="mt-3 text-body text-slate leading-relaxed">{s.body}</p>
 
-                  {s.link && (
-                    <a
-                      href={s.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-5 inline-flex items-center gap-1.5 rounded-md bg-action-blue px-4 py-2 text-[13px] font-bold text-white shadow-xs hover:opacity-90 transition-opacity"
-                    >
-                      Launch Live App (ai.noruvalabs.com) →
-                    </a>
-                  )}
+                  <div className="mt-8 flex flex-wrap items-end justify-between gap-4 border-t border-silver/60 pt-6">
+                    <div>
+                      <span className="font-inter text-caption text-stone uppercase font-bold tracking-wider">{s.stat[0]}</span>
+                      <p className={`font-cal text-[24px] font-extrabold ${s.accentColor}`}>{s.stat[1]}</p>
+                    </div>
 
-                  <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                    <div className="rounded-xl bg-paper border border-silver p-4">
-                      <p className="font-inter text-[10px] font-bold tracking-[0.05em] text-stone uppercase">
-                        {s.stat[0]}
-                      </p>
-                      <p className="mt-1 font-cal text-[32px] font-extrabold text-graphite tracking-tight">{s.stat[1]}</p>
-                    </div>
-                    <div className="rounded-xl bg-paper border border-silver p-4">
-                      <p className="font-inter text-[10px] font-bold tracking-[0.05em] text-stone uppercase">
-                        Section progress
-                      </p>
-                      <div className="mt-3 h-2 w-full rounded-full bg-silver">
-                        <div
-                          className="h-2 rounded-full bg-action-blue"
-                          style={{
-                            width: `${Math.min(100, Math.max(0, (progress * STEPS.length - i) * 100))}%`,
-                          }}
-                        />
-                      </div>
-                    </div>
+                    {s.link && (
+                      <a
+                        href={s.link}
+                        target={s.link.startsWith("http") ? "_blank" : undefined}
+                        rel={s.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="btn-pill bg-graphite text-white hover:bg-zinc-800 text-[13px] font-bold shadow-md flex items-center gap-1.5"
+                      >
+                        <span>{s.status === "Live" ? "Try App Live" : "View Details"}</span>
+                        <span>→</span>
+                      </a>
+                    )}
                   </div>
                 </article>
               ))}
-              <p className="absolute -bottom-2 right-0 font-inter text-caption text-stone">
-                {active.n} / 0{STEPS.length}
-              </p>
             </div>
           </div>
         </div>
