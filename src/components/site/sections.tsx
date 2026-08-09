@@ -62,13 +62,14 @@ const STATS = [
 export function Stats() {
   const y = useScrollY();
   return (
-    <section className="relative overflow-hidden">
-
-      <div className="container-page relative grid gap-8 py-20 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="relative overflow-hidden bg-paper/60 border-y border-silver py-12">
+      <div className="container-page relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {STATS.map(([v, k], i) => (
           <Reveal key={k} delay={i * 80}>
-            <p className="font-cal text-heading-lg text-graphite">{v}</p>
-            <p className="mt-1 font-inter text-body-sm text-slate">{k}</p>
+            <div className="border-l-2 border-action-blue pl-4">
+              <p className="font-cal text-[48px] sm:text-[56px] font-extrabold text-graphite leading-none tracking-tight">{v}</p>
+              <p className="mt-2 font-inter text-[11px] font-bold tracking-[0.05em] uppercase text-stone">{k}</p>
+            </div>
           </Reveal>
         ))}
       </div>
@@ -119,40 +120,40 @@ export function UseCases() {
     <section className="container-page space-y-6 py-16 md:py-24">
       <div className="max-w-xl">
         <SectionLabel>In practice</SectionLabel>
-        <h2 className="mt-4 text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
+        <h2 className="mt-4 text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg font-bold font-cal">
           Built for work with real consequences
         </h2>
       </div>
       {CASES.map((c, i) => (
         <Reveal key={c.label}>
-          <article className="card-surface grid gap-6 p-6 md:grid-cols-2 md:gap-8 md:p-8 lg:p-10">
+          <article className="card-surface grid gap-6 p-6 md:grid-cols-2 md:gap-8 md:p-8 lg:p-10 border-silver shadow-sm">
             <div className={i % 2 === 1 ? "md:order-2" : ""}>
-              <span className="rounded-full bg-silver/60 border border-silver/80 px-3 py-1 font-inter text-caption text-slate">
+              <span className="inline-block rounded-md bg-paper border border-silver px-3 py-1 font-inter text-[11px] font-bold tracking-[0.05em] uppercase text-graphite">
                 {c.label}
               </span>
-              <h3 className="mt-5 text-heading text-graphite">{c.title}</h3>
-              <p className="mt-3 text-body text-slate">{c.body}</p>
+              <h3 className="mt-5 text-heading font-bold font-cal text-graphite">{c.title}</h3>
+              <p className="mt-3 text-body text-slate leading-relaxed">{c.body}</p>
               <ul className="mt-5 space-y-2">
                 {c.bullets.map((b) => (
-                  <li key={b} className="flex items-center gap-2 font-inter text-body-sm text-graphite">
+                  <li key={b} className="flex items-center gap-2 font-inter text-body-sm font-medium text-graphite">
                     <Check className="h-4 w-4 text-action-blue" /> {b}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-xl bg-paper border border-silver/80 p-6">
+            <div className="rounded-xl bg-paper border border-silver p-6">
               <div className="space-y-3">
                 {[0, 1, 2, 3].map((r) => (
-                  <div key={r} className="rounded-lg bg-white border border-silver/60 p-3 shadow-sm">
+                  <div key={r} className="rounded-lg bg-white border border-silver p-3 shadow-xs">
                     <div className="flex items-center justify-between">
-                      <p className="font-inter text-caption text-graphite font-medium">
+                      <p className="font-inter text-caption text-graphite font-bold font-mono">
                         step_{r + 1} · {c.steps[r]}
                       </p>
-                      <span className="font-inter text-[10px] text-stone">ok</span>
+                      <span className="font-inter text-[10px] font-bold text-stone uppercase tracking-wider">ok</span>
                     </div>
-                    <div className="mt-2 h-1 w-full rounded-full bg-silver">
+                    <div className="mt-2 h-1.5 w-full rounded-full bg-silver">
                       <div
-                        className="h-1 rounded-full bg-action-blue"
+                        className="h-1.5 rounded-full bg-action-blue"
                         style={{ width: `${[100, 82, 64, 48][r]}%` }}
                       />
                     </div>

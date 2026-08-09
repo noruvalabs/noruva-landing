@@ -60,15 +60,15 @@ export function ScrollStory() {
                 {STEPS.map((s, i) => (
                   <li key={s.n} className="flex items-center gap-3">
                     <span
-                      className={`flex h-7 w-7 items-center justify-center rounded-full font-inter text-caption transition-colors duration-300 ${
-                        i <= index ? "bg-graphite text-white font-semibold" : "bg-silver/80 text-stone"
+                      className={`flex h-7 w-7 items-center justify-center rounded-md font-inter text-caption transition-colors duration-300 ${
+                        i <= index ? "bg-graphite text-white font-bold" : "bg-silver/80 text-stone"
                       }`}
                     >
                       {s.n}
                     </span>
                     <span
                       className={`font-inter text-body-sm transition-colors duration-300 ${
-                        i === index ? "text-graphite font-semibold" : "text-stone"
+                        i === index ? "text-graphite font-bold" : "text-stone"
                       }`}
                     >
                       {s.title}
@@ -89,7 +89,7 @@ export function ScrollStory() {
               {STEPS.map((s, i) => (
                 <article
                   key={s.n}
-                  className="card-surface absolute inset-x-0 top-0 p-8 transition-all duration-300"
+                  className="card-surface absolute inset-x-0 top-0 p-8 shadow-md border-silver transition-all duration-300"
                   style={{
                     opacity: i === index ? 1 : 0,
                     transform:
@@ -99,26 +99,26 @@ export function ScrollStory() {
                     pointerEvents: i === index ? "auto" : "none",
                   }}
                 >
-                  <span className="inline-block rounded-full bg-silver/60 border border-silver/80 px-3 py-1 font-inter text-caption text-slate">
+                  <span className="inline-block rounded-md bg-paper border border-silver px-3 py-1 font-inter text-[11px] font-bold tracking-[0.05em] uppercase text-graphite">
                     {i === STEPS.length - 1 ? "Services" : `Product ${s.n}`}
                   </span>
-                  <h3 className="mt-5 text-heading text-graphite">{s.title}</h3>
-                  <p className="mt-3 max-w-lg text-subheading text-slate">{s.body}</p>
+                  <h3 className="mt-5 text-heading font-bold font-cal text-graphite">{s.title}</h3>
+                  <p className="mt-3 max-w-lg text-subheading text-slate leading-relaxed">{s.body}</p>
 
                   <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                    <div className="rounded-xl bg-paper border border-silver/80 p-4">
-                      <p className="font-inter text-[10px] tracking-[0.08em] text-stone uppercase">
+                    <div className="rounded-xl bg-paper border border-silver p-4">
+                      <p className="font-inter text-[10px] font-bold tracking-[0.05em] text-stone uppercase">
                         {s.stat[0]}
                       </p>
-                      <p className="mt-1 font-cal text-heading text-graphite">{s.stat[1]}</p>
+                      <p className="mt-1 font-cal text-[32px] font-extrabold text-graphite tracking-tight">{s.stat[1]}</p>
                     </div>
-                    <div className="rounded-xl bg-paper border border-silver/80 p-4">
-                      <p className="font-inter text-[10px] tracking-[0.08em] text-stone uppercase">
+                    <div className="rounded-xl bg-paper border border-silver p-4">
+                      <p className="font-inter text-[10px] font-bold tracking-[0.05em] text-stone uppercase">
                         Section progress
                       </p>
-                      <div className="mt-3 h-1.5 w-full rounded-full bg-silver">
+                      <div className="mt-3 h-2 w-full rounded-full bg-silver">
                         <div
-                          className="h-1.5 rounded-full bg-action-blue"
+                          className="h-2 rounded-full bg-action-blue"
                           style={{
                             width: `${Math.min(100, Math.max(0, (progress * STEPS.length - i) * 100))}%`,
                           }}
