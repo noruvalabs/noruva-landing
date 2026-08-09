@@ -1,10 +1,43 @@
 import { useState } from "react";
-import { ChevronDown, ChevronRight, UserCheck, Plane, Gavel, Menu, X } from "lucide-react";
+import { ChevronDown, ChevronRight, Video, Plane, Gavel, GraduationCap, Menu, X } from "lucide-react";
 
 const PRODUCTS = [
-  { label: "Interview Assistant", href: "/products/interview", icon: UserCheck, body: "Structured hiring loops" },
-  { label: "Immigration Assistant", href: "/products/immigration", icon: Plane, body: "Route guidance & checklists" },
-  { label: "Law Assistant", href: "/products/law", icon: Gavel, body: "Cited research & drafting" },
+  {
+    label: "Meeting Assistant",
+    href: "https://ai.noruvalabs.com",
+    external: true,
+    icon: Video,
+    body: "Live notes, action items & summaries",
+    badge: "Live",
+    badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+  },
+  {
+    label: "Immigration Assistant",
+    href: "/products/immigration",
+    external: false,
+    icon: Plane,
+    body: "Route guidance & checklists",
+    badge: "Coming Soon",
+    badgeColor: "bg-paper text-stone border-silver",
+  },
+  {
+    label: "Law Assistant",
+    href: "/products/law",
+    external: false,
+    icon: Gavel,
+    body: "Cited research & drafting",
+    badge: "Coming Soon",
+    badgeColor: "bg-paper text-stone border-silver",
+  },
+  {
+    label: "Learning Assistant",
+    href: "/products/learning",
+    external: false,
+    icon: GraduationCap,
+    body: "Adaptive courseware & tutoring",
+    badge: "Coming Soon",
+    badgeColor: "bg-paper text-stone border-silver",
+  },
 ];
 
 const NAV = [
@@ -47,19 +80,26 @@ export function Header() {
                 {item.label === "Products" && <ChevronDown className="h-3.5 w-3.5 opacity-50" />}
               </a>
               {item.label === "Products" && desktopOpen && (
-                <div className="absolute top-full left-0 mt-1 w-[320px] rounded-xl border border-silver/40 bg-[#0c1a2e]/95 p-2 backdrop-blur-xl shadow-2xl">
+                <div className="absolute top-full left-0 mt-1 w-[340px] rounded-xl border border-silver bg-white/95 p-2 backdrop-blur-xl shadow-xl">
                   {PRODUCTS.map((p) => (
                     <a
                       key={p.label}
                       href={p.href}
-                      className="flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-silver/20"
+                      target={p.external ? "_blank" : undefined}
+                      rel={p.external ? "noopener noreferrer" : undefined}
+                      className="flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-silver/40"
                     >
-                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-silver/50">
+                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-silver/60">
                         <p.icon className="h-4 w-4 text-action-blue" />
                       </div>
-                      <div>
-                        <p className="text-[13px] font-medium text-graphite">{p.label}</p>
-                        <p className="text-[12px] text-slate">{p.body}</p>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-1">
+                          <p className="text-[13px] font-semibold text-graphite">{p.label}</p>
+                          <span className={`rounded px-1.5 py-0.5 text-[9px] font-bold border uppercase tracking-wider ${p.badgeColor}`}>
+                            {p.badge}
+                          </span>
+                        </div>
+                        <p className="text-[12px] text-slate mt-0.5">{p.body}</p>
                       </div>
                     </a>
                   ))}
@@ -68,6 +108,18 @@ export function Header() {
             </div>
           ))}
         </nav>
+
+        {/* Desktop right action button */}
+        <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href="https://ai.noruvalabs.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-md bg-graphite px-4 py-1.5 text-[13px] font-bold text-white transition-opacity hover:opacity-90 shadow-xs flex items-center gap-1.5"
+          >
+            <span>Try Noruva AI Free</span>
+          </a>
+        </div>
 
         {/* Mobile hamburger */}
         <button
@@ -100,14 +152,21 @@ export function Header() {
                           <a
                             key={p.label}
                             href={p.href}
+                            target={p.external ? "_blank" : undefined}
+                            rel={p.external ? "noopener noreferrer" : undefined}
                             className="flex items-center gap-3 rounded-md px-3 py-2 transition-colors hover:bg-silver/20"
                             onClick={() => setMobileOpen(false)}
                           >
                             <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-silver/50">
                               <p.icon className="h-3.5 w-3.5 text-action-blue" />
                             </div>
-                            <div>
-                              <p className="text-[13px] font-medium text-graphite">{p.label}</p>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center justify-between gap-1">
+                                <p className="text-[13px] font-medium text-graphite">{p.label}</p>
+                                <span className={`rounded px-1.5 py-0.5 text-[9px] font-bold border uppercase tracking-wider ${p.badgeColor}`}>
+                                  {p.badge}
+                                </span>
+                              </div>
                               <p className="text-[11px] text-slate">{p.body}</p>
                             </div>
                           </a>
@@ -127,6 +186,18 @@ export function Header() {
               </div>
             ))}
           </nav>
+          {/* Mobile action CTA */}
+          <div className="mt-3 pt-3 border-t border-silver/50">
+            <a
+              href="https://ai.noruvalabs.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-pill w-full justify-center bg-graphite text-white font-bold text-[14px] py-2.5 rounded-md shadow-sm"
+              onClick={() => setMobileOpen(false)}
+            >
+              Try Noruva AI Free →
+            </a>
+          </div>
         </div>
       )}
     </header>

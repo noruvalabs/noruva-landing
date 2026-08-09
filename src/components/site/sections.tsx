@@ -1,14 +1,74 @@
-import { ArrowRight, Check, Gavel, Plane, Puzzle, ShieldCheck, UserCheck, Wrench } from "lucide-react";
+import { ArrowRight, Check, Gavel, GraduationCap, Plane, Puzzle, UserCheck, Video, Wrench } from "lucide-react";
 import { useScrollY } from "@/hooks/use-scroll-motion";
 import { Reveal, SectionLabel } from "./reveal";
 
 const CAPS = [
-  { icon: UserCheck, title: "Interview Assistant", body: "Structured question sets, live notes and comparable candidate scorecards." },
-  { icon: Plane, title: "Immigration Assistant", body: "Route guidance, document checklists and deadline tracking per case." },
-  { icon: Gavel, title: "Law Assistant", body: "Research, summaries and drafting with a citation behind every claim." },
-  { icon: Puzzle, title: "Agentic AI services", body: "Custom agents designed, built and integrated into your existing stack." },
-  { icon: Wrench, title: "Engineering support", body: "Our team stays on after launch: evals, tuning, monitoring, iteration." },
-  { icon: ShieldCheck, title: "Private by default", body: "Your documents and matter data are never used to train shared models." },
+  {
+    icon: Video,
+    title: "NoruvaAI Copilot",
+    body: "Live transcripts, automated action item extraction, and real-time call copilot.",
+    status: "Live",
+    statusColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
+    iconBg: "bg-emerald-100 text-emerald-700 border-emerald-300",
+    cardBg: "bg-gradient-to-br from-emerald-50/80 via-white to-teal-50/40 border-emerald-200 shadow-emerald-500/5",
+    accentColor: "text-emerald-700 font-bold",
+    link: "https://ai.noruvalabs.com",
+  },
+  {
+    icon: Plane,
+    title: "Torii Immigration",
+    body: "Route guidance, document checklists, auto-filled forms, and deadline tracking.",
+    status: "Coming Soon",
+    statusColor: "bg-blue-100 text-blue-800 border-blue-300",
+    iconBg: "bg-blue-100 text-blue-700 border-blue-300",
+    cardBg: "bg-gradient-to-br from-blue-50/80 via-white to-indigo-50/40 border-blue-200 shadow-blue-500/5",
+    accentColor: "text-blue-700 font-bold",
+    link: "/products/immigration",
+  },
+  {
+    icon: Gavel,
+    title: "Law Assistant",
+    body: "Precedent-grounded research, matter summaries, and clause drafting with paragraph citations.",
+    status: "Coming Soon",
+    statusColor: "bg-slate-100 text-slate-800 border-slate-300",
+    iconBg: "bg-slate-100 text-[#153E6E] border-slate-300",
+    cardBg: "bg-gradient-to-br from-slate-100/80 via-white to-indigo-50/40 border-slate-300 shadow-slate-500/5",
+    accentColor: "text-[#153E6E] font-bold",
+    link: "/products/law",
+  },
+  {
+    icon: GraduationCap,
+    title: "Learning Assistant",
+    body: "Adaptive courseware, automated tutoring, interactive quizzes and student progress tracking.",
+    status: "Coming Soon",
+    statusColor: "bg-purple-100 text-purple-800 border-purple-300",
+    iconBg: "bg-purple-100 text-purple-700 border-purple-300",
+    cardBg: "bg-gradient-to-br from-purple-50/80 via-white to-fuchsia-50/40 border-purple-200 shadow-purple-500/5",
+    accentColor: "text-purple-700 font-bold",
+    link: "/products/learning",
+  },
+  {
+    icon: Puzzle,
+    title: "Agentic AI Services",
+    body: "Custom agentic systems designed, built and integrated directly into your existing enterprise stack.",
+    status: "Available",
+    statusColor: "bg-amber-100 text-amber-800 border-amber-300",
+    iconBg: "bg-amber-100 text-amber-700 border-amber-300",
+    cardBg: "bg-gradient-to-br from-amber-50/80 via-white to-orange-50/40 border-amber-200 shadow-amber-500/5",
+    accentColor: "text-amber-700 font-bold",
+    link: "/contact",
+  },
+  {
+    icon: Wrench,
+    title: "Engineering Support",
+    body: "Our engineers stay on after launch: continuous evals, model tuning, latency monitoring, and safety audits.",
+    status: "Included",
+    statusColor: "bg-teal-100 text-teal-800 border-teal-300",
+    iconBg: "bg-teal-100 text-teal-700 border-teal-300",
+    cardBg: "bg-gradient-to-br from-teal-50/80 via-white to-cyan-50/40 border-teal-200 shadow-teal-500/5",
+    accentColor: "text-teal-700 font-bold",
+    link: "/contact",
+  },
 ];
 
 export function Capabilities() {
@@ -17,18 +77,17 @@ export function Capabilities() {
       <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <SectionLabel>Products & services</SectionLabel>
-          <h2 className="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
+          <h2 className="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg font-bold font-cal">
             Software first,
             <br />
             AI where it earns it
           </h2>
-          <p className="mt-4 max-w-sm text-body text-slate">
-            We are an engineering studio. We ship licensed products, and we build agentic AI
-            systems for teams who need something only they would need.
+          <p className="mt-4 max-w-sm text-body text-slate leading-relaxed">
+            We build specialized AI products — starting with our live NoruvaAI call copilot and Torii immigration suite.
           </p>
           <a
             href="#faq"
-            className="mt-6 inline-flex items-center gap-1.5 text-body-sm text-action-blue"
+            className="mt-6 inline-flex items-center gap-1.5 text-body-sm text-action-blue font-bold hover:underline"
           >
             Read how we work <ArrowRight className="h-4 w-4" />
           </a>
@@ -36,12 +95,32 @@ export function Capabilities() {
         <div className="grid gap-5 sm:grid-cols-2">
           {CAPS.map((c, i) => (
             <Reveal key={c.title} delay={i * 60}>
-              <article className="card-surface h-full p-6 transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-silver">
-                  <c.icon className="h-4 w-4 text-action-blue" />
+              <article className={`card-surface h-full p-6 transition-all duration-300 hover:shadow-xl flex flex-col justify-between ${c.cardBg}`}>
+                <div>
+                  <div className="flex items-center justify-between">
+                    <div className={`flex h-9 w-9 items-center justify-center rounded-lg border ${c.iconBg}`}>
+                      <c.icon className="h-4.5 w-4.5" />
+                    </div>
+                    {c.status && (
+                      <span className={`rounded-md px-2 py-0.5 text-[9px] font-bold border uppercase tracking-wider ${c.statusColor}`}>
+                        {c.status}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="mt-4 text-heading-sm font-bold font-cal text-graphite">{c.title}</h3>
+                  <p className="mt-1.5 text-body-sm text-slate leading-relaxed">{c.body}</p>
                 </div>
-                <h3 className="mt-4 text-heading-sm text-graphite">{c.title}</h3>
-                <p className="mt-1.5 text-body-sm text-slate">{c.body}</p>
+                {c.link && (
+                  <a
+                    href={c.link}
+                    target={c.link.startsWith("http") ? "_blank" : undefined}
+                    rel={c.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className={`mt-4 inline-flex items-center gap-1 font-inter text-caption ${c.accentColor} hover:underline`}
+                  >
+                    <span>{c.status === "Live" ? "Try Live App" : "Learn More"}</span>
+                    <span>→</span>
+                  </a>
+                )}
               </article>
             </Reveal>
           ))}
@@ -52,22 +131,23 @@ export function Capabilities() {
 }
 
 const STATS = [
-  ["03", "Products in the line"],
-  ["48k", "Interview sessions run"],
-  ["120+", "Immigration case types covered"],
+  ["04", "Products in the line"],
+  ["65k+", "Sessions & loops run"],
+  ["15k+", "Active learners supported"],
   ["6 wks", "Typical custom agent build"],
 ];
 
 export function Stats() {
   const y = useScrollY();
   return (
-    <section className="relative overflow-hidden">
-
-      <div className="container-page relative grid gap-8 py-20 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="relative overflow-hidden bg-paper/60 border-y border-silver py-12">
+      <div className="container-page relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {STATS.map(([v, k], i) => (
           <Reveal key={k} delay={i * 80}>
-            <p className="font-cal text-heading-lg text-graphite">{v}</p>
-            <p className="mt-1 font-inter text-body-sm text-slate">{k}</p>
+            <div className="border-l-2 border-action-blue pl-4">
+              <p className="font-cal text-[48px] sm:text-[56px] font-extrabold text-graphite leading-none tracking-tight">{v}</p>
+              <p className="mt-2 font-inter text-[11px] font-bold tracking-[0.05em] uppercase text-stone">{k}</p>
+            </div>
           </Reveal>
         ))}
       </div>
@@ -77,11 +157,11 @@ export function Stats() {
 
 const CASES = [
   {
-    label: "Interview Assistant",
-    title: "Hire on evidence, not on who interviewed best",
-    body: "Generate a role-specific interview loop from the job spec, capture notes while the conversation happens, and produce a scorecard the whole panel reads the same way.",
-    bullets: ["Role-specific question sets", "Live note capture", "Comparable scorecards"],
-    steps: ["parse spec", "build loop", "capture notes", "score"],
+    label: "Meeting Assistant",
+    title: "Turn long conversations into instant action items",
+    body: "Capture live transcripts, extract owner assignments, generate executive debrief summaries, and push action items straight to your issue tracker.",
+    bullets: ["Live transcript capture", "Automated action item extraction", "Executive debrief summaries"],
+    steps: ["record sync", "parse transcript", "extract tasks", "sync CRM"],
   },
   {
     label: "Immigration Assistant",
@@ -98,6 +178,13 @@ const CASES = [
     steps: ["retrieve", "cite", "draft", "verify"],
   },
   {
+    label: "Learning Assistant",
+    title: "Personalized learning loops for every student",
+    body: "Turn curriculum materials into interactive study modules, generate adaptive practice quizzes, and provide real-time tutoring feedback with syllabus mastery tracking.",
+    bullets: ["Adaptive quiz generation", "Live tutoring feedback", "Syllabus & progress tracking"],
+    steps: ["parse syllabus", "generate quiz", "tutor session", "track mastery"],
+  },
+  {
     label: "Agentic AI services",
     title: "When the workflow is yours alone",
     body: "We scope the process, build the agent against your tools and data, set up evaluations and approval gates, and stay with you through rollout and iteration.",
@@ -111,40 +198,40 @@ export function UseCases() {
     <section className="container-page space-y-6 py-16 md:py-24">
       <div className="max-w-xl">
         <SectionLabel>In practice</SectionLabel>
-        <h2 className="mt-4 text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
+        <h2 className="mt-4 text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg font-bold font-cal">
           Built for work with real consequences
         </h2>
       </div>
       {CASES.map((c, i) => (
         <Reveal key={c.label}>
-          <article className="card-surface grid gap-6 p-6 md:grid-cols-2 md:gap-8 md:p-8 lg:p-10">
+          <article className="card-surface grid gap-6 p-6 md:grid-cols-2 md:gap-8 md:p-8 lg:p-10 border-silver shadow-sm">
             <div className={i % 2 === 1 ? "md:order-2" : ""}>
-              <span className="rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
+              <span className="inline-block rounded-md bg-paper border border-silver px-3 py-1 font-inter text-[11px] font-bold tracking-[0.05em] uppercase text-graphite">
                 {c.label}
               </span>
-              <h3 className="mt-5 text-heading text-graphite">{c.title}</h3>
-              <p className="mt-3 text-body text-slate">{c.body}</p>
+              <h3 className="mt-5 text-heading font-bold font-cal text-graphite">{c.title}</h3>
+              <p className="mt-3 text-body text-slate leading-relaxed">{c.body}</p>
               <ul className="mt-5 space-y-2">
                 {c.bullets.map((b) => (
-                  <li key={b} className="flex items-center gap-2 font-inter text-body-sm text-graphite">
+                  <li key={b} className="flex items-center gap-2 font-inter text-body-sm font-medium text-graphite">
                     <Check className="h-4 w-4 text-action-blue" /> {b}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-xl bg-silver/30 p-6">
+            <div className="rounded-xl bg-paper border border-silver p-6">
               <div className="space-y-3">
                 {[0, 1, 2, 3].map((r) => (
-                  <div key={r} className="rounded-lg bg-white/5 p-3 shadow-[var(--shadow-card)]">
+                  <div key={r} className="rounded-lg bg-white border border-silver p-3 shadow-xs">
                     <div className="flex items-center justify-between">
-                      <p className="font-inter text-caption text-graphite">
+                      <p className="font-inter text-caption text-graphite font-bold font-mono">
                         step_{r + 1} · {c.steps[r]}
                       </p>
-                      <span className="font-inter text-[10px] text-stone">ok</span>
+                      <span className="font-inter text-[10px] font-bold text-stone uppercase tracking-wider">ok</span>
                     </div>
-                    <div className="mt-2 h-1 w-full rounded-full bg-silver">
+                    <div className="mt-2 h-1.5 w-full rounded-full bg-silver">
                       <div
-                        className="h-1 rounded-full bg-action-blue"
+                        className="h-1.5 rounded-full bg-action-blue"
                         style={{ width: `${[100, 82, 64, 48][r]}%` }}
                       />
                     </div>
@@ -198,10 +285,10 @@ export function Quotes() {
 
 const FAQ = [
   ["Are you a SaaS company?", "We are a software company. We build and licence products, and we take on engineering work — custom agentic AI systems built for a single client's process."],
-  ["What are the three products?", "Interview Assistant for structured hiring loops, Immigration Assistant for route guidance and case documents, and Law Assistant for cited research and drafting."],
-  ["Do the assistants replace professionals?", "No. Each one drafts, checks and organises; a recruiter, consultant or lawyer reviews and signs off. Every output is traceable to its source."],
+  ["What are the four products?", "Meeting Assistant for live transcripts and action items, Immigration Assistant for route guidance and case documents, Law Assistant for cited research and drafting, and Learning Assistant for adaptive courseware and tutoring."],
+  ["Do the assistants replace professionals?", "No. Each one drafts, checks and organises; a team lead, consultant, lawyer or educator reviews and signs off. Every output is traceable to its source."],
   ["What does an agentic AI engagement look like?", "A short discovery, a scoped build against your own tools and data, an evaluation suite, then rollout with our engineers alongside your team. Most first builds ship in about six weeks."],
-  ["Where does our data live?", "In your environment where you need it there. We never train shared models on client documents, matter files or candidate data."],
+  ["Where does our data live?", "In your environment where you need it there. We never train shared models on client documents, matter files, course material or meeting data."],
 ];
 
 export function Faq() {
@@ -237,22 +324,30 @@ export function FinalCta() {
   const y = useScrollY();
   return (
     <section id="cta" className="container-page pb-24">
-      <div className="relative overflow-hidden rounded-xl bg-action-blue/20 border border-action-blue/30 px-5 py-14 text-center sm:px-6 sm:py-20">
-
-        <div className="relative">
-          <h2 className="mx-auto max-w-2xl text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[34px] md:text-heading-lg">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-zinc-900 via-slate-900 to-[#153E6E] border border-zinc-800 px-6 py-16 text-center shadow-2xl sm:px-10 sm:py-20 text-white">
+        <div className="pointer-events-none absolute inset-0 bg-radial from-emerald-500/10 via-transparent to-transparent" />
+        <div className="relative z-10">
+          <span className="inline-block rounded-full bg-emerald-500/20 border border-emerald-400/30 px-3.5 py-1 font-inter text-[11px] font-semibold tracking-wider text-emerald-300 uppercase mb-4">
+            ● NoruvaAI Live at ai.noruvalabs.com
+          </span>
+          <h2 className="mx-auto max-w-2xl text-[28px] leading-[1.1] tracking-tight text-white sm:text-[36px] md:text-heading-lg font-bold font-cal">
             Pick a product, or bring us a problem
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-body text-slate">
-            Trial Interview, Immigration or Law Assistant today — or talk to our engineers about a
-            custom agentic AI build for your own workflow.
+          <p className="mx-auto mt-4 max-w-md text-body text-slate-300 leading-relaxed">
+            Trial NoruvaAI Copilot live today at ai.noruvalabs.com — or talk to our engineers about a
+            custom agentic build for your team.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="#pricing" className="btn-pill bg-action-blue text-white hover:bg-action-blue/80">
-              Start a trial
+            <a
+              href="https://ai.noruvalabs.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-pill bg-emerald-500 text-zinc-950 hover:bg-emerald-400 font-bold text-[15px] px-6 py-3 shadow-lg"
+            >
+              Try NoruvaAI Free →
             </a>
-            <a href="#platform" className="btn-pill border border-silver text-graphite hover:bg-silver/30">
-              Talk to our team
+            <a href="/contact" className="btn-pill bg-white/10 border border-white/20 text-white hover:bg-white/20 font-semibold text-[15px] px-6 py-3">
+              Talk to Our Engineers
             </a>
           </div>
         </div>
@@ -263,7 +358,7 @@ export function FinalCta() {
 
 export function Footer() {
   const cols = [
-    ["Products", ["Interview Assistant", "Immigration Assistant", "Law Assistant", "Agentic AI services"]],
+    ["Products", ["Meeting Assistant", "Immigration Assistant", "Law Assistant", "Learning Assistant", "Agentic AI services"]],
     ["Company", ["About", "Careers", "Security", "Contact"]],
     ["Resources", ["Docs", "Blog", "Changelog", "Status", "Privacy"]],
   ] as const;
@@ -274,12 +369,16 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-2">
             <img src="/logo.svg" alt="Noruva Labs" className="h-10 w-auto" />
-            <span className="font-cal text-heading-sm text-graphite">Noruva Labs</span>
+            <span className="font-cal text-heading-sm text-graphite font-bold">Noruva Labs</span>
           </div>
-          <p className="mt-3 max-w-xs text-body-sm text-slate">
-            A software company building applied AI products and custom agentic systems. Built in
-            Amsterdam and Toronto.
+          <p className="mt-3 max-w-xs text-body-sm text-slate leading-relaxed">
+            Building specialized AI products and custom enterprise agent systems.
+            <br />
+            <strong className="text-graphite font-semibold">Minato-ku, Tokyo, Japan 105-8511</strong>
           </p>
+          <a href="mailto:support@noruvalabs.com" className="mt-2.5 inline-block font-inter text-caption font-bold text-action-blue hover:underline">
+            support@noruvalabs.com
+          </a>
         </div>
         {cols.map(([title, links]) => (
           <div key={title}>

@@ -1,0 +1,122 @@
+---
+import Base from '../../layouts/Base.astro';
+import { Header } from '../../components/site/header';
+import { Footer } from '../../components/site/sections';
+import { ArrowRight, GraduationCap, BookOpen, Brain, Sparkles, Check } from 'lucide-react';
+
+const FEATURES = [
+  {
+    title: "Adaptive Courseware",
+    body: "Generate personalized study pathways from course material, syllabi or corporate documentation.",
+  },
+  {
+    title: "Automated Tutoring",
+    body: "Instant feedback on student exercises, step-by-step problem breakdown and mastery tracking.",
+  },
+  {
+    title: "Interactive Quizzes",
+    body: "Create spaced-repetition quizzes, flashcards and knowledge checks aligned with learning goals.",
+  },
+  {
+    title: "Syllabus Mastery",
+    body: "Track individual and cohort progress across topics, identifying knowledge gaps early.",
+  },
+];
+
+const STEPS = [
+  { n: "01", title: "Ingest Syllabus & Materials", body: "Upload course outlines, textbooks or training manuals. The assistant indexes key concepts and learning objectives." },
+  { n: "02", title: "Generate Study Modules", body: "Build interactive learning pathways with bite-sized lessons, flashcards and practice problems." },
+  { n: "03", title: "Live Tutoring & Feedback", body: "Students receive real-time explanations, hints and guided problem solving tailored to their pace." },
+  { n: "04", title: "Mastery Analytics", body: "Educators and team leads view detailed analytics on concept mastery, retention and quiz scores." },
+];
+---
+
+<Base
+  title="Learning Assistant — Noruva Labs"
+  description="Personalized study loops, adaptive quiz generation, and real-time tutoring feedback for students and institutions."
+>
+  <div class="min-h-screen overflow-x-clip bg-gradient-to-b from-purple-50/60 via-paper to-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <!-- Hero -->
+      <section class="relative overflow-hidden pt-32 pb-20">
+        <div class="pointer-events-none absolute inset-0 glow-purple" />
+        <div class="container-page relative">
+          <span class="inline-flex items-center gap-2 rounded-full bg-purple-100 border border-purple-300 px-3.5 py-1 font-inter text-caption font-bold text-purple-800 shadow-xs">
+            <GraduationCap class="h-3.5 w-3.5 text-purple-600" />
+            Learning Assistant Suite (Coming Soon)
+          </span>
+          <h1 class="mt-5 text-[34px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
+            Personalized study loops for <span class="underline decoration-purple-300/80 font-extrabold text-purple-600">every student.</span>
+          </h1>
+          <p class="mt-6 max-w-lg text-subheading text-slate leading-relaxed">
+            Turn curriculum materials into interactive study modules, generate adaptive practice quizzes, and provide real-time tutoring feedback with syllabus mastery tracking.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#demo" class="btn-pill bg-purple-600 text-white hover:bg-purple-500 shadow-md font-bold">
+              Request Demo <ArrowRight class="h-4 w-4" />
+            </a>
+            <a href="#features" class="btn-pill btn-ghost font-semibold">
+              Explore features
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- Features Grid -->
+      <section id="features" class="container-page py-20">
+        <h2 class="text-heading-lg text-graphite font-bold font-cal">Built for modern education & training</h2>
+        <p class="mt-3 max-w-lg text-body text-slate">
+          Empower students, faculty and corporate learners with intelligent, self-pacing study assistants.
+        </p>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {FEATURES.map((f) => (
+            <div class="card-surface p-6 border-purple-200/80 bg-gradient-to-br from-purple-50/50 via-white to-fuchsia-50/30 hover:shadow-xl transition-all">
+              <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-purple-100 border border-purple-300">
+                <GraduationCap class="h-4.5 w-4.5 text-purple-700" />
+              </div>
+              <h3 class="mt-4 text-heading-sm font-bold font-cal text-graphite">{f.title}</h3>
+              <p class="mt-2 text-body-sm text-slate">{f.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- How it Works -->
+      <section class="container-page py-20">
+        <h2 class="text-heading-lg text-graphite font-bold font-cal">How Learning Assistant works</h2>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {STEPS.map((s) => (
+            <div class="card-surface p-6 border-purple-200/80 bg-white">
+              <span class="font-cal text-heading-sm text-purple-600 font-extrabold">{s.n}</span>
+              <h3 class="mt-3 text-heading-sm font-bold font-cal text-graphite">{s.title}</h3>
+              <p class="mt-2 text-body-sm text-slate">{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- CTA -->
+      <section id="demo" class="container-page py-20 text-center">
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-purple-950 via-fuchsia-900 to-slate-900 border border-purple-800 p-12 text-white shadow-2xl">
+          <div class="relative z-10">
+            <h2 class="text-heading-lg text-white font-bold font-cal">Transform learning at your organization</h2>
+            <p class="mt-4 mx-auto max-w-md text-body text-purple-100">
+              Deploy Learning Assistant for your institution or integrate custom learning workflows with our engineering team.
+            </p>
+            <div class="mt-8 flex justify-center gap-3">
+              <a href="/contact" class="btn-pill bg-purple-500 text-zinc-950 hover:bg-purple-400 font-bold shadow-lg">Get started →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>

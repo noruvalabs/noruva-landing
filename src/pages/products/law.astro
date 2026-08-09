@@ -37,33 +37,31 @@ const STEPS = [
 
 <Base
   title="Law Assistant — Noruva Labs"
-  description="Research, summaries and drafting with a citation behind every claim. Cited answers, never invented ones."
+  description="Research, summaries and drafting with a citation behind every claim. Grounded in your precedent and matter files."
 >
-  <div class="min-h-screen overflow-x-clip bg-paper">
+  <div class="min-h-screen overflow-x-clip bg-gradient-to-b from-slate-100/90 via-paper to-paper">
     <Header client:load />
     <main class="relative vertical-lines">
       <!-- Hero -->
       <section class="relative overflow-hidden pt-32 pb-20">
         <div class="pointer-events-none absolute inset-0 glow-purple" />
         <div class="container-page relative">
-          <span class="inline-flex items-center gap-2 rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
-            <Gavel class="h-3.5 w-3.5 text-action-blue" />
-            Law Assistant
+          <span class="inline-flex items-center gap-2 rounded-full bg-slate-100 border border-slate-300 px-3.5 py-1 font-inter text-caption font-bold text-[#153E6E] shadow-xs">
+            <Gavel class="h-3.5 w-3.5 text-[#153E6E]" />
+            Law Assistant Suite (Coming Soon)
           </span>
-          <h1 class="mt-5 text-[32px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[42px] md:text-heading-lg lg:text-display">
-            Research you can
-            <br />
-            hand to a partner
+          <h1 class="mt-5 text-[34px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
+            Research grounded in <span class="underline decoration-[#153E6E]/40 font-extrabold text-[#153E6E]">official precedent.</span>
           </h1>
-          <p class="mt-6 max-w-lg text-subheading text-slate">
-            Search matter files and public sources together, get a summary with paragraph-level
+          <p class="mt-6 max-w-lg text-subheading text-slate leading-relaxed">
+            Search matter files and public sources together, get summaries with paragraph-level
             citations, and draft from your own precedent bank instead of a generic template.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#cta" class="btn-pill btn-ink">
-              Start a trial <ArrowRight class="h-4 w-4" />
+            <a href="#cta" class="btn-pill bg-[#153E6E] text-white hover:bg-[#0f2d50] shadow-md font-bold">
+              Request Firm Demo <ArrowRight class="h-4 w-4" />
             </a>
-            <a href="#features" class="btn-pill btn-ghost">
+            <a href="#features" class="btn-pill btn-ghost font-semibold">
               See features
             </a>
           </div>
@@ -75,10 +73,10 @@ const STEPS = [
       <!-- Features -->
       <section id="features" class="container-page py-16 md:py-24">
         <div class="max-w-xl">
-          <span class="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption tracking-[0.08em] text-slate uppercase">
+          <span class="inline-block rounded-full bg-slate-100 border border-slate-300 px-3 py-1 font-inter text-caption tracking-[0.08em] text-[#153E6E] uppercase font-bold">
             Features
           </span>
-          <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
+          <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg font-bold font-cal">
             Every answer,
             <br />
             backed by a source
@@ -86,11 +84,11 @@ const STEPS = [
         </div>
         <div class="mt-12 grid gap-5 sm:grid-cols-2">
           {FEATURES.map((f) => (
-            <article class="card-surface p-6">
-              <div class="flex h-8 w-8 items-center justify-center rounded-full bg-silver">
-                <span class="h-4 w-4 text-action-blue" />
+            <article class="card-surface p-6 border-slate-300 bg-gradient-to-br from-slate-100/70 via-white to-indigo-50/40 hover:shadow-xl transition-all">
+              <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 border border-slate-300">
+                <Gavel class="h-4.5 w-4.5 text-[#153E6E]" />
               </div>
-              <h3 class="mt-4 text-heading-sm text-graphite">{f.title}</h3>
+              <h3 class="mt-4 text-heading-sm font-bold font-cal text-graphite">{f.title}</h3>
               <p class="mt-1.5 text-body-sm text-slate">{f.body}</p>
             </article>
           ))}
@@ -102,21 +100,21 @@ const STEPS = [
       <!-- How it works -->
       <section class="container-page py-16 md:py-24">
         <div class="max-w-xl">
-          <span class="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption tracking-[0.08em] text-slate uppercase">
+          <span class="inline-block rounded-full bg-slate-100 border border-slate-300 px-3 py-1 font-inter text-caption tracking-[0.08em] text-[#153E6E] uppercase font-bold">
             How it works
           </span>
-          <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
+          <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg font-bold font-cal">
             Four steps to
             <br />
-            cited research
+            cited legal research
           </h2>
         </div>
         <div class="mt-12 space-y-4">
           {STEPS.map((s) => (
-            <article class="card-surface grid gap-6 p-6 md:grid-cols-[60px_1fr]">
-              <span class="font-cal text-heading-lg text-action-blue">{s.n}</span>
+            <article class="card-surface grid gap-6 p-6 md:grid-cols-[60px_1fr] border-slate-300 bg-white">
+              <span class="font-cal text-heading-lg text-[#153E6E] font-extrabold">{s.n}</span>
               <div>
-                <h3 class="text-heading text-graphite">{s.title}</h3>
+                <h3 class="text-heading font-bold font-cal text-graphite">{s.title}</h3>
                 <p class="mt-2 text-body text-slate">{s.body}</p>
               </div>
             </article>
@@ -128,20 +126,19 @@ const STEPS = [
 
       <!-- CTA -->
       <section id="cta" class="container-page pb-16 md:pb-24">
-        <div class="relative overflow-hidden rounded-xl bg-action-blue/20 border border-action-blue/30 px-5 py-14 text-center sm:px-6 sm:py-20">
-          <div class="relative">
-            <h2 class="mx-auto max-w-2xl text-[26px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[34px] md:text-heading-lg">
-              Ready for cited research?
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-[#153E6E] border border-slate-800 px-5 py-14 text-center text-white shadow-2xl sm:px-6 sm:py-20">
+          <div class="relative z-10">
+            <h2 class="mx-auto max-w-2xl text-[26px] leading-[1.1] tracking-[0.4px] text-white sm:text-[34px] md:text-heading-lg font-bold font-cal">
+              Ready for zero-hallucination legal research?
             </h2>
-            <p class="mx-auto mt-4 max-w-md text-body text-slate">
-              Start a trial of Law Assistant today — or talk to our engineers about a custom
-              legal workflow for your firm.
+            <p class="mx-auto mt-4 max-w-md text-body text-slate-200">
+              Talk to our engineers about integrating Law Assistant into your firm's private matter management stack.
             </p>
             <div class="mt-8 flex flex-wrap justify-center gap-3">
-              <a href="#pricing" class="btn-pill bg-action-blue text-white hover:bg-action-blue/80">
-                Start a trial
+              <a href="/contact" class="btn-pill bg-white text-graphite hover:bg-slate-100 font-bold shadow-lg">
+                Talk to Legal AI Engineers →
               </a>
-              <a href="/" class="btn-pill border border-silver text-graphite hover:bg-silver/30">
+              <a href="/" class="btn-pill bg-white/10 border border-white/20 text-white hover:bg-white/20">
                 Back to home
               </a>
             </div>

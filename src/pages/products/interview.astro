@@ -2,68 +2,67 @@
 import Base from '../../layouts/Base.astro';
 import { Header } from '../../components/site/header';
 import { Footer } from '../../components/site/sections';
-import { ArrowRight, UserCheck, FileText, BarChart3, Users } from 'lucide-react';
+import { ArrowRight, Video, FileText, BarChart3, Users } from 'lucide-react';
 
 const FEATURES = [
   {
-    icon: "UserCheck",
-    title: "Role-specific question sets",
-    body: "Generate tailored interview questions from the job spec and levelling guide. Every loop starts with structure, not guesswork.",
+    icon: "Video",
+    title: "Live transcript capture",
+    body: "Process live audio streams and extract speaker-separated transcripts in real time.",
   },
   {
     icon: "FileText",
-    title: "Live note capture",
-    body: "Capture notes during the conversation without breaking flow. Notes are tagged to questions and candidates automatically.",
+    title: "Automated action item extraction",
+    body: "Automatically identify commitments, tasks, owner tags, and deadlines as they are spoken.",
   },
   {
     icon: "BarChart3",
-    title: "Rubric scoring",
-    body: "Score candidates against a consistent rubric. Bias-flagged language and comparable briefs for the whole panel.",
+    title: "Executive debrief summaries",
+    body: "Generate 1-page summaries linking decisions directly to paragraph-level transcript timestamps.",
   },
   {
     icon: "Users",
-    title: "Candidate briefs",
-    body: "Generate a structured brief after each interview. The hiring committee reads the same document the same way.",
+    title: "Project board sync",
+    body: "Push extracted action items directly to Jira, Linear, Slack or Notion with one click.",
   },
 ];
 
 const STEPS = [
-  { n: "01", title: "Parse the job spec", body: "Upload the role description and levelling guide. The assistant extracts key skills, seniority signals and must-haves." },
-  { n: "02", title: "Build the interview loop", body: "Generate a structured loop with role-specific questions, time allocations and scoring criteria." },
-  { n: "03", title: "Capture notes live", body: "Interviewers take notes during the conversation. The assistant organises them by question and candidate." },
-  { n: "04", title: "Score and compare", body: "Produce scorecards with rubric-based ratings. Compare candidates side-by-side with bias detection." },
+  { n: "01", title: "Connect your meeting stream", body: "Invite Meeting Assistant to Zoom, Google Meet or Microsoft Teams calls with zero setup." },
+  { n: "02", title: "Live transcript processing", body: "The engine parses live audio, separates speakers, and highlights key technical decisions." },
+  { n: "03", title: "Extract tasks & action items", body: "Tasks, owners and target deadlines are extracted automatically during the conversation." },
+  { n: "04", title: "Sync and debrief", body: "Produce a structured executive summary and push tasks directly to your team board." },
 ];
 ---
 
 <Base
-  title="Interview Assistant — Noruva Labs"
-  description="Structured question sets, live notes and comparable candidate scorecards. Hire on evidence, not on who interviewed best."
+  title="NoruvaAI Copilot — Noruva Labs"
+  description="Hear the question. See the answer. Real-time call transcription and instant answer delivery across Google Meet, Zoom, Webex, and LeetCode."
 >
-  <div class="min-h-screen overflow-x-clip bg-paper">
+  <div class="min-h-screen overflow-x-clip bg-gradient-to-b from-emerald-50/60 via-paper to-paper">
     <Header client:load />
     <main class="relative vertical-lines">
       <!-- Hero -->
       <section class="relative overflow-hidden pt-32 pb-20">
         <div class="pointer-events-none absolute inset-0 glow-purple" />
         <div class="container-page relative">
-          <span class="inline-flex items-center gap-2 rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
-            <UserCheck class="h-3.5 w-3.5 text-action-blue" />
-            Interview Assistant
+          <span class="inline-flex items-center gap-2 rounded-full bg-emerald-100 border border-emerald-300 px-3.5 py-1 font-inter text-caption font-bold text-emerald-800 shadow-xs">
+            <Video class="h-3.5 w-3.5 text-emerald-600" />
+            NoruvaAI Call Copilot (Live)
           </span>
-          <h1 class="mt-5 text-[32px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[42px] md:text-heading-lg lg:text-display">
-            Hire on evidence,
+          <h1 class="mt-5 text-[34px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
+            Hear the question.
             <br />
-            not on who interviewed best
+            <span class="text-emerald-600 underline decoration-emerald-300/80 underline-offset-4 font-extrabold">See the answer.</span>
           </h1>
-          <p class="mt-6 max-w-lg text-subheading text-slate">
-            Generate a role-specific interview loop from the job spec, capture notes while the
-            conversation happens, and produce a scorecard the whole panel reads the same way.
+          <p class="mt-6 max-w-lg text-subheading text-slate leading-relaxed">
+            NoruvaAI listens to your call, transcribes every question the instant it's asked, and hands you the right answer in real time — across interviews, sales calls, and meetings.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#cta" class="btn-pill btn-ink">
-              Start a trial <ArrowRight class="h-4 w-4" />
+            <a href="https://ai.noruvalabs.com" target="_blank" rel="noopener noreferrer" class="btn-pill bg-emerald-600 text-white hover:bg-emerald-500 shadow-md font-bold">
+              Try NoruvaAI Free (ai.noruvalabs.com) <ArrowRight class="h-4 w-4" />
             </a>
-            <a href="#features" class="btn-pill btn-ghost">
+            <a href="#features" class="btn-pill btn-ghost font-semibold">
               See features
             </a>
           </div>
@@ -75,22 +74,22 @@ const STEPS = [
       <!-- Features -->
       <section id="features" class="container-page py-16 md:py-24">
         <div class="max-w-xl">
-          <span class="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption tracking-[0.08em] text-slate uppercase">
+          <span class="inline-block rounded-full bg-emerald-100 border border-emerald-300 px-3 py-1 font-inter text-caption tracking-[0.08em] text-emerald-800 uppercase font-bold">
             Features
           </span>
-          <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
-            Structured hiring,
+          <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg font-bold font-cal">
+            Real-time call intelligence,
             <br />
             start to finish
           </h2>
         </div>
         <div class="mt-12 grid gap-5 sm:grid-cols-2">
           {FEATURES.map((f) => (
-            <article class="card-surface p-6">
-              <div class="flex h-8 w-8 items-center justify-center rounded-full bg-silver">
-                <span class="h-4 w-4 text-action-blue" />
+            <article class="card-surface p-6 border-emerald-200/80 bg-gradient-to-br from-emerald-50/50 via-white to-teal-50/30 hover:shadow-xl transition-all">
+              <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-100 border border-emerald-300">
+                <Video class="h-4.5 w-4.5 text-emerald-700" />
               </div>
-              <h3 class="mt-4 text-heading-sm text-graphite">{f.title}</h3>
+              <h3 class="mt-4 text-heading-sm font-bold font-cal text-graphite">{f.title}</h3>
               <p class="mt-1.5 text-body-sm text-slate">{f.body}</p>
             </article>
           ))}
@@ -102,21 +101,21 @@ const STEPS = [
       <!-- How it works -->
       <section class="container-page py-16 md:py-24">
         <div class="max-w-xl">
-          <span class="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption tracking-[0.08em] text-slate uppercase">
+          <span class="inline-block rounded-full bg-emerald-100 border border-emerald-300 px-3 py-1 font-inter text-caption tracking-[0.08em] text-emerald-800 uppercase font-bold">
             How it works
           </span>
-          <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
+          <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg font-bold font-cal">
             Four steps to
             <br />
-            better interviews
+            instant live answers
           </h2>
         </div>
         <div class="mt-12 space-y-4">
           {STEPS.map((s) => (
-            <article class="card-surface grid gap-6 p-6 md:grid-cols-[60px_1fr]">
-              <span class="font-cal text-heading-lg text-action-blue">{s.n}</span>
+            <article class="card-surface grid gap-6 p-6 md:grid-cols-[60px_1fr] border-emerald-200/80 bg-white">
+              <span class="font-cal text-heading-lg text-emerald-600 font-extrabold">{s.n}</span>
               <div>
-                <h3 class="text-heading text-graphite">{s.title}</h3>
+                <h3 class="text-heading font-bold font-cal text-graphite">{s.title}</h3>
                 <p class="mt-2 text-body text-slate">{s.body}</p>
               </div>
             </article>
@@ -128,20 +127,20 @@ const STEPS = [
 
       <!-- CTA -->
       <section id="cta" class="container-page pb-16 md:pb-24">
-        <div class="relative overflow-hidden rounded-xl bg-action-blue/20 border border-action-blue/30 px-5 py-14 text-center sm:px-6 sm:py-20">
-          <div class="relative">
-            <h2 class="mx-auto max-w-2xl text-[26px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[34px] md:text-heading-lg">
-              Ready to hire with structure?
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900 border border-emerald-800 px-5 py-14 text-center text-white shadow-2xl sm:px-6 sm:py-20">
+          <div class="relative z-10">
+            <h2 class="mx-auto max-w-2xl text-[26px] leading-[1.1] tracking-[0.4px] text-white sm:text-[34px] md:text-heading-lg font-bold font-cal">
+              Ready to try NoruvaAI Copilot?
             </h2>
-            <p class="mx-auto mt-4 max-w-md text-body text-slate">
-              Start a trial of Interview Assistant today — or talk to our engineers about a custom
-              hiring workflow for your team.
+            <p class="mx-auto mt-4 max-w-md text-body text-emerald-100">
+              Try NoruvaAI live today at ai.noruvalabs.com — or talk to our engineers about a custom
+              workflow for your team.
             </p>
             <div class="mt-8 flex flex-wrap justify-center gap-3">
-              <a href="#pricing" class="btn-pill bg-action-blue text-white hover:bg-action-blue/80">
-                Start a trial
+              <a href="https://ai.noruvalabs.com" target="_blank" rel="noopener noreferrer" class="btn-pill bg-emerald-500 text-zinc-950 hover:bg-emerald-400 font-bold shadow-lg">
+                Try NoruvaAI Free (ai.noruvalabs.com) →
               </a>
-              <a href="/" class="btn-pill border border-silver text-graphite hover:bg-silver/30">
+              <a href="/" class="btn-pill bg-white/10 border border-white/20 text-white hover:bg-white/20">
                 Back to home
               </a>
             </div>

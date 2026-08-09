@@ -36,34 +36,32 @@ const STEPS = [
 ---
 
 <Base
-  title="Immigration Assistant — Noruva Labs"
-  description="Route guidance, document checklists and deadline tracking per case. Every case, every document, every deadline."
+  title="Torii Immigration Assistant — Noruva Labs"
+  description="File your visa application correctly — for a fraction of a lawyer's fee. Branching intake, personalized document checklists, auto-filled government forms."
 >
-  <div class="min-h-screen overflow-x-clip bg-paper">
+  <div class="min-h-screen overflow-x-clip bg-gradient-to-b from-blue-50/60 via-paper to-paper">
     <Header client:load />
     <main class="relative vertical-lines">
       <!-- Hero -->
       <section class="relative overflow-hidden pt-32 pb-20">
         <div class="pointer-events-none absolute inset-0 glow-purple" />
         <div class="container-page relative">
-          <span class="inline-flex items-center gap-2 rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
-            <Plane class="h-3.5 w-3.5 text-action-blue" />
-            Immigration Assistant
+          <span class="inline-flex items-center gap-2 rounded-full bg-blue-100 border border-blue-300 px-3.5 py-1 font-inter text-caption font-bold text-blue-800 shadow-xs">
+            <Plane class="h-3.5 w-3.5 text-blue-600" />
+            Torii Immigration Suite (Coming Soon)
           </span>
-          <h1 class="mt-5 text-[32px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[42px] md:text-heading-lg lg:text-display">
-            Every case,
-            <br />
-            every document, every deadline
+          <h1 class="mt-5 text-[34px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
+            File your visa application <span class="italic text-blue-600 font-serif">correctly.</span>
           </h1>
-          <p class="mt-6 max-w-lg text-subheading text-slate">
-            Walk an applicant or consultant through the right route, build the document checklist,
-            flag missing evidence, and keep track of deadlines across a whole caseload.
+          <p class="mt-6 max-w-lg text-subheading text-slate leading-relaxed">
+            Torii walks you from "which forms do I even need?" to a submission-ready packet: a branching intake,
+            a personalized document checklist, and auto-filled government forms — for a fraction of a lawyer's fee.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#cta" class="btn-pill btn-ink">
-              Start a trial <ArrowRight class="h-4 w-4" />
+            <a href="#cta" class="btn-pill bg-blue-600 text-white hover:bg-blue-500 shadow-md font-bold">
+              Start Your Case <ArrowRight class="h-4 w-4" />
             </a>
-            <a href="#features" class="btn-pill btn-ghost">
+            <a href="#features" class="btn-pill btn-ghost font-semibold">
               See features
             </a>
           </div>
@@ -75,10 +73,10 @@ const STEPS = [
       <!-- Features -->
       <section id="features" class="container-page py-16 md:py-24">
         <div class="max-w-xl">
-          <span class="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption tracking-[0.08em] text-slate uppercase">
+          <span class="inline-block rounded-full bg-blue-100 border border-blue-300 px-3 py-1 font-inter text-caption tracking-[0.08em] text-blue-800 uppercase font-bold">
             Features
           </span>
-          <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
+          <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg font-bold font-cal">
             Never miss a
             <br />
             document or deadline
@@ -86,11 +84,11 @@ const STEPS = [
         </div>
         <div class="mt-12 grid gap-5 sm:grid-cols-2">
           {FEATURES.map((f) => (
-            <article class="card-surface p-6">
-              <div class="flex h-8 w-8 items-center justify-center rounded-full bg-silver">
-                <span class="h-4 w-4 text-action-blue" />
+            <article class="card-surface p-6 border-blue-200/80 bg-gradient-to-br from-blue-50/50 via-white to-indigo-50/30 hover:shadow-xl transition-all">
+              <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 border border-blue-300">
+                <Plane class="h-4.5 w-4.5 text-blue-700" />
               </div>
-              <h3 class="mt-4 text-heading-sm text-graphite">{f.title}</h3>
+              <h3 class="mt-4 text-heading-sm font-bold font-cal text-graphite">{f.title}</h3>
               <p class="mt-1.5 text-body-sm text-slate">{f.body}</p>
             </article>
           ))}
@@ -102,10 +100,10 @@ const STEPS = [
       <!-- How it works -->
       <section class="container-page py-16 md:py-24">
         <div class="max-w-xl">
-          <span class="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption tracking-[0.08em] text-slate uppercase">
+          <span class="inline-block rounded-full bg-blue-100 border border-blue-300 px-3 py-1 font-inter text-caption tracking-[0.08em] text-blue-800 uppercase font-bold">
             How it works
           </span>
-          <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
+          <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg font-bold font-cal">
             Four steps to
             <br />
             cleaner cases
@@ -113,10 +111,10 @@ const STEPS = [
         </div>
         <div class="mt-12 space-y-4">
           {STEPS.map((s) => (
-            <article class="card-surface grid gap-6 p-6 md:grid-cols-[60px_1fr]">
-              <span class="font-cal text-heading-lg text-action-blue">{s.n}</span>
+            <article class="card-surface grid gap-6 p-6 md:grid-cols-[60px_1fr] border-blue-200/80 bg-white">
+              <span class="font-cal text-heading-lg text-blue-600 font-extrabold">{s.n}</span>
               <div>
-                <h3 class="text-heading text-graphite">{s.title}</h3>
+                <h3 class="text-heading font-bold font-cal text-graphite">{s.title}</h3>
                 <p class="mt-2 text-body text-slate">{s.body}</p>
               </div>
             </article>
@@ -128,20 +126,20 @@ const STEPS = [
 
       <!-- CTA -->
       <section id="cta" class="container-page pb-16 md:pb-24">
-        <div class="relative overflow-hidden rounded-xl bg-action-blue/20 border border-action-blue/30 px-5 py-14 text-center sm:px-6 sm:py-20">
-          <div class="relative">
-            <h2 class="mx-auto max-w-2xl text-[26px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[34px] md:text-heading-lg">
-              Ready to streamline your caseload?
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-950 via-indigo-900 to-slate-900 border border-blue-800 px-5 py-14 text-center text-white shadow-2xl sm:px-6 sm:py-20">
+          <div class="relative z-10">
+            <h2 class="mx-auto max-w-2xl text-[26px] leading-[1.1] tracking-[0.4px] text-white sm:text-[34px] md:text-heading-lg font-bold font-cal">
+              Ready to streamline your visa caseload?
             </h2>
-            <p class="mx-auto mt-4 max-w-md text-body text-slate">
-              Start a trial of Immigration Assistant today — or talk to our engineers about a custom
+            <p class="mx-auto mt-4 max-w-md text-body text-blue-100">
+              Get early access to Torii Immigration Assistant today — or talk to our engineers about a custom
               workflow for your consultancy.
             </p>
             <div class="mt-8 flex flex-wrap justify-center gap-3">
-              <a href="#pricing" class="btn-pill bg-action-blue text-white hover:bg-action-blue/80">
-                Start a trial
+              <a href="/contact" class="btn-pill bg-blue-500 text-zinc-950 hover:bg-blue-400 font-bold shadow-lg">
+                Join Torii Preview Waitlist →
               </a>
-              <a href="/" class="btn-pill border border-silver text-graphite hover:bg-silver/30">
+              <a href="/" class="btn-pill bg-white/10 border border-white/20 text-white hover:bg-white/20">
                 Back to home
               </a>
             </div>
