@@ -1,5 +1,6 @@
 import { useSectionProgress } from "@/hooks/use-scroll-motion";
 import { SectionLabel } from "./reveal";
+import { Video, Plane, Gavel, GraduationCap, Cpu, Zap, CheckCircle2, ShieldCheck, FileText, Layers } from "lucide-react";
 
 const STEPS = [
   {
@@ -176,57 +177,184 @@ export function ScrollStory() {
 }
 
 const RAIL = [
-  { title: "Interview question sets", body: "Role-specific prompts generated from the job spec and levelling guide." },
-  { title: "Panel scorecards", body: "Consistent rubrics, bias-flagged language and comparable candidate briefs." },
-  { title: "Visa route finder", body: "Answers eligibility questions and maps the applicant to the right route." },
-  { title: "Document checklists", body: "Tracks evidence, expiry dates and what is still missing per case." },
-  { title: "Legal research", body: "Cited summaries drawn from your matter files and public sources." },
-  { title: "Contract drafting", body: "Clause extraction, playbook comparison and redline suggestions." },
-  { title: "Adaptive courseware", body: "Personalized learning pathways, interactive quizzes and knowledge checks." },
-  { title: "Automated tutoring", body: "Instant feedback on student assignments, syllabus alignment and progress rubrics." },
-  { title: "Custom agent builds", body: "Bespoke agentic workflows wired into your own tools and data." },
-  { title: "Evaluation & rollout", body: "Test suites, approval gates and hands-on deployment support." },
+  {
+    n: "01",
+    product: "NoruvaAI Copilot",
+    title: "Real-time Call Q&A Copilot",
+    body: "Transcribes questions instantly as spoken on Google Meet, Zoom, and Webex, overlaying ideal responses in under 400ms.",
+    tag: "Live App",
+    tagColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
+    cardBg: "bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/60 border-emerald-300/80 hover:border-emerald-500 shadow-emerald-500/5",
+    icon: Video,
+    iconColor: "text-emerald-700 bg-emerald-100 border-emerald-300",
+    badge: "400ms Latency",
+  },
+  {
+    n: "02",
+    product: "NoruvaAI Copilot",
+    title: "Action Item & Debrief Sync",
+    body: "Automatically identifies commitments, task owners, and target deadlines during calls, pushing directly to Jira & Slack.",
+    tag: "Live App",
+    tagColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
+    cardBg: "bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/60 border-emerald-300/80 hover:border-emerald-500 shadow-emerald-500/5",
+    icon: Zap,
+    iconColor: "text-emerald-700 bg-emerald-100 border-emerald-300",
+    badge: "Auto Board Sync",
+  },
+  {
+    n: "03",
+    product: "Torii Immigration",
+    title: "Branching Route Intake",
+    body: "Guides applicants and legal consultants through dynamic questionnaires mapping eligibility across 120+ global visa routes.",
+    tag: "Torii Suite",
+    tagColor: "bg-blue-100 text-blue-800 border-blue-300",
+    cardBg: "bg-gradient-to-br from-blue-50/90 via-white to-indigo-50/60 border-blue-300/80 hover:border-blue-500 shadow-blue-500/5",
+    icon: Plane,
+    iconColor: "text-blue-700 bg-blue-100 border-blue-300",
+    badge: "120+ Visa Routes",
+  },
+  {
+    n: "04",
+    product: "Torii Immigration",
+    title: "Auto-Filled Government Packets",
+    body: "Compiles document checklists, monitors certificate expiry dates, and populates official government submission forms.",
+    tag: "Torii Suite",
+    tagColor: "bg-blue-100 text-blue-800 border-blue-300",
+    cardBg: "bg-gradient-to-br from-blue-50/90 via-white to-indigo-50/60 border-blue-300/80 hover:border-blue-500 shadow-blue-500/5",
+    icon: FileText,
+    iconColor: "text-blue-700 bg-blue-100 border-blue-300",
+    badge: "Submission Ready",
+  },
+  {
+    n: "05",
+    product: "Law Assistant",
+    title: "Paragraph-Cited Research",
+    body: "Searches internal matter files and public judicial records, delivering precedent summaries where every assertion carries a paragraph citation.",
+    tag: "Law AI",
+    tagColor: "bg-slate-100 text-slate-800 border-slate-300",
+    cardBg: "bg-gradient-to-br from-slate-100/90 via-white to-indigo-50/60 border-slate-300 hover:border-slate-500 shadow-slate-500/5",
+    icon: Gavel,
+    iconColor: "text-[#153E6E] bg-slate-100 border-slate-300",
+    badge: "100% Citation Grounding",
+  },
+  {
+    n: "06",
+    product: "Law Assistant",
+    title: "Precedent Clause Redlining",
+    body: "Compares contract terms against firm playbooks, extracting risk flags, custom indemnities, and recommended redline edits.",
+    tag: "Law AI",
+    tagColor: "bg-slate-100 text-slate-800 border-slate-300",
+    cardBg: "bg-gradient-to-br from-slate-100/90 via-white to-indigo-50/60 border-slate-300 hover:border-slate-500 shadow-slate-500/5",
+    icon: ShieldCheck,
+    iconColor: "text-[#153E6E] bg-slate-100 border-slate-300",
+    badge: "Playbook Redlining",
+  },
+  {
+    n: "07",
+    product: "Learning Assistant",
+    title: "Adaptive Practice Quizzes",
+    body: "Transforms static syllabi and course slides into spaced-repetition modules and self-pacing practice quizzes tailored to student mastery.",
+    tag: "EdTech AI",
+    tagColor: "bg-purple-100 text-purple-800 border-purple-300",
+    cardBg: "bg-gradient-to-br from-purple-50/90 via-white to-fuchsia-50/60 border-purple-300/80 hover:border-purple-500 shadow-purple-500/5",
+    icon: GraduationCap,
+    iconColor: "text-purple-700 bg-purple-100 border-purple-300",
+    badge: "Adaptive Syllabus",
+  },
+  {
+    n: "08",
+    product: "Learning Assistant",
+    title: "Real-time Tutoring Feedback",
+    body: "Provides instant constructive feedback on student submissions, aligning answers with grading rubrics and learning objectives.",
+    tag: "EdTech AI",
+    tagColor: "bg-purple-100 text-purple-800 border-purple-300",
+    cardBg: "bg-gradient-to-br from-purple-50/90 via-white to-fuchsia-50/60 border-purple-300/80 hover:border-purple-500 shadow-purple-500/5",
+    icon: Layers,
+    iconColor: "text-purple-700 bg-purple-100 border-purple-300",
+    badge: "Instant Rubrics",
+  },
+  {
+    n: "09",
+    product: "Agentic AI Services",
+    title: "Custom Stack Integration",
+    body: "Engineered AI agent workflows tailored to your custom databases, API endpoints, tool integrations, and human-in-the-loop approvals.",
+    tag: "Enterprise",
+    tagColor: "bg-amber-100 text-amber-800 border-amber-300",
+    cardBg: "bg-gradient-to-br from-amber-50/90 via-white to-orange-50/60 border-amber-300/80 hover:border-amber-500 shadow-amber-500/5",
+    icon: Cpu,
+    iconColor: "text-amber-700 bg-amber-100 border-amber-300",
+    badge: "Custom Agent Build",
+  },
+  {
+    n: "10",
+    product: "Agentic AI Services",
+    title: "Evaluation & Production Rollout",
+    body: "Full testing suites, benchmark evaluation frameworks, and dedicated engineering support to ensure production safety and speed.",
+    tag: "Enterprise",
+    tagColor: "bg-amber-100 text-amber-800 border-amber-300",
+    cardBg: "bg-gradient-to-br from-amber-50/90 via-white to-orange-50/60 border-amber-300/80 hover:border-amber-500 shadow-amber-500/5",
+    icon: CheckCircle2,
+    iconColor: "text-amber-700 bg-amber-100 border-amber-300",
+    badge: "6-Week Deployment",
+  },
 ];
 
 /** Horizontally scroll-jacked rail driven by vertical scroll. */
 export function HorizontalRail() {
   const { ref, progress } = useSectionProgress<HTMLDivElement>();
-  const shift = progress * (RAIL.length - 2.2) * 340;
+  const shift = progress * (RAIL.length - 2.2) * 360;
 
   return (
     <section id="agents" ref={ref} className="relative" style={{ height: "350vh" }}>
       <div className="sticky top-0 flex h-screen w-screen max-w-full flex-col justify-center overflow-hidden">
         <div className="container-page w-full">
-          <SectionLabel>Capability rail</SectionLabel>
-          <h2 className="mt-4 max-w-xl text-[36px] leading-[1.1] tracking-[0.4px] text-graphite md:text-heading-lg">
-            What our products and engineers deliver
+          <SectionLabel>Product capability rail</SectionLabel>
+          <h2 className="mt-4 max-w-2xl text-[28px] leading-[1.1] tracking-tight text-graphite sm:text-[36px] md:text-heading-lg font-bold font-cal">
+            What our specialized software and engineers deliver
           </h2>
+          <p className="mt-2 text-body text-slate">
+            Scroll to explore core capabilities across NoruvaAI Copilot, Torii Immigration, Law, Learning, and Custom Builds.
+          </p>
         </div>
-        <div className="container-page mt-10 w-full overflow-hidden">
+
+        <div className="container-page mt-8 w-full overflow-hidden">
           <div
-            className="flex gap-5 will-change-transform"
+            className="flex gap-6 will-change-transform py-4"
             style={{ transform: `translate3d(${-shift}px, 0, 0)`, transition: "transform 120ms linear" }}
           >
-            {RAIL.map((r, i) => (
-              <article key={r.title} className="card-surface w-[280px] shrink-0 p-6 sm:w-[320px]">
-                <span className="font-inter text-caption text-stone">
-                  {i + 1 < 10 ? `0${i + 1}` : i + 1} / {RAIL.length < 10 ? `0${RAIL.length}` : RAIL.length}
-                </span>
-                <h3 className="mt-6 text-heading-sm text-graphite">{r.title}</h3>
-                <p className="mt-2 text-body-sm text-slate">{r.body}</p>
-                <div className="mt-8 flex items-center gap-2">
-                  <span className="rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
-                    {i > 7 ? "Service" : "Product"}
+            {RAIL.map((r) => (
+              <article
+                key={r.title}
+                className={`card-surface w-[300px] shrink-0 p-6 sm:w-[350px] transition-all duration-300 hover:shadow-xl flex flex-col justify-between ${r.cardBg}`}
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <div className={`flex h-10 w-10 items-center justify-center rounded-lg border ${r.iconColor}`}>
+                      <r.icon className="h-5 w-5" />
+                    </div>
+                    <span className={`rounded-md px-2.5 py-0.5 text-[9px] font-bold border uppercase tracking-wider ${r.tagColor}`}>
+                      {r.tag}
+                    </span>
+                  </div>
+
+                  <p className="mt-4 font-mono text-[10px] font-bold text-stone uppercase tracking-wider">{r.product} · {r.n}</p>
+                  <h3 className="mt-1 text-heading-sm font-bold font-cal text-graphite">{r.title}</h3>
+                  <p className="mt-2.5 text-body-sm text-slate leading-relaxed">{r.body}</p>
+                </div>
+
+                <div className="mt-6 border-t border-silver/60 pt-4 flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1 font-inter text-[11px] font-bold text-graphite">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                    {r.badge}
                   </span>
-                  <span className="rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
-                    Human in the loop
-                  </span>
+                  <span className="font-inter text-caption text-stone font-semibold">Step {r.n} / 10</span>
                 </div>
               </article>
             ))}
           </div>
-          <div className="mt-8 h-px w-full max-w-xs bg-silver">
-            <div className="h-px bg-action-blue" style={{ width: `${progress * 100}%` }} />
+
+          <div className="mt-8 h-1.5 w-full max-w-md rounded-full bg-silver/60 overflow-hidden">
+            <div className="h-full bg-graphite transition-[width] duration-150 rounded-full" style={{ width: `${progress * 100}%` }} />
           </div>
         </div>
       </div>
