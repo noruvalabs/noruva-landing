@@ -37,7 +37,7 @@ export function Capabilities() {
           {CAPS.map((c, i) => (
             <Reveal key={c.title} delay={i * 60}>
               <article className="card-surface h-full p-6 transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-silver">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-silver/60 border border-silver/80">
                   <c.icon className="h-4 w-4 text-action-blue" />
                 </div>
                 <h3 className="mt-4 text-heading-sm text-graphite">{c.title}</h3>
@@ -119,7 +119,7 @@ export function UseCases() {
         <Reveal key={c.label}>
           <article className="card-surface grid gap-6 p-6 md:grid-cols-2 md:gap-8 md:p-8 lg:p-10">
             <div className={i % 2 === 1 ? "md:order-2" : ""}>
-              <span className="rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
+              <span className="rounded-full bg-silver/60 border border-silver/80 px-3 py-1 font-inter text-caption text-slate">
                 {c.label}
               </span>
               <h3 className="mt-5 text-heading text-graphite">{c.title}</h3>
@@ -132,12 +132,12 @@ export function UseCases() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-xl bg-silver/30 p-6">
+            <div className="rounded-xl bg-paper border border-silver/80 p-6">
               <div className="space-y-3">
                 {[0, 1, 2, 3].map((r) => (
-                  <div key={r} className="rounded-lg bg-white/5 p-3 shadow-[var(--shadow-card)]">
+                  <div key={r} className="rounded-lg bg-white border border-silver/60 p-3 shadow-sm">
                     <div className="flex items-center justify-between">
-                      <p className="font-inter text-caption text-graphite">
+                      <p className="font-inter text-caption text-graphite font-medium">
                         step_{r + 1} · {c.steps[r]}
                       </p>
                       <span className="font-inter text-[10px] text-stone">ok</span>
@@ -237,7 +237,7 @@ export function FinalCta() {
   const y = useScrollY();
   return (
     <section id="cta" className="container-page pb-24">
-      <div className="relative overflow-hidden rounded-xl bg-action-blue/20 border border-action-blue/30 px-5 py-14 text-center sm:px-6 sm:py-20">
+      <div className="relative overflow-hidden rounded-2xl bg-white border border-silver px-5 py-14 text-center shadow-lg sm:px-6 sm:py-20">
 
         <div className="relative">
           <h2 className="mx-auto max-w-2xl text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[34px] md:text-heading-lg">
@@ -248,10 +248,10 @@ export function FinalCta() {
             custom agentic AI build for your own workflow.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="#pricing" className="btn-pill bg-action-blue text-white hover:bg-action-blue/80">
+            <a href="#pricing" className="btn-pill btn-ink">
               Start a trial
             </a>
-            <a href="#platform" className="btn-pill border border-silver text-graphite hover:bg-silver/30">
+            <a href="#platform" className="btn-pill btn-ghost">
               Talk to our team
             </a>
           </div>

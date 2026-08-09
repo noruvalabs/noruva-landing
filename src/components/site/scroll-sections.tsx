@@ -55,14 +55,14 @@ export function ScrollStory() {
                   <li key={s.n} className="flex items-center gap-3">
                     <span
                       className={`flex h-7 w-7 items-center justify-center rounded-full font-inter text-caption transition-colors duration-300 ${
-                        i <= index ? "bg-action-blue text-white" : "bg-silver text-stone"
+                        i <= index ? "bg-graphite text-white font-semibold" : "bg-silver/80 text-stone"
                       }`}
                     >
                       {s.n}
                     </span>
                     <span
                       className={`font-inter text-body-sm transition-colors duration-300 ${
-                        i === index ? "text-graphite" : "text-stone"
+                        i === index ? "text-graphite font-semibold" : "text-stone"
                       }`}
                     >
                       {s.title}
@@ -93,20 +93,20 @@ export function ScrollStory() {
                     pointerEvents: i === index ? "auto" : "none",
                   }}
                 >
-                  <span className="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
+                  <span className="inline-block rounded-full bg-silver/60 border border-silver/80 px-3 py-1 font-inter text-caption text-slate">
                     {i === STEPS.length - 1 ? "Services" : `Product ${s.n}`}
                   </span>
                   <h3 className="mt-5 text-heading text-graphite">{s.title}</h3>
                   <p className="mt-3 max-w-lg text-subheading text-slate">{s.body}</p>
 
                   <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                    <div className="rounded-xl bg-silver/30 p-4">
+                    <div className="rounded-xl bg-paper border border-silver/80 p-4">
                       <p className="font-inter text-[10px] tracking-[0.08em] text-stone uppercase">
                         {s.stat[0]}
                       </p>
                       <p className="mt-1 font-cal text-heading text-graphite">{s.stat[1]}</p>
                     </div>
-                    <div className="rounded-xl bg-silver/30 p-4">
+                    <div className="rounded-xl bg-paper border border-silver/80 p-4">
                       <p className="font-inter text-[10px] tracking-[0.08em] text-stone uppercase">
                         Section progress
                       </p>

@@ -47,14 +47,14 @@ export function Header() {
                 {item.label === "Products" && <ChevronDown className="h-3.5 w-3.5 opacity-50" />}
               </a>
               {item.label === "Products" && desktopOpen && (
-                <div className="absolute top-full left-0 mt-1 w-[320px] rounded-xl border border-silver/40 bg-[#0c1a2e]/95 p-2 backdrop-blur-xl shadow-2xl">
+                <div className="absolute top-full left-0 mt-1 w-[320px] rounded-xl border border-silver bg-white/95 p-2 backdrop-blur-xl shadow-xl">
                   {PRODUCTS.map((p) => (
                     <a
                       key={p.label}
                       href={p.href}
-                      className="flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-silver/20"
+                      className="flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-silver/40"
                     >
-                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-silver/50">
+                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-silver/60">
                         <p.icon className="h-4 w-4 text-action-blue" />
                       </div>
                       <div>

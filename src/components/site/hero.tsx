@@ -21,7 +21,7 @@ export function Hero() {
 
       <div className="container-page relative grid items-center gap-10 py-20 lg:grid-cols-[1.03fr_1fr] lg:gap-14 lg:py-36">
         <div style={{ transform: `translate3d(0, ${p * -0.06}px, 0)` }}>
-          <span className="inline-flex items-center gap-2 rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
+          <span className="inline-flex items-center gap-2 rounded-full border border-silver/80 bg-silver/60 px-3 py-1 font-inter text-caption text-slate">
             <span className="h-1.5 w-1.5 rounded-full bg-action-blue" />
             A software company building applied AI
           </span>
