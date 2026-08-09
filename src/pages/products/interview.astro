@@ -36,34 +36,33 @@ const STEPS = [
 ---
 
 <Base
-  title="Meeting Assistant — Noruva Labs"
-  description="Live transcript processing, automated action item extraction, and executive meeting debriefs."
+  title="NoruvaAI Copilot — Noruva Labs"
+  description="Hear the question. See the answer. Real-time call transcription and instant answer delivery across Google Meet, Zoom, Webex, and LeetCode."
 >
-  <div class="min-h-screen overflow-x-clip bg-paper">
+  <div class="min-h-screen overflow-x-clip bg-gradient-to-b from-emerald-50/60 via-paper to-paper">
     <Header client:load />
     <main class="relative vertical-lines">
       <!-- Hero -->
       <section class="relative overflow-hidden pt-32 pb-20">
         <div class="pointer-events-none absolute inset-0 glow-purple" />
         <div class="container-page relative">
-          <span class="inline-flex items-center gap-2 rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
-            <Video class="h-3.5 w-3.5 text-action-blue" />
-            Meeting Assistant (Live)
+          <span class="inline-flex items-center gap-2 rounded-full bg-emerald-100 border border-emerald-300 px-3.5 py-1 font-inter text-caption font-bold text-emerald-800 shadow-xs">
+            <Video class="h-3.5 w-3.5 text-emerald-600" />
+            NoruvaAI Call Copilot (Live)
           </span>
-          <h1 class="mt-5 text-[32px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[42px] md:text-heading-lg lg:text-display font-bold font-cal">
-            Turn long meetings into
+          <h1 class="mt-5 text-[34px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
+            Hear the question.
             <br />
-            instant action items
+            <span class="text-emerald-600 underline decoration-emerald-300/80 underline-offset-4 font-extrabold">See the answer.</span>
           </h1>
-          <p class="mt-6 max-w-lg text-subheading text-slate">
-            Capture live transcripts, extract owner assignments, generate executive debrief summaries,
-            and push action items straight to your project tools.
+          <p class="mt-6 max-w-lg text-subheading text-slate leading-relaxed">
+            NoruvaAI listens to your call, transcribes every question the instant it's asked, and hands you the right answer in real time — across interviews, sales calls, and meetings.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="https://ai.noruvalabs.com" target="_blank" rel="noopener noreferrer" class="btn-pill btn-ink">
-              Launch Live App (ai.noruvalabs.com) <ArrowRight class="h-4 w-4" />
+            <a href="https://ai.noruvalabs.com" target="_blank" rel="noopener noreferrer" class="btn-pill bg-emerald-600 text-white hover:bg-emerald-500 shadow-md font-bold">
+              Try NoruvaAI Free (ai.noruvalabs.com) <ArrowRight class="h-4 w-4" />
             </a>
-            <a href="#features" class="btn-pill btn-ghost">
+            <a href="#features" class="btn-pill btn-ghost font-semibold">
               See features
             </a>
           </div>
@@ -75,20 +74,20 @@ const STEPS = [
       <!-- Features -->
       <section id="features" class="container-page py-16 md:py-24">
         <div class="max-w-xl">
-          <span class="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption tracking-[0.08em] text-slate uppercase font-bold">
+          <span class="inline-block rounded-full bg-emerald-100 border border-emerald-300 px-3 py-1 font-inter text-caption tracking-[0.08em] text-emerald-800 uppercase font-bold">
             Features
           </span>
           <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg font-bold font-cal">
-            Meeting intelligence,
+            Real-time call intelligence,
             <br />
             start to finish
           </h2>
         </div>
         <div class="mt-12 grid gap-5 sm:grid-cols-2">
           {FEATURES.map((f) => (
-            <article class="card-surface p-6 border-silver">
-              <div class="flex h-8 w-8 items-center justify-center rounded-full bg-silver/60">
-                <Video class="h-4 w-4 text-action-blue" />
+            <article class="card-surface p-6 border-emerald-200/80 bg-gradient-to-br from-emerald-50/50 via-white to-teal-50/30 hover:shadow-xl transition-all">
+              <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-100 border border-emerald-300">
+                <Video class="h-4.5 w-4.5 text-emerald-700" />
               </div>
               <h3 class="mt-4 text-heading-sm font-bold font-cal text-graphite">{f.title}</h3>
               <p class="mt-1.5 text-body-sm text-slate">{f.body}</p>
@@ -102,19 +101,19 @@ const STEPS = [
       <!-- How it works -->
       <section class="container-page py-16 md:py-24">
         <div class="max-w-xl">
-          <span class="inline-block rounded-full bg-silver px-3 py-1 font-inter text-caption tracking-[0.08em] text-slate uppercase font-bold">
+          <span class="inline-block rounded-full bg-emerald-100 border border-emerald-300 px-3 py-1 font-inter text-caption tracking-[0.08em] text-emerald-800 uppercase font-bold">
             How it works
           </span>
           <h2 class="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg font-bold font-cal">
             Four steps to
             <br />
-            actionable meeting summaries
+            instant live answers
           </h2>
         </div>
         <div class="mt-12 space-y-4">
           {STEPS.map((s) => (
-            <article class="card-surface grid gap-6 p-6 md:grid-cols-[60px_1fr] border-silver">
-              <span class="font-cal text-heading-lg text-action-blue font-bold">{s.n}</span>
+            <article class="card-surface grid gap-6 p-6 md:grid-cols-[60px_1fr] border-emerald-200/80 bg-white">
+              <span class="font-cal text-heading-lg text-emerald-600 font-extrabold">{s.n}</span>
               <div>
                 <h3 class="text-heading font-bold font-cal text-graphite">{s.title}</h3>
                 <p class="mt-2 text-body text-slate">{s.body}</p>
@@ -128,20 +127,20 @@ const STEPS = [
 
       <!-- CTA -->
       <section id="cta" class="container-page pb-16 md:pb-24">
-        <div class="relative overflow-hidden rounded-xl bg-action-blue/10 border border-action-blue/30 px-5 py-14 text-center sm:px-6 sm:py-20">
-          <div class="relative">
-            <h2 class="mx-auto max-w-2xl text-[26px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[34px] md:text-heading-lg font-bold font-cal">
-              Ready to automate your meeting debriefs?
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900 border border-emerald-800 px-5 py-14 text-center text-white shadow-2xl sm:px-6 sm:py-20">
+          <div class="relative z-10">
+            <h2 class="mx-auto max-w-2xl text-[26px] leading-[1.1] tracking-[0.4px] text-white sm:text-[34px] md:text-heading-lg font-bold font-cal">
+              Ready to try NoruvaAI Copilot?
             </h2>
-            <p class="mx-auto mt-4 max-w-md text-body text-slate">
-              Try Meeting Assistant live today at ai.noruvalabs.com — or talk to our engineers about a custom
+            <p class="mx-auto mt-4 max-w-md text-body text-emerald-100">
+              Try NoruvaAI live today at ai.noruvalabs.com — or talk to our engineers about a custom
               workflow for your team.
             </p>
             <div class="mt-8 flex flex-wrap justify-center gap-3">
-              <a href="https://ai.noruvalabs.com" target="_blank" rel="noopener noreferrer" class="btn-pill bg-action-blue text-white hover:opacity-90">
-                Launch Live App (ai.noruvalabs.com) →
+              <a href="https://ai.noruvalabs.com" target="_blank" rel="noopener noreferrer" class="btn-pill bg-emerald-500 text-zinc-950 hover:bg-emerald-400 font-bold shadow-lg">
+                Try NoruvaAI Free (ai.noruvalabs.com) →
               </a>
-              <a href="/" class="btn-pill border border-silver text-graphite hover:bg-silver/30">
+              <a href="/" class="btn-pill bg-white/10 border border-white/20 text-white hover:bg-white/20">
                 Back to home
               </a>
             </div>
