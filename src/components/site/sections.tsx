@@ -369,12 +369,16 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-2">
             <img src="/logo.svg" alt="Noruva Labs" className="h-10 w-auto" />
-            <span className="font-cal text-heading-sm text-graphite">Noruva Labs</span>
+            <span className="font-cal text-heading-sm text-graphite font-bold">Noruva Labs</span>
           </div>
-          <p className="mt-3 max-w-xs text-body-sm text-slate">
-            A software company building applied AI products and custom agentic systems. Built in
-            Amsterdam and Toronto.
+          <p className="mt-3 max-w-xs text-body-sm text-slate leading-relaxed">
+            Building specialized AI products and custom enterprise agent systems.
+            <br />
+            <strong className="text-graphite font-semibold">Minato-ku, Tokyo, Japan 105-8511</strong>
           </p>
+          <a href="mailto:support@noruvalabs.com" className="mt-2.5 inline-block font-inter text-caption font-bold text-action-blue hover:underline">
+            support@noruvalabs.com
+          </a>
         </div>
         {cols.map(([title, links]) => (
           <div key={title}>
