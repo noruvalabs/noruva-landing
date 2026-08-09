@@ -1,0 +1,145 @@
+---
+import Base from '../../layouts/Base.astro';
+import { Header } from '../../components/site/header';
+import { Footer } from '../../components/site/sections';
+import { ALL_POSTS, type BlogPost } from '../../lib/blog-data';
+import { ArrowLeft, Calendar, Clock, Share2, User } from 'lucide-react';
+
+export function getStaticPaths() {
+  return ALL_POSTS.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+const otherPosts = ALL_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
+---
+
+<Base
+  title={`${post.title} — Noruva Labs Blog`}
+  description={post.body}
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <!-- Article Header -->
+      <article class="pt-32 pb-16">
+        <div class="container-page max-w-4xl">
+          <a
+            href="/blog"
+            class="inline-flex items-center gap-2 font-inter text-body-sm text-slate transition-colors hover:text-graphite mb-8"
+          >
+            <ArrowLeft class="h-4 w-4" /> Back to Blog
+          </a>
+
+          <div class="flex items-center gap-3 mb-4">
+            <span class="rounded-md bg-silver/60 border border-silver/80 px-2.5 py-0.5 font-inter text-caption font-medium text-graphite">
+              {post.tag}
+            </span>
+            <span class="flex items-center gap-1.5 font-inter text-caption text-stone">
+              <Calendar class="h-3.5 w-3.5" /> {post.date}
+            </span>
+            <span class="flex items-center gap-1.5 font-inter text-caption text-stone">
+              <Clock class="h-3.5 w-3.5" /> {post.readTime}
+            </span>
+          </div>
+
+          <h1 class="text-[32px] leading-[1.15] tracking-tight text-graphite sm:text-[40px] md:text-[48px] font-bold font-cal">
+            {post.title}
+          </h1>
+
+          <div class="mt-6 flex items-center justify-between border-y border-silver py-4">
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-silver/60 border border-silver/80">
+                <User class="h-5 w-5 text-graphite" />
+              </div>
+              <div>
+                <p class="font-inter text-body-sm font-semibold text-graphite">{post.author}</p>
+                <p class="font-inter text-caption text-slate">{post.authorRole}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lead Paragraph -->
+          <div class="mt-10 text-subheading leading-relaxed text-graphite font-medium">
+            {post.content.intro}
+          </div>
+
+          <!-- Body Sections -->
+          <div class="mt-8 space-y-10 text-body leading-relaxed text-slate">
+            {post.content.sections.map((section) => (
+              <div class="space-y-4">
+                <h2 class="font-cal text-heading-sm font-bold text-graphite sm:text-heading">
+                  {section.heading}
+                </h2>
+                <p>{section.text}</p>
+
+                {section.quote && (
+                  <blockquote class="my-6 border-l-4 border-action-blue bg-white p-5 rounded-r-xl shadow-sm italic text-graphite font-medium">
+                    "{section.quote}"
+                  </blockquote>
+                )}
+
+                {section.bullets && (
+                  <ul class="my-4 space-y-2 pl-2">
+                    {section.bullets.map((b) => (
+                      <li class="flex items-start gap-2 text-body-sm text-slate">
+                        <span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-action-blue shrink-0" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {section.codeSnippet && (
+                  <div class="my-6 overflow-x-auto rounded-xl bg-[#18181b] p-4 text-white text-caption font-mono shadow-md">
+                    <pre>{section.codeSnippet}</pre>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <!-- Conclusion Box -->
+            <div class="card-surface p-6 sm:p-8 mt-12">
+              <h3 class="font-cal text-heading-sm font-bold text-graphite">Key Takeaway</h3>
+              <p class="mt-2 text-body text-slate">{post.content.conclusion}</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="section-separator w-full" />
+
+      <!-- Related Posts -->
+      <section class="container-page py-16">
+        <h2 class="font-cal text-heading text-graphite mb-8">Related Articles</h2>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {otherPosts.map((p) => (
+            <a href={`/blog/${p.slug}`} class="group block">
+              <article class="card-surface flex h-full flex-col p-6 transition-transform duration-200 group-hover:-translate-y-1">
+                <div class="flex items-center gap-3">
+                  <span class="rounded-md bg-silver/60 px-2.5 py-0.5 font-inter text-caption text-slate">{p.tag}</span>
+                  <span class="flex items-center gap-1.5 font-inter text-caption text-stone">
+                    <Clock class="h-3 w-3" /> {p.readTime}
+                  </span>
+                </div>
+                <h3 class="mt-4 text-heading-sm text-graphite group-hover:text-action-blue transition-colors leading-snug">{p.title}</h3>
+                <p class="mt-2 flex-1 text-body-sm text-slate leading-relaxed">{p.body}</p>
+                <div class="mt-5 flex items-center justify-between pt-4 border-t border-silver/60">
+                  <span class="font-inter text-caption text-stone">{p.date}</span>
+                  <span class="font-inter text-caption font-medium text-action-blue">Read →</span>
+                </div>
+              </article>
+            </a>
+          ))}
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>
