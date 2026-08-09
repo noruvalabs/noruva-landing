@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Gavel, Plane, Puzzle, ShieldCheck, UserCheck, Wrench } from "lucide-react";
+import { ArrowRight, Check, Gavel, GraduationCap, Plane, Puzzle, ShieldCheck, UserCheck, Wrench } from "lucide-react";
 import { useScrollY } from "@/hooks/use-scroll-motion";
 import { Reveal, SectionLabel } from "./reveal";
 
@@ -6,9 +6,10 @@ const CAPS = [
   { icon: UserCheck, title: "Interview Assistant", body: "Structured question sets, live notes and comparable candidate scorecards." },
   { icon: Plane, title: "Immigration Assistant", body: "Route guidance, document checklists and deadline tracking per case." },
   { icon: Gavel, title: "Law Assistant", body: "Research, summaries and drafting with a citation behind every claim." },
+  { icon: GraduationCap, title: "Learning Assistant", body: "Adaptive courseware, automated tutoring, interactive quizzes and student progress tracking." },
   { icon: Puzzle, title: "Agentic AI services", body: "Custom agents designed, built and integrated into your existing stack." },
   { icon: Wrench, title: "Engineering support", body: "Our team stays on after launch: evals, tuning, monitoring, iteration." },
-  { icon: ShieldCheck, title: "Private by default", body: "Your documents and matter data are never used to train shared models." },
+  { icon: ShieldCheck, title: "Private by default", body: "Your documents and learning data are never used to train shared models." },
 ];
 
 export function Capabilities() {
@@ -28,7 +29,7 @@ export function Capabilities() {
           </p>
           <a
             href="#faq"
-            className="mt-6 inline-flex items-center gap-1.5 text-body-sm text-action-blue"
+            className="mt-6 inline-flex items-center gap-1.5 text-body-sm text-action-blue font-medium hover:underline"
           >
             Read how we work <ArrowRight className="h-4 w-4" />
           </a>
@@ -52,9 +53,9 @@ export function Capabilities() {
 }
 
 const STATS = [
-  ["03", "Products in the line"],
-  ["48k", "Interview sessions run"],
-  ["120+", "Immigration case types covered"],
+  ["04", "Products in the line"],
+  ["65k+", "Sessions & loops run"],
+  ["15k+", "Active learners supported"],
   ["6 wks", "Typical custom agent build"],
 ];
 
@@ -96,6 +97,13 @@ const CASES = [
     body: "Search matter files and public sources together, get a summary with paragraph-level citations, and draft from your own precedent bank instead of a generic template.",
     bullets: ["Cited summaries", "Clause extraction", "Precedent-aware drafting"],
     steps: ["retrieve", "cite", "draft", "verify"],
+  },
+  {
+    label: "Learning Assistant",
+    title: "Personalized learning loops for every student",
+    body: "Turn curriculum materials into interactive study modules, generate adaptive practice quizzes, and provide real-time tutoring feedback with syllabus mastery tracking.",
+    bullets: ["Adaptive quiz generation", "Live tutoring feedback", "Syllabus & progress tracking"],
+    steps: ["parse syllabus", "generate quiz", "tutor session", "track mastery"],
   },
   {
     label: "Agentic AI services",
@@ -198,10 +206,10 @@ export function Quotes() {
 
 const FAQ = [
   ["Are you a SaaS company?", "We are a software company. We build and licence products, and we take on engineering work — custom agentic AI systems built for a single client's process."],
-  ["What are the three products?", "Interview Assistant for structured hiring loops, Immigration Assistant for route guidance and case documents, and Law Assistant for cited research and drafting."],
-  ["Do the assistants replace professionals?", "No. Each one drafts, checks and organises; a recruiter, consultant or lawyer reviews and signs off. Every output is traceable to its source."],
+  ["What are the four products?", "Interview Assistant for structured hiring loops, Immigration Assistant for route guidance and case documents, Law Assistant for cited research and drafting, and Learning Assistant for adaptive courseware and tutoring."],
+  ["Do the assistants replace professionals?", "No. Each one drafts, checks and organises; a recruiter, consultant, lawyer or educator reviews and signs off. Every output is traceable to its source."],
   ["What does an agentic AI engagement look like?", "A short discovery, a scoped build against your own tools and data, an evaluation suite, then rollout with our engineers alongside your team. Most first builds ship in about six weeks."],
-  ["Where does our data live?", "In your environment where you need it there. We never train shared models on client documents, matter files or candidate data."],
+  ["Where does our data live?", "In your environment where you need it there. We never train shared models on client documents, matter files, course material or candidate data."],
 ];
 
 export function Faq() {
@@ -244,7 +252,7 @@ export function FinalCta() {
             Pick a product, or bring us a problem
           </h2>
           <p className="mx-auto mt-4 max-w-md text-body text-slate">
-            Trial Interview, Immigration or Law Assistant today — or talk to our engineers about a
+            Trial Interview, Immigration, Law or Learning Assistant today — or talk to our engineers about a
             custom agentic AI build for your own workflow.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -263,7 +271,7 @@ export function FinalCta() {
 
 export function Footer() {
   const cols = [
-    ["Products", ["Interview Assistant", "Immigration Assistant", "Law Assistant", "Agentic AI services"]],
+    ["Products", ["Interview Assistant", "Immigration Assistant", "Law Assistant", "Learning Assistant", "Agentic AI services"]],
     ["Company", ["About", "Careers", "Security", "Contact"]],
     ["Resources", ["Docs", "Blog", "Changelog", "Status", "Privacy"]],
   ] as const;

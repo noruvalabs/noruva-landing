@@ -1,0 +1,122 @@
+---
+import Base from '../../layouts/Base.astro';
+import { Header } from '../../components/site/header';
+import { Footer } from '../../components/site/sections';
+import { ArrowRight, GraduationCap, BookOpen, Brain, Sparkles, Check } from 'lucide-react';
+
+const FEATURES = [
+  {
+    title: "Adaptive Courseware",
+    body: "Generate personalized study pathways from course material, syllabi or corporate documentation.",
+  },
+  {
+    title: "Automated Tutoring",
+    body: "Instant feedback on student exercises, step-by-step problem breakdown and mastery tracking.",
+  },
+  {
+    title: "Interactive Quizzes",
+    body: "Create spaced-repetition quizzes, flashcards and knowledge checks aligned with learning goals.",
+  },
+  {
+    title: "Syllabus Mastery",
+    body: "Track individual and cohort progress across topics, identifying knowledge gaps early.",
+  },
+];
+
+const STEPS = [
+  { n: "01", title: "Ingest Syllabus & Materials", body: "Upload course outlines, textbooks or training manuals. The assistant indexes key concepts and learning objectives." },
+  { n: "02", title: "Generate Study Modules", body: "Build interactive learning pathways with bite-sized lessons, flashcards and practice problems." },
+  { n: "03", title: "Live Tutoring & Feedback", body: "Students receive real-time explanations, hints and guided problem solving tailored to their pace." },
+  { n: "04", title: "Mastery Analytics", body: "Educators and team leads view detailed analytics on concept mastery, retention and quiz scores." },
+];
+---
+
+<Base
+  title="Learning Assistant — Noruva Labs"
+  description="Adaptive courseware, automated tutoring, interactive quizzes and student progress tracking for schools, universities and enterprises."
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <!-- Hero -->
+      <section class="relative overflow-hidden pt-32 pb-20">
+        <div class="pointer-events-none absolute inset-0 glow-purple" />
+        <div class="container-page relative">
+          <span class="inline-flex items-center gap-2 rounded-full border border-silver/80 bg-silver/60 px-3 py-1 font-inter text-caption text-slate">
+            <GraduationCap class="h-3.5 w-3.5 text-action-blue" />
+            Learning Assistant
+          </span>
+          <h1 class="mt-5 text-[32px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[42px] md:text-heading-lg lg:text-display">
+            Personalized learning loops
+            <br />
+            for every student
+          </h1>
+          <p class="mt-6 max-w-lg text-subheading text-slate">
+            Turn curriculum materials into interactive study modules, generate adaptive practice quizzes, and provide real-time tutoring feedback with syllabus mastery tracking.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#demo" className="btn-pill btn-ink">
+              Request a demo <ArrowRight className="h-4 w-4" />
+            </a>
+            <a href="#features" className="btn-pill btn-ghost">
+              Explore features
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-separator" />
+
+      <!-- Features Grid -->
+      <section id="features" class="container-page py-20">
+        <h2 class="text-heading-lg text-graphite">Built for modern education & training</h2>
+        <p class="mt-3 max-w-lg text-body text-slate">
+          Empower students, faculty and corporate learners with intelligent, self-pacing study assistants.
+        </p>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {FEATURES.map((f) => (
+            <div class="card-surface p-6">
+              <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-silver/60 border border-silver/80">
+                <GraduationCap class="h-4 w-4 text-action-blue" />
+              </div>
+              <h3 class="mt-4 text-heading-sm text-graphite">{f.title}</h3>
+              <p class="mt-2 text-body-sm text-slate">{f.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-separator" />
+
+      <!-- How it Works -->
+      <section class="container-page py-20">
+        <h2 class="text-heading-lg text-graphite">How Learning Assistant works</h2>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {STEPS.map((s) => (
+            <div class="card-surface p-6">
+              <span class="font-cal text-heading-sm text-action-blue">{s.n}</span>
+              <h3 class="mt-3 text-heading-sm text-graphite">{s.title}</h3>
+              <p class="mt-2 text-body-sm text-slate">{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-separator" />
+
+      <!-- CTA -->
+      <section id="demo" class="container-page py-20 text-center">
+        <div class="card-surface p-12">
+          <h2 class="text-heading-lg text-graphite">Transform learning at your organization</h2>
+          <p class="mt-4 mx-auto max-w-md text-body text-slate">
+            Deploy Learning Assistant for your institution or integrate custom learning workflows with our engineering team.
+          </p>
+          <div class="mt-8 flex justify-center gap-3">
+            <a href="/contact" class="btn-pill btn-ink">Get started</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>

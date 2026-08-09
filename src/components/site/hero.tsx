@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Gavel, Plane, Terminal, UserCheck } from "lucide-react";
+import { ArrowRight, Check, Gavel, GraduationCap, Plane, Terminal, UserCheck } from "lucide-react";
 import { useScrollY } from "@/hooks/use-scroll-motion";
 
 const LOG = [
@@ -33,8 +33,8 @@ export function Hero() {
             hard decisions
           </h1>
           <p className="mt-6 max-w-md text-subheading text-slate">
-            Noruva Labs is a software company shipping three assistants — Interview, Immigration and
-            Law — and building custom agentic AI systems for teams that need more than a chatbot.
+            Noruva Labs is a software company shipping four assistants — Interview, Immigration, Law and
+            Learning — and building custom agentic AI systems for teams that need more than a chatbot.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#cta" className="btn-pill btn-ink">
@@ -45,7 +45,7 @@ export function Hero() {
             </a>
           </div>
           <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2 font-inter text-caption text-slate">
-            {["3 shipped products", "Custom agentic AI services", "Your data stays yours"].map((i) => (
+            {["4 shipped products", "Custom agentic AI services", "Your data stays yours"].map((i) => (
               <li key={i} className="inline-flex items-center gap-1.5">
                 <Check className="h-3.5 w-3.5 text-action-blue" /> {i}
               </li>
@@ -72,9 +72,9 @@ export function Hero() {
             </div>
             <div className="grid grid-cols-3 border-t border-silver">
               {[
-                ["Products", "03"],
-                ["Sessions run", "48k"],
-                ["Client teams", "60+"],
+                ["Products", "04"],
+                ["Sessions run", "65k+"],
+                ["Client teams", "80+"],
               ].map(([k, v]) => (
                 <div key={k} className="border-r border-silver px-2 py-2 last:border-r-0 sm:px-4 sm:py-3">
                   <p className="font-cal text-body-sm text-graphite sm:text-heading-sm">{v}</p>
@@ -107,6 +107,14 @@ export function Hero() {
             <UserCheck className="h-4 w-4 text-action-blue" />
             <p className="mt-2 font-cal text-body text-graphite">Interview Assistant</p>
             <p className="font-inter text-caption text-slate">Structured, fairer hiring loops.</p>
+          </div>
+          <div
+            className="card-surface absolute -right-6 -bottom-8 hidden w-48 p-4 xl:block"
+            style={{ transform: `translate3d(0, ${p * 0.12}px, 0)` }}
+          >
+            <GraduationCap className="h-4 w-4 text-action-blue" />
+            <p className="mt-2 font-cal text-body text-graphite">Learning Assistant</p>
+            <p className="font-inter text-caption text-slate">Adaptive courseware & study loops.</p>
           </div>
         </div>
       </div>

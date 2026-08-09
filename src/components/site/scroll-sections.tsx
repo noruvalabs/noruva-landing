@@ -22,6 +22,12 @@ const STEPS = [
   },
   {
     n: "04",
+    title: "Learning Assistant",
+    body: "Generates interactive curriculum, adaptive quizzes and personalized study loops for students, corporate teams and educational institutions.",
+    stat: ["Active learners", "15k+"],
+  },
+  {
+    n: "05",
     title: "Agentic AI services",
     body: "Beyond our products we design, build and run custom agent systems inside your stack: tool integrations, evaluations, approvals and deployment support from our engineers.",
     stat: ["Typical first build", "6 wks"],
@@ -35,14 +41,14 @@ export function ScrollStory() {
   const active = STEPS[index]!;
 
   return (
-    <section id="platform" ref={ref} className="relative" style={{ height: "400vh" }}>
+    <section id="platform" ref={ref} className="relative" style={{ height: "450vh" }}>
       <div className="sticky top-0 flex h-screen w-screen max-w-full items-center overflow-hidden">
         <div className="container-page w-full min-w-0">
           <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <SectionLabel>What we build</SectionLabel>
               <h2 className="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
-                Three products,
+                Four products,
                 <br />
                 one engineering team
               </h2>
@@ -140,6 +146,8 @@ const RAIL = [
   { title: "Document checklists", body: "Tracks evidence, expiry dates and what is still missing per case." },
   { title: "Legal research", body: "Cited summaries drawn from your matter files and public sources." },
   { title: "Contract drafting", body: "Clause extraction, playbook comparison and redline suggestions." },
+  { title: "Adaptive courseware", body: "Personalized learning pathways, interactive quizzes and knowledge checks." },
+  { title: "Automated tutoring", body: "Instant feedback on student assignments, syllabus alignment and progress rubrics." },
   { title: "Custom agent builds", body: "Bespoke agentic workflows wired into your own tools and data." },
   { title: "Evaluation & rollout", body: "Test suites, approval gates and hands-on deployment support." },
 ];
@@ -150,7 +158,7 @@ export function HorizontalRail() {
   const shift = progress * (RAIL.length - 2.2) * 340;
 
   return (
-    <section id="agents" ref={ref} className="relative" style={{ height: "320vh" }}>
+    <section id="agents" ref={ref} className="relative" style={{ height: "350vh" }}>
       <div className="sticky top-0 flex h-screen w-screen max-w-full flex-col justify-center overflow-hidden">
         <div className="container-page w-full">
           <SectionLabel>Capability rail</SectionLabel>
@@ -166,13 +174,13 @@ export function HorizontalRail() {
             {RAIL.map((r, i) => (
               <article key={r.title} className="card-surface w-[280px] shrink-0 p-6 sm:w-[320px]">
                 <span className="font-inter text-caption text-stone">
-                  0{i + 1} / 0{RAIL.length}
+                  {i + 1 < 10 ? `0${i + 1}` : i + 1} / {RAIL.length < 10 ? `0${RAIL.length}` : RAIL.length}
                 </span>
                 <h3 className="mt-6 text-heading-sm text-graphite">{r.title}</h3>
                 <p className="mt-2 text-body-sm text-slate">{r.body}</p>
                 <div className="mt-8 flex items-center gap-2">
                   <span className="rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
-                    {i > 5 ? "Service" : "Product"}
+                    {i > 7 ? "Service" : "Product"}
                   </span>
                   <span className="rounded-full bg-silver px-3 py-1 font-inter text-caption text-slate">
                     Human in the loop

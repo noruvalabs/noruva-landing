@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { ChevronDown, ChevronRight, UserCheck, Plane, Gavel, Menu, X } from "lucide-react";
+import { ChevronDown, ChevronRight, UserCheck, Plane, Gavel, GraduationCap, Menu, X } from "lucide-react";
 
 const PRODUCTS = [
   { label: "Interview Assistant", href: "/products/interview", icon: UserCheck, body: "Structured hiring loops" },
   { label: "Immigration Assistant", href: "/products/immigration", icon: Plane, body: "Route guidance & checklists" },
   { label: "Law Assistant", href: "/products/law", icon: Gavel, body: "Cited research & drafting" },
+  { label: "Learning Assistant", href: "/products/learning", icon: GraduationCap, body: "Adaptive courseware & tutoring" },
 ];
 
 const NAV = [
