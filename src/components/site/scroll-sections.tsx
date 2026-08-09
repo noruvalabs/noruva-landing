@@ -4,9 +4,9 @@ import { SectionLabel } from "./reveal";
 const STEPS = [
   {
     n: "01",
-    title: "Interview Assistant",
-    body: "Turns a job description into a structured interview loop: tailored questions, live note capture, rubric scoring and a candidate brief the panel can actually compare.",
-    stat: ["Interviews structured", "48k"],
+    title: "Meeting Assistant",
+    body: "Captures live meeting transcripts, automatically extracts action items, organizes speaker debriefs, and syncs key decisions across your organization.",
+    stat: ["Meetings structured", "48k"],
     status: "Live",
     statusColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
     link: "https://ai.noruvalabs.com",

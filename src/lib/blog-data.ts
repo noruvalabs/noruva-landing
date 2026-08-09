@@ -22,38 +22,38 @@ export interface BlogPost {
 
 export const ALL_POSTS: BlogPost[] = [
   {
-    slug: "interview-assistant-2-0",
-    title: "Interview Assistant 2.0: Real-time bias detection and panel scoring",
-    body: "We shipped a major upgrade to Interview Assistant with real-time bias detection, comparable panel scorecards and a new structured debrief flow. Here's what changed and why it matters for hiring teams.",
+    slug: "meeting-assistant-2-0",
+    title: "Meeting Assistant 2.0: Real-time action item extraction and speaker debriefs",
+    body: "We shipped a major upgrade to Meeting Assistant with real-time transcript summarization, automated action item extraction and a new debrief flow. Here's what changed and why it matters for teams.",
     date: "Jul 15, 2026",
     readTime: "8 min read",
     tag: "Product",
     author: "Dana Reyes",
     authorRole: "Head of Product",
     content: {
-      intro: "Hiring decisions should be based on candidate evidence, not on who speaks with the most confidence. Today, we're releasing Interview Assistant 2.0 — a complete redesign of our structured hiring engine that brings real-time bias detection, automated rubric alignment, and instant panel debrief scorecards.",
+      intro: "Meetings should end with clear decisions and assigned owners, not lost conversation notes. Today, we're releasing Meeting Assistant 2.0 — a complete redesign of our meeting intelligence engine that brings real-time transcript processing, automated action item extraction, and instant executive summaries.",
       sections: [
         {
-          heading: "The Problem with Unstructured Debriefs",
-          text: "When interviewers enter debriefs without structured scorecards, loudness wins. The interviewer who speaks first or has the strongest subjective opinion shapes the outcome, regardless of candidate evidence.",
-          quote: "If two interviewers evaluate the same candidate response, they should be measuring against the same skill rubric — not personal mood.",
+          heading: "The Problem with Unstructured Meeting Notes",
+          text: "When team meetings end without structured summaries, action items get lost in long audio recordings. Important owner assignments disappear, and team members spend hours listening back to calls.",
+          quote: "If a meeting produces 5 key decisions, every team member should leave with the exact same list of owner tags and deadlines.",
           bullets: [
-            "Inconsistent question weighting across different interview loops",
-            "Subjective feedback language that triggers unconscious bias",
-            "Hours spent compiling notes into hiring committee docs",
+            "Inconsistent action item tracking across teams",
+            "Lost context on key executive decisions",
+            "Hours spent compiling call notes manually",
           ],
         },
         {
-          heading: "Real-time Bias Detection in Action",
-          text: "As interviewers take live notes during the conversation, Interview Assistant scans for subjective or potentially biased phrases. It highlights problematic phrasing and suggests evidence-grounded alternatives before notes are committed.",
-          codeSnippet: "// Interview Assistant Bias Detection Engine\nconst evaluation = await assistant.analyzeNotes({\n  notes: interviewerNotes,\n  rubric: roleRubric,\n  flagKeywords: ['gut feeling', 'culture fit', 'articulate']\n});\n// Result: 1 subjective phrase flagged -> Suggesting evidence-based rating",
+          heading: "Real-time Action Item Extraction",
+          text: "As team members speak, Meeting Assistant processes live transcripts to extract explicit commitments, tasks, and follow-ups. It tags owner names and deadlines automatically as they are spoken.",
+          codeSnippet: "// Meeting Assistant Action Item Extractor\nconst extraction = await assistant.analyzeTranscript({\n  transcript: liveAudioStream,\n  detectActionItems: true,\n  assignees: teamDirectory\n});\n// Result: 4 action items extracted -> Pushed to project board",
         },
         {
-          heading: "Comparable Panel Scorecards",
-          text: "Once the loop completes, Interview Assistant synthesizes all panel feedback into a single, side-by-side scorecard. Every rating links back to the specific question prompt and verbatim candidate note.",
+          heading: "Executive Debrief Summaries",
+          text: "Once the meeting concludes, Meeting Assistant synthesizes full transcripts into a 1-page executive summary. Every decision links back to the exact timestamp and verbatim audio snippet.",
         },
       ],
-      conclusion: "Interview Assistant 2.0 is live for all Noruva Labs customers starting today. Try creating your first structured loop in under two minutes.",
+      conclusion: "Meeting Assistant 2.0 is live for all Noruva Labs customers starting today at ai.noruvalabs.com. Try recording your first meeting summary in under two minutes.",
     },
   },
   {

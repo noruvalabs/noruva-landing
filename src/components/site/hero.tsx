@@ -1,22 +1,22 @@
 import { useState } from "react";
-import { ArrowRight, Check, ExternalLink, Gavel, GraduationCap, Plane, UserCheck, Building2, ShieldCheck, Briefcase, Cpu, Globe2, Scale, Zap } from "lucide-react";
+import { ArrowRight, Check, ExternalLink, Gavel, GraduationCap, Plane, Video, Building2, ShieldCheck, Briefcase, Cpu, Globe2, Scale, Zap } from "lucide-react";
 import { useScrollY } from "@/hooks/use-scroll-motion";
 
 const PRODUCTS_PREVIEW = [
   {
-    id: "interview",
-    name: "Interview Assistant",
+    id: "meeting",
+    name: "Meeting Assistant",
     status: "Live",
     statusColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
     liveUrl: "https://ai.noruvalabs.com",
-    icon: UserCheck,
-    tagline: "Structured hiring loops & evidence-based candidate scoring.",
+    icon: Video,
+    tagline: "Live notes, automated action item extraction & executive debriefs.",
     metrics: [
-      { label: "Skills Matched", val: "6 Verified" },
-      { label: "Loop Prompts", val: "9 Tailored" },
-      { label: "Candidate Score", val: "9.4 / 10" },
+      { label: "Action Items", val: "12 Extracted" },
+      { label: "Speakers Synced", val: "8 Identified" },
+      { label: "Summary Score", val: "100% Verbatim" },
     ],
-    sampleSnippet: "Parsed senior AI engineer spec → generated 9 rubric prompts → 0 bias flags.",
+    sampleSnippet: "Captured product sync transcript → generated 12 action items → assigned owner tags.",
   },
   {
     id: "immigration",
@@ -81,7 +81,7 @@ export function Hero() {
         <div className="min-w-0 w-full" style={{ transform: `translate3d(0, ${p * -0.04}px, 0)` }}>
           <span className="inline-flex items-center gap-2 rounded-md border border-silver bg-white px-3 py-1 font-inter text-[11px] font-semibold tracking-[0.05em] uppercase text-graphite shadow-xs">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            Interview Assistant is Live
+            Meeting Assistant is Live
           </span>
 
           <h1 className="mt-4 text-[32px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
@@ -100,7 +100,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className="font-semibold text-action-blue underline decoration-action-blue/30 underline-offset-4 hover:decoration-action-blue"
             >
-              Interview Assistant
+              Meeting Assistant
             </a>{" "}
             and upcoming Immigration, Law and Learning suites.
           </p>
@@ -112,7 +112,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className="btn-pill btn-ink group"
             >
-              Launch Interview AI <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              Launch Meeting AI <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a href="#platform" className="btn-pill btn-ghost">
               See all products
@@ -123,7 +123,7 @@ export function Hero() {
             <li className="inline-flex items-center gap-1.5 font-semibold text-graphite">
               <Check className="h-3.5 w-3.5 text-action-blue" />
               <a href="https://ai.noruvalabs.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-action-blue">
-                Interview AI Live (ai.noruvalabs.com)
+                Meeting AI Live (ai.noruvalabs.com)
               </a>
             </li>
             <li className="inline-flex items-center gap-1.5 font-medium">

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { ChevronDown, ChevronRight, UserCheck, Plane, Gavel, GraduationCap, Menu, X } from "lucide-react";
+import { ChevronDown, ChevronRight, Video, Plane, Gavel, GraduationCap, Menu, X } from "lucide-react";
 
 const PRODUCTS = [
   {
-    label: "Interview Assistant",
+    label: "Meeting Assistant",
     href: "https://ai.noruvalabs.com",
     external: true,
-    icon: UserCheck,
-    body: "Structured hiring loops",
+    icon: Video,
+    body: "Live notes, action items & summaries",
     badge: "Live",
     badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
   },

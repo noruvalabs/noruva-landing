@@ -1,12 +1,12 @@
-import { ArrowRight, Check, Gavel, GraduationCap, Plane, Puzzle, ShieldCheck, UserCheck, Wrench } from "lucide-react";
+import { ArrowRight, Check, Gavel, GraduationCap, Plane, Puzzle, UserCheck, Video, Wrench } from "lucide-react";
 import { useScrollY } from "@/hooks/use-scroll-motion";
 import { Reveal, SectionLabel } from "./reveal";
 
 const CAPS = [
   {
-    icon: UserCheck,
-    title: "Interview Assistant",
-    body: "Structured question sets, live notes and comparable candidate scorecards.",
+    icon: Video,
+    title: "Meeting Assistant",
+    body: "Live transcripts, automated action item extraction, and executive debrief summaries.",
     status: "Live",
     statusColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
     link: "https://ai.noruvalabs.com",
@@ -59,13 +59,13 @@ export function Capabilities() {
       <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <SectionLabel>Products & services</SectionLabel>
-          <h2 className="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg">
+          <h2 className="mt-4 text-[28px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[36px] md:text-heading-lg font-bold font-cal">
             Software first,
             <br />
             AI where it earns it
           </h2>
           <p className="mt-4 max-w-sm text-body text-slate">
-            We build specialized AI products starting with our live Interview Assistant engine.
+            We build specialized AI products starting with our live Meeting Assistant engine.
           </p>
           <a
             href="#faq"
@@ -138,11 +138,11 @@ export function Stats() {
 
 const CASES = [
   {
-    label: "Interview Assistant",
-    title: "Hire on evidence, not on who interviewed best",
-    body: "Generate a role-specific interview loop from the job spec, capture notes while the conversation happens, and produce a scorecard the whole panel reads the same way.",
-    bullets: ["Role-specific question sets", "Live note capture", "Comparable scorecards"],
-    steps: ["parse spec", "build loop", "capture notes", "score"],
+    label: "Meeting Assistant",
+    title: "Turn long conversations into instant action items",
+    body: "Capture live transcripts, extract owner assignments, generate executive debrief summaries, and push action items straight to your issue tracker.",
+    bullets: ["Live transcript capture", "Automated action item extraction", "Executive debrief summaries"],
+    steps: ["record sync", "parse transcript", "extract tasks", "sync CRM"],
   },
   {
     label: "Immigration Assistant",
@@ -266,10 +266,10 @@ export function Quotes() {
 
 const FAQ = [
   ["Are you a SaaS company?", "We are a software company. We build and licence products, and we take on engineering work — custom agentic AI systems built for a single client's process."],
-  ["What are the four products?", "Interview Assistant for structured hiring loops, Immigration Assistant for route guidance and case documents, Law Assistant for cited research and drafting, and Learning Assistant for adaptive courseware and tutoring."],
-  ["Do the assistants replace professionals?", "No. Each one drafts, checks and organises; a recruiter, consultant, lawyer or educator reviews and signs off. Every output is traceable to its source."],
+  ["What are the four products?", "Meeting Assistant for live transcripts and action items, Immigration Assistant for route guidance and case documents, Law Assistant for cited research and drafting, and Learning Assistant for adaptive courseware and tutoring."],
+  ["Do the assistants replace professionals?", "No. Each one drafts, checks and organises; a team lead, consultant, lawyer or educator reviews and signs off. Every output is traceable to its source."],
   ["What does an agentic AI engagement look like?", "A short discovery, a scoped build against your own tools and data, an evaluation suite, then rollout with our engineers alongside your team. Most first builds ship in about six weeks."],
-  ["Where does our data live?", "In your environment where you need it there. We never train shared models on client documents, matter files, course material or candidate data."],
+  ["Where does our data live?", "In your environment where you need it there. We never train shared models on client documents, matter files, course material or meeting data."],
 ];
 
 export function Faq() {
@@ -312,12 +312,12 @@ export function FinalCta() {
             Pick a product, or bring us a problem
           </h2>
           <p className="mx-auto mt-4 max-w-md text-body text-slate">
-            Trial Interview, Immigration, Law or Learning Assistant today — or talk to our engineers about a
+            Trial Meeting, Immigration, Law or Learning Assistant today — or talk to our engineers about a
             custom agentic AI build for your own workflow.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="#pricing" className="btn-pill btn-ink">
-              Start a trial
+            <a href="https://ai.noruvalabs.com" target="_blank" rel="noopener noreferrer" className="btn-pill btn-ink">
+              Start Meeting AI Trial →
             </a>
             <a href="#platform" className="btn-pill btn-ghost">
               Talk to our team
@@ -331,7 +331,7 @@ export function FinalCta() {
 
 export function Footer() {
   const cols = [
-    ["Products", ["Interview Assistant", "Immigration Assistant", "Law Assistant", "Learning Assistant", "Agentic AI services"]],
+    ["Products", ["Meeting Assistant", "Immigration Assistant", "Law Assistant", "Learning Assistant", "Agentic AI services"]],
     ["Company", ["About", "Careers", "Security", "Contact"]],
     ["Resources", ["Docs", "Blog", "Changelog", "Status", "Privacy"]],
   ] as const;
