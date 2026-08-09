@@ -7,6 +7,8 @@
 @theme inline {
   --color-ink: #18181b;
   --color-action-blue: #153E6E;
+  --color-emerald-accent: #00B887;
+  --color-torii-blue: #2563eb;
   --color-white: #ffffff;
   --color-paper: #f4f4f6;
   --color-graphite: #18181b;
@@ -192,21 +194,21 @@
   .section-separator {
     position: relative;
     height: 1px;
-    width: auto !important;
-    background: rgba(0, 0, 0, 0.07);
-    margin-inline: max(24px, calc(50% - 600px));
+    max-width: 1200px;
+    margin-inline: auto;
+    background: rgba(0, 0, 0, 0.08);
   }
   .section-separator::before,
   .section-separator::after {
     content: "";
     position: absolute;
     top: 0;
-    width: 15px;
-    height: 15px;
+    width: 13px;
+    height: 13px;
     background-color: var(--color-paper);
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-      linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
     background-size: 1px 7px, 7px 1px;
     background-position: center;
     background-repeat: no-repeat;
@@ -214,11 +216,11 @@
   }
   .section-separator::before {
     left: 0;
-    transform: translate(-7px, -7px);
+    transform: translate(-6px, -6px);
   }
   .section-separator::after {
     right: 0;
-    transform: translate(7px, -7px);
+    transform: translate(6px, -6px);
   }
 }
 
@@ -290,15 +292,14 @@
 }
 
 @utility glow-purple {
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37, 99, 235, 0.05), transparent);
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(21, 62, 110, 0.06), transparent);
 }
 
 @utility contained-nav {
   max-width: 1100px;
   margin-inline: auto;
-  margin-top: 12px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border: 1px solid #d0d3d3;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
