@@ -115,10 +115,9 @@ export function Header() {
             href="https://ai.noruvalabs.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-md bg-graphite px-3.5 py-1.5 text-[13px] font-bold text-white transition-opacity hover:opacity-90 shadow-xs flex items-center gap-1.5"
+            className="rounded-md bg-graphite px-4 py-1.5 text-[13px] font-bold text-white transition-opacity hover:opacity-90 shadow-xs flex items-center gap-1.5"
           >
-            <span>Try Free</span>
-            <span className="text-[10px] font-mono text-emerald-400">ai.noruvalabs.com</span>
+            <span>Try Noruva AI Free</span>
           </a>
         </div>
 

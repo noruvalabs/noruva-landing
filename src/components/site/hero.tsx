@@ -10,8 +10,15 @@ const PRODUCTS_PREVIEW = [
     statusColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
     liveUrl: "https://ai.noruvalabs.com",
     icon: Video,
-    headline: "Hear the question. See the answer.",
-    tagline: "Transcribes every question in real-time and hands you the right answer instantly across Google Meet, Zoom, Webex, and LeetCode.",
+    headlineLead: "Hear the question.",
+    headlineHighlight: "See the answer.",
+    headlineHighlightClass: "text-emerald-600 underline decoration-emerald-300/80",
+    badgeText: "Real-time AI Copilot is Live",
+    badgePulseColor: "bg-emerald-500",
+    tagline: "NoruvaAI listens to your call, transcribes every question the instant it's asked, and hands you the right answer in real time — across interviews, sales calls, and meetings.",
+    ctaText: "Try NoruvaAI Free",
+    ctaUrl: "https://ai.noruvalabs.com",
+    ctaExternal: true,
     type: "meeting-ui",
     platforms: ["Google Meet", "Zoom", "Webex", "HackerRank", "LeetCode", "Discord", "Telegram"],
   },
@@ -22,8 +29,15 @@ const PRODUCTS_PREVIEW = [
     statusColor: "bg-paper text-stone border-silver",
     liveUrl: null,
     icon: Plane,
-    headline: "File your visa application correctly — for a fraction of a lawyer's fee.",
-    tagline: "Branching intake, personalized document checklists, auto-filled government forms, and official source tracking.",
+    headlineLead: "File your visa application",
+    headlineHighlight: "correctly — for a fraction of a lawyer's fee.",
+    headlineHighlightClass: "text-blue-600 underline decoration-blue-300 font-serif italic",
+    badgeText: "Torii Immigration Suite",
+    badgePulseColor: "bg-blue-500",
+    tagline: "Torii walks you from 'which forms do I even need?' to a submission-ready packet: branching intake, document checklists, and auto-filled government forms.",
+    ctaText: "Explore Torii Suite",
+    ctaUrl: "/products/immigration",
+    ctaExternal: false,
     type: "immigration-ui",
   },
   {
@@ -33,8 +47,15 @@ const PRODUCTS_PREVIEW = [
     statusColor: "bg-paper text-stone border-silver",
     liveUrl: null,
     icon: Gavel,
-    headline: "Research grounded in official precedent and matter files.",
-    tagline: "Paragraph-level citations, clause bank extraction, and redline drafting.",
+    headlineLead: "Research grounded in",
+    headlineHighlight: "official precedent & matter files.",
+    headlineHighlightClass: "text-[#153E6E] underline decoration-[#153E6E]/40",
+    badgeText: "Law Assistant Suite",
+    badgePulseColor: "bg-[#153E6E]",
+    tagline: "Search matter files and public legal sources together with paragraph-level citations, clause bank extraction, and precedent-aware drafting.",
+    ctaText: "See Law AI Features",
+    ctaUrl: "/products/law",
+    ctaExternal: false,
     type: "law-ui",
   },
   {
@@ -44,8 +65,15 @@ const PRODUCTS_PREVIEW = [
     statusColor: "bg-paper text-stone border-silver",
     liveUrl: null,
     icon: GraduationCap,
-    headline: "Personalized study loops for every course syllabus.",
-    tagline: "Adaptive quiz generation, real-time tutoring feedback, and mastery tracking.",
+    headlineLead: "Personalized study loops for",
+    headlineHighlight: "every student and syllabus.",
+    headlineHighlightClass: "text-purple-600 underline decoration-purple-300",
+    badgeText: "Learning Assistant Suite",
+    badgePulseColor: "bg-purple-500",
+    tagline: "Turn curriculum materials into interactive study modules, adaptive practice quizzes, and real-time tutoring feedback with syllabus mastery tracking.",
+    ctaText: "See Learning AI Features",
+    ctaUrl: "/products/learning",
+    ctaExternal: false,
     type: "learning-ui",
   },
 ];
@@ -62,31 +90,33 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 glow-purple" />
 
       <div className="container-page relative grid items-center gap-10 py-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10 lg:py-20">
-        {/* Left Column - Text & CTAs */}
-        <div className="min-w-0 w-full" style={{ transform: `translate3d(0, ${p * -0.04}px, 0)` }}>
+        {/* Left Column - Text & CTAs dynamically synced with active tab */}
+        <div className="min-w-0 w-full transition-all duration-300" style={{ transform: `translate3d(0, ${p * -0.04}px, 0)` }}>
           <span className="inline-flex items-center gap-2 rounded-full border border-silver bg-white px-3.5 py-1 font-inter text-[11px] font-semibold tracking-[0.05em] uppercase text-graphite shadow-xs">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            Real-time AI Copilot is Live
+            <span className={`h-2 w-2 rounded-full ${currentProduct.badgePulseColor} animate-pulse`} />
+            {currentProduct.badgeText}
           </span>
 
           <h1 className="mt-4 text-[34px] leading-[1.08] tracking-tight text-graphite sm:text-[46px] md:text-heading-lg lg:text-[54px] font-bold font-cal">
-            Hear the question.
+            {currentProduct.headlineLead}
             <br />
-            <span className="text-emerald-600 underline decoration-emerald-300/80 underline-offset-4 font-extrabold">See the answer.</span>
+            <span className={`${currentProduct.headlineHighlightClass} underline-offset-4 font-extrabold`}>
+              {currentProduct.headlineHighlight}
+            </span>
           </h1>
 
           <p className="mt-5 max-w-md text-[16px] sm:text-[18px] text-slate leading-relaxed">
-            NoruvaAI listens to your call, transcribes every question the instant it's asked, and hands you the right answer in real time — across interviews, sales calls, and meetings.
+            {currentProduct.tagline}
           </p>
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <a
-              href="https://ai.noruvalabs.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={currentProduct.ctaUrl}
+              target={currentProduct.ctaExternal ? "_blank" : undefined}
+              rel={currentProduct.ctaExternal ? "noopener noreferrer" : undefined}
               className="btn-pill bg-graphite text-white hover:bg-zinc-800 shadow-md font-bold text-[15px] px-5 py-2.5 rounded-md flex items-center gap-2 group"
             >
-              <span>Try NoruvaAI Free</span>
+              <span>{currentProduct.ctaText}</span>
               <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 text-emerald-400" />
             </a>
             <a href="#platform" className="btn-pill btn-ghost px-5 py-2.5 text-[15px] font-semibold">
@@ -163,7 +193,7 @@ export function Hero() {
                       {currentProduct.status}
                     </span>
                   </div>
-                  <p className="font-cal text-[14px] font-bold text-emerald-700 mt-0.5">"{currentProduct.headline}"</p>
+                  <p className="font-cal text-[14px] font-bold text-slate mt-0.5">"{currentProduct.headlineLead} {currentProduct.headlineHighlight}"</p>
                 </div>
 
                 {currentProduct.liveUrl ? (
