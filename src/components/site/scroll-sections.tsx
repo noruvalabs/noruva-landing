@@ -7,30 +7,45 @@ const STEPS = [
     title: "Interview Assistant",
     body: "Turns a job description into a structured interview loop: tailored questions, live note capture, rubric scoring and a candidate brief the panel can actually compare.",
     stat: ["Interviews structured", "48k"],
+    status: "Live",
+    statusColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    link: "https://ai.noruvalabs.com",
   },
   {
     n: "02",
     title: "Immigration Assistant",
     body: "Walks an applicant or consultant through the right route, builds the document checklist, flags missing evidence, and keeps track of deadlines across a whole caseload.",
     stat: ["Case types covered", "120+"],
+    status: "Coming Soon",
+    statusColor: "bg-paper text-stone border-silver",
+    link: null,
   },
   {
     n: "03",
     title: "Law Assistant",
     body: "Research, summarisation and drafting grounded in your own matter files and public sources — every answer carries a citation back to the paragraph it came from.",
     stat: ["Answers with citations", "100%"],
+    status: "Coming Soon",
+    statusColor: "bg-paper text-stone border-silver",
+    link: null,
   },
   {
     n: "04",
     title: "Learning Assistant",
     body: "Generates interactive curriculum, adaptive quizzes and personalized study loops for students, corporate teams and educational institutions.",
     stat: ["Active learners", "15k+"],
+    status: "Coming Soon",
+    statusColor: "bg-paper text-stone border-silver",
+    link: null,
   },
   {
     n: "05",
     title: "Agentic AI services",
     body: "Beyond our products we design, build and run custom agent systems inside your stack: tool integrations, evaluations, approvals and deployment support from our engineers.",
     stat: ["Typical first build", "6 wks"],
+    status: "Available",
+    statusColor: "bg-paper text-graphite border-silver",
+    link: null,
   },
 ];
 
@@ -53,7 +68,7 @@ export function ScrollStory() {
                 one engineering team
               </h2>
               <p className="mt-4 max-w-sm text-body text-slate">
-                Keep scrolling to walk through the product line and the services we wrap around it.
+                Keep scrolling to walk through our live products and upcoming software suite.
               </p>
 
               <ol className="mt-8 space-y-3">
@@ -72,6 +87,9 @@ export function ScrollStory() {
                       }`}
                     >
                       {s.title}
+                    </span>
+                    <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded border uppercase tracking-wider ${s.statusColor}`}>
+                      {s.status}
                     </span>
                   </li>
                 ))}
@@ -99,11 +117,28 @@ export function ScrollStory() {
                     pointerEvents: i === index ? "auto" : "none",
                   }}
                 >
-                  <span className="inline-block rounded-md bg-paper border border-silver px-3 py-1 font-inter text-[11px] font-bold tracking-[0.05em] uppercase text-graphite">
-                    {i === STEPS.length - 1 ? "Services" : `Product ${s.n}`}
-                  </span>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="inline-block rounded-md bg-paper border border-silver px-3 py-1 font-inter text-[11px] font-bold tracking-[0.05em] uppercase text-graphite">
+                      {i === STEPS.length - 1 ? "Services" : `Product ${s.n}`}
+                    </span>
+                    <span className={`rounded px-2.5 py-0.5 text-[10px] font-bold border uppercase tracking-wider ${s.statusColor}`}>
+                      {s.status}
+                    </span>
+                  </div>
+
                   <h3 className="mt-5 text-heading font-bold font-cal text-graphite">{s.title}</h3>
                   <p className="mt-3 max-w-lg text-subheading text-slate leading-relaxed">{s.body}</p>
+
+                  {s.link && (
+                    <a
+                      href={s.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 inline-flex items-center gap-1.5 rounded-md bg-action-blue px-4 py-2 text-[13px] font-bold text-white shadow-xs hover:opacity-90 transition-opacity"
+                    >
+                      Launch Live App (ai.noruvalabs.com) →
+                    </a>
+                  )}
 
                   <div className="mt-8 grid gap-4 sm:grid-cols-2">
                     <div className="rounded-xl bg-paper border border-silver p-4">

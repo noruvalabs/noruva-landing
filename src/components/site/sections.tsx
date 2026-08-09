@@ -3,13 +3,54 @@ import { useScrollY } from "@/hooks/use-scroll-motion";
 import { Reveal, SectionLabel } from "./reveal";
 
 const CAPS = [
-  { icon: UserCheck, title: "Interview Assistant", body: "Structured question sets, live notes and comparable candidate scorecards." },
-  { icon: Plane, title: "Immigration Assistant", body: "Route guidance, document checklists and deadline tracking per case." },
-  { icon: Gavel, title: "Law Assistant", body: "Research, summaries and drafting with a citation behind every claim." },
-  { icon: GraduationCap, title: "Learning Assistant", body: "Adaptive courseware, automated tutoring, interactive quizzes and student progress tracking." },
-  { icon: Puzzle, title: "Agentic AI services", body: "Custom agents designed, built and integrated into your existing stack." },
-  { icon: Wrench, title: "Engineering support", body: "Our team stays on after launch: evals, tuning, monitoring, iteration." },
-  { icon: ShieldCheck, title: "Private by default", body: "Your documents and learning data are never used to train shared models." },
+  {
+    icon: UserCheck,
+    title: "Interview Assistant",
+    body: "Structured question sets, live notes and comparable candidate scorecards.",
+    status: "Live",
+    statusColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    link: "https://ai.noruvalabs.com",
+  },
+  {
+    icon: Plane,
+    title: "Immigration Assistant",
+    body: "Route guidance, document checklists and deadline tracking per case.",
+    status: "Coming Soon",
+    statusColor: "bg-paper text-stone border-silver",
+    link: null,
+  },
+  {
+    icon: Gavel,
+    title: "Law Assistant",
+    body: "Research, summaries and drafting with a citation behind every claim.",
+    status: "Coming Soon",
+    statusColor: "bg-paper text-stone border-silver",
+    link: null,
+  },
+  {
+    icon: GraduationCap,
+    title: "Learning Assistant",
+    body: "Adaptive courseware, automated tutoring, interactive quizzes and student progress tracking.",
+    status: "Coming Soon",
+    statusColor: "bg-paper text-stone border-silver",
+    link: null,
+  },
+  {
+    icon: Puzzle,
+    title: "Agentic AI services",
+    body: "Custom agents designed, built and integrated into your existing stack.",
+    status: "Available",
+    statusColor: "bg-paper text-graphite border-silver",
+    link: null,
+  },
+  {
+    icon: Wrench,
+    title: "Engineering support",
+    body: "Our team stays on after launch: evals, tuning, monitoring, iteration.",
+    status: "Included",
+    statusColor: "bg-paper text-slate border-silver",
+    link: null,
+  },
 ];
 
 export function Capabilities() {
@@ -24,8 +65,7 @@ export function Capabilities() {
             AI where it earns it
           </h2>
           <p className="mt-4 max-w-sm text-body text-slate">
-            We are an engineering studio. We ship licensed products, and we build agentic AI
-            systems for teams who need something only they would need.
+            We build specialized AI products starting with our live Interview Assistant engine.
           </p>
           <a
             href="#faq"
@@ -37,12 +77,31 @@ export function Capabilities() {
         <div className="grid gap-5 sm:grid-cols-2">
           {CAPS.map((c, i) => (
             <Reveal key={c.title} delay={i * 60}>
-              <article className="card-surface h-full p-6 transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-silver/60 border border-silver/80">
-                  <c.icon className="h-4 w-4 text-action-blue" />
+              <article className="card-surface h-full p-6 transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)] flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-silver/60 border border-silver/80">
+                      <c.icon className="h-4 w-4 text-action-blue" />
+                    </div>
+                    {c.status && (
+                      <span className={`rounded px-2 py-0.5 text-[9px] font-bold border uppercase tracking-wider ${c.statusColor}`}>
+                        {c.status}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="mt-4 text-heading-sm font-bold font-cal text-graphite">{c.title}</h3>
+                  <p className="mt-1.5 text-body-sm text-slate">{c.body}</p>
                 </div>
-                <h3 className="mt-4 text-heading-sm text-graphite">{c.title}</h3>
-                <p className="mt-1.5 text-body-sm text-slate">{c.body}</p>
+                {c.link && (
+                  <a
+                    href={c.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-1 font-inter text-caption font-bold text-action-blue hover:underline"
+                  >
+                    Launch Live App (ai.noruvalabs.com) →
+                  </a>
+                )}
               </article>
             </Reveal>
           ))}
