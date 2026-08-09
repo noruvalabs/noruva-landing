@@ -5,33 +5,26 @@ import { useScrollY } from "@/hooks/use-scroll-motion";
 const PRODUCTS_PREVIEW = [
   {
     id: "meeting",
-    name: "Meeting Assistant",
+    name: "NoruvaAI Copilot",
     status: "Live",
     statusColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
     liveUrl: "https://ai.noruvalabs.com",
     icon: Video,
-    tagline: "Live notes, automated action item extraction & executive debriefs.",
-    metrics: [
-      { label: "Action Items", val: "12 Extracted" },
-      { label: "Speakers Synced", val: "8 Identified" },
-      { label: "Summary Score", val: "100% Verbatim" },
-    ],
-    sampleSnippet: "Captured product sync transcript → generated 12 action items → assigned owner tags.",
+    headline: "Hear the question. See the answer.",
+    tagline: "Transcribes every question in real-time and hands you the right answer instantly across Google Meet, Zoom, Webex, and LeetCode.",
+    type: "meeting-ui",
+    platforms: ["Google Meet", "Zoom", "Webex", "HackerRank", "LeetCode", "Discord", "Telegram"],
   },
   {
     id: "immigration",
-    name: "Immigration Assistant",
+    name: "Torii Immigration",
     status: "Coming Soon",
     statusColor: "bg-paper text-stone border-silver",
     liveUrl: null,
     icon: Plane,
-    tagline: "Visa route matching, evidence checklists and deadline tracking.",
-    metrics: [
-      { label: "Visa Routes", val: "120+ Covered" },
-      { label: "Document Checks", val: "Automated" },
-      { label: "Expiry Alerts", val: "Real-time" },
-    ],
-    sampleSnippet: "Automated spousal & skilled worker eligibility scoring with expiry tracking.",
+    headline: "File your visa application correctly — for a fraction of a lawyer's fee.",
+    tagline: "Branching intake, personalized document checklists, auto-filled government forms, and official source tracking.",
+    type: "immigration-ui",
   },
   {
     id: "law",
@@ -40,13 +33,9 @@ const PRODUCTS_PREVIEW = [
     statusColor: "bg-paper text-stone border-silver",
     liveUrl: null,
     icon: Gavel,
-    tagline: "Paragraph-level cited research and precedent-aware drafting.",
-    metrics: [
-      { label: "Source Citations", val: "100% Verified" },
-      { label: "Precedent Files", val: "Clause Bank" },
-      { label: "Redline Audit", val: "Automated" },
-    ],
-    sampleSnippet: "Searches 100k+ matter files → returns cited answers with zero hallucination.",
+    headline: "Research grounded in official precedent and matter files.",
+    tagline: "Paragraph-level citations, clause bank extraction, and redline drafting.",
+    type: "law-ui",
   },
   {
     id: "learning",
@@ -55,13 +44,9 @@ const PRODUCTS_PREVIEW = [
     statusColor: "bg-paper text-stone border-silver",
     liveUrl: null,
     icon: GraduationCap,
-    tagline: "Adaptive study pathways, interactive quizzes and tutoring.",
-    metrics: [
-      { label: "Active Learners", val: "15k+ Enrolled" },
-      { label: "Syllabus Loops", val: "Self-Paced" },
-      { label: "Quiz Generator", val: "Adaptive" },
-    ],
-    sampleSnippet: "Indexes course materials into spaced-repetition modules and progress rubrics.",
+    headline: "Personalized study loops for every course syllabus.",
+    tagline: "Adaptive quiz generation, real-time tutoring feedback, and mastery tracking.",
+    type: "learning-ui",
   },
 ];
 
@@ -76,12 +61,12 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 glow-purple" />
 
-      <div className="container-page relative grid items-center gap-10 py-14 lg:grid-cols-[1fr_1.05fr] lg:gap-12 lg:py-24">
+      <div className="container-page relative grid items-center gap-10 py-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-10 lg:py-20">
         {/* Left Column - Text & CTAs */}
         <div className="min-w-0 w-full" style={{ transform: `translate3d(0, ${p * -0.04}px, 0)` }}>
           <span className="inline-flex items-center gap-2 rounded-md border border-silver bg-white px-3 py-1 font-inter text-[11px] font-semibold tracking-[0.05em] uppercase text-graphite shadow-xs">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            Meeting Assistant is Live
+            NoruvaAI Meeting Copilot is Live
           </span>
 
           <h1 className="mt-4 text-[32px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
@@ -93,16 +78,16 @@ export function Hero() {
           </h1>
 
           <p className="mt-5 max-w-md text-subheading text-slate leading-relaxed">
-            Noruva Labs builds specialized AI assistants for critical operations — starting with our live{" "}
+            Noruva Labs builds specialized AI products — including our live{" "}
             <a
               href="https://ai.noruvalabs.com"
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-action-blue underline decoration-action-blue/30 underline-offset-4 hover:decoration-action-blue"
             >
-              Meeting Assistant
+              NoruvaAI Meeting Copilot
             </a>{" "}
-            and upcoming Immigration, Law and Learning suites.
+            and upcoming <strong>Torii Immigration Assistant</strong>, Law, and Learning platforms.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
@@ -112,10 +97,10 @@ export function Hero() {
               rel="noopener noreferrer"
               className="btn-pill btn-ink group"
             >
-              Launch Meeting AI <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              Try NoruvaAI Free <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a href="#platform" className="btn-pill btn-ghost">
-              See all products
+              See products
             </a>
           </div>
 
@@ -123,27 +108,27 @@ export function Hero() {
             <li className="inline-flex items-center gap-1.5 font-semibold text-graphite">
               <Check className="h-3.5 w-3.5 text-action-blue" />
               <a href="https://ai.noruvalabs.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-action-blue">
-                Meeting AI Live (ai.noruvalabs.com)
+                NoruvaAI Live (ai.noruvalabs.com)
               </a>
             </li>
             <li className="inline-flex items-center gap-1.5 font-medium">
-              <Check className="h-3.5 w-3.5 text-action-blue" /> 3 Products Coming Soon
+              <Check className="h-3.5 w-3.5 text-action-blue" /> Torii Immigration Suite
             </li>
             <li className="inline-flex items-center gap-1.5 font-medium">
-              <Check className="h-3.5 w-3.5 text-action-blue" /> Enterprise & SOC 2 Ready
+              <Check className="h-3.5 w-3.5 text-action-blue" /> SOC 2 Ready & Private
             </li>
           </ul>
         </div>
 
-        {/* Right Column - Product Console Window with Parallax */}
+        {/* Right Column - Interactive App Preview Console */}
         <div
           className="relative min-w-0 w-full max-w-full"
           style={{
-            transform: `translate3d(0, ${p * -0.1}px, 0) scale(${Math.max(0.96, 1 - p * 0.00015)})`,
+            transform: `translate3d(0, ${p * -0.08}px, 0) scale(${Math.max(0.97, 1 - p * 0.0001)})`,
             transition: "transform 0.1s ease-out",
           }}
         >
-          <div className="card-surface overflow-hidden border-silver shadow-lg max-w-full">
+          <div className="card-surface overflow-hidden border-silver shadow-xl max-w-full">
             {/* Header Product Selector Tabs */}
             <div className="flex items-center border-b border-silver bg-paper overflow-x-auto p-1.5 gap-1 scrollbar-none max-w-full">
               {PRODUCTS_PREVIEW.map((prod, idx) => (
@@ -157,7 +142,7 @@ export function Hero() {
                   }`}
                 >
                   <prod.icon className={`h-3.5 w-3.5 ${activeTab === idx ? "text-action-blue" : "text-stone"}`} />
-                  <span>{prod.name.split(" ")[0]}</span>
+                  <span>{prod.name}</span>
                   <span className={`text-[8px] sm:text-[9px] font-bold px-1.5 py-0.2 rounded border uppercase ${prod.statusColor}`}>
                     {prod.status === "Live" ? "Live" : "Soon"}
                   </span>
@@ -165,17 +150,17 @@ export function Hero() {
               ))}
             </div>
 
-            {/* Active Product Preview Box */}
-            <div className="p-5 sm:p-6 bg-white space-y-4 max-w-full overflow-hidden">
-              <div className="flex flex-wrap items-start justify-between gap-3 border-b border-silver/60 pb-3.5">
+            {/* Render Mockup UI for Active Product */}
+            <div className="p-4 sm:p-5 bg-white space-y-4 max-w-full overflow-hidden">
+              <div className="flex flex-wrap items-start justify-between gap-2 border-b border-silver/60 pb-3">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="font-cal text-heading-sm font-bold text-graphite">{currentProduct.name}</span>
-                    <span className={`rounded px-2 py-0.5 text-[10px] font-bold border uppercase tracking-wider ${currentProduct.statusColor}`}>
+                    <span className="font-cal text-[17px] font-bold text-graphite">{currentProduct.name}</span>
+                    <span className={`rounded px-2 py-0.5 text-[9px] font-bold border uppercase tracking-wider ${currentProduct.statusColor}`}>
                       {currentProduct.status}
                     </span>
                   </div>
-                  <p className="font-inter text-body-sm text-slate mt-1">{currentProduct.tagline}</p>
+                  <p className="font-cal text-[14px] font-bold text-action-blue mt-0.5">"{currentProduct.headline}"</p>
                 </div>
 
                 {currentProduct.liveUrl ? (
@@ -183,63 +168,152 @@ export function Hero() {
                     href={currentProduct.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-md bg-action-blue px-3.5 py-2 text-[12px] font-bold text-white shadow-xs hover:opacity-90 transition-opacity shrink-0"
+                    className="inline-flex items-center gap-1.5 rounded-md bg-action-blue px-3.5 py-1.5 text-[12px] font-bold text-white shadow-xs hover:opacity-90 transition-opacity shrink-0"
                   >
-                    Launch App <ExternalLink className="h-3.5 w-3.5" />
+                    Try Free <ExternalLink className="h-3.5 w-3.5" />
                   </a>
                 ) : (
-                  <span className="inline-flex items-center gap-1 rounded-md bg-paper border border-silver px-3 py-1.5 text-[11px] font-bold text-stone shrink-0">
+                  <span className="inline-flex items-center gap-1 rounded-md bg-paper border border-silver px-3 py-1 text-[11px] font-bold text-stone shrink-0">
                     Coming Soon
                   </span>
                 )}
               </div>
 
-              {/* Metrics Grid */}
-              <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                {currentProduct.metrics.map((m) => (
-                  <div key={m.label} className="rounded-lg bg-paper border border-silver p-2.5 sm:p-3 min-w-0">
-                    <p className="font-inter text-[9px] sm:text-[10px] font-bold tracking-[0.04em] uppercase text-stone truncate">{m.label}</p>
-                    <p className="font-cal text-[14px] sm:text-[15px] font-extrabold text-graphite mt-0.5 truncate">{m.val}</p>
+              {/* NoruvaAI Meeting App UI Mockup */}
+              {currentProduct.type === "meeting-ui" && (
+                <div className="space-y-3 font-inter text-[11px]">
+                  {/* Video call frame */}
+                  <div className="relative rounded-lg bg-[#112d2b] p-3 text-white overflow-hidden shadow-inner min-h-[140px] flex flex-col justify-between">
+                    <div className="flex items-center justify-between font-mono text-[10px] opacity-80">
+                      <span>NoruvaAI · Live call</span>
+                      <div className="flex items-center gap-2">
+                        <span className="rounded bg-white/20 px-1.5 py-0.5 text-[9px]">Answer ready</span>
+                        <span className="flex items-center gap-1 text-red-400 font-bold">🔴 REC</span>
+                      </div>
+                    </div>
+                    {/* Interviewer avatar */}
+                    <div className="my-3 flex items-center justify-center gap-3">
+                      <div className="h-12 w-12 rounded-full border-2 border-emerald-400/60 bg-gradient-to-br from-emerald-600 to-teal-800 flex items-center justify-center font-bold text-[14px]">
+                        AI
+                      </div>
+                      <div>
+                        <p className="font-semibold text-[12px]">Interviewer</p>
+                        <p className="text-[10px] text-emerald-300">Speaking...</p>
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-end">
+                      <span className="rounded bg-black/40 px-2 py-0.5 text-[9px]">Interviewer</span>
+                      <div className="h-8 w-10 rounded border border-white/20 bg-slate/60 flex items-center justify-center text-[9px]">You</div>
+                    </div>
                   </div>
-                ))}
-              </div>
 
-              {/* Sample Interface Log / Snippet */}
-              <div className="rounded-lg bg-paper border border-silver p-3.5">
-                <div className="flex items-center justify-between font-mono text-[10px] sm:text-[11px] text-stone pb-1.5 border-b border-silver/60">
-                  <span>Engine Status</span>
-                  <span className="text-action-blue font-bold">verified</span>
+                  {/* Live Answer Prompt Box */}
+                  <div className="rounded-lg bg-emerald-50/70 border border-emerald-200 p-3 text-graphite space-y-1.5">
+                    <div className="flex items-center justify-between text-[10px] font-bold text-emerald-800">
+                      <span className="inline-flex items-center gap-1">📊 Question</span>
+                      <span className="font-mono text-[9px]">claude-opus-4.8 · <span className="text-emerald-600 font-bold">● Live</span></span>
+                    </div>
+                    <p className="font-semibold text-[11px] text-graphite">Q: Walk me through a tradeoff you made under real pressure.</p>
+                    <p className="text-[11px] text-slate leading-snug italic bg-white/80 p-2 rounded border border-emerald-100">
+                      "At my last role we had to cut scope a week before launch. I framed it as protecting quality over completeness, aligned the team on the key metric, and shipped on time..."
+                    </p>
+                  </div>
+
+                  {/* Platforms marquee */}
+                  <div className="flex items-center justify-between text-[9px] font-bold text-stone pt-1 border-t border-silver/50 overflow-x-auto scrollbar-none gap-2">
+                    <span className="uppercase text-stone shrink-0">Listening on:</span>
+                    {currentProduct.platforms?.map((p) => (
+                      <span key={p} className="rounded bg-paper border border-silver px-2 py-0.5 text-graphite shrink-0">
+                        {p}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <p className="mt-2 font-mono text-[11px] sm:text-[12px] text-graphite leading-relaxed break-words">
-                  {currentProduct.sampleSnippet}
-                </p>
-              </div>
+              )}
+
+              {/* Torii Immigration App UI Mockup */}
+              {currentProduct.type === "immigration-ui" && (
+                <div className="space-y-3 font-inter text-[11px] rounded-lg bg-[#0e1726] p-4 text-white">
+                  <div className="flex items-center justify-between text-[10px]">
+                    <div>
+                      <span className="font-mono font-bold text-emerald-400">JP-WORK-2049</span>
+                      <span className="ml-2 text-slate-400">EN locale · Live demo</span>
+                    </div>
+                    <span className="rounded bg-blue-500/20 text-blue-300 border border-blue-400/30 px-2 py-0.5 text-[9px]">Intake in progress</span>
+                  </div>
+
+                  {/* Stepper */}
+                  <div className="flex items-center justify-between gap-1 text-[10px] pt-1 text-slate-400 border-b border-white/10 pb-2">
+                    <span className="text-blue-400 font-bold">Intake ›</span>
+                    <span>Eligibility ›</span>
+                    <span>Checklist ›</span>
+                    <span>Forms ›</span>
+                    <span>Review</span>
+                  </div>
+
+                  {/* Question Prompt */}
+                  <div className="space-y-2 pt-1">
+                    <span className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Question 4 of 12</span>
+                    <p className="font-bold text-[13px] text-white">Which visa category are you applying for?</p>
+                    <div className="rounded-md bg-blue-600 px-3.5 py-2 text-[11px] font-semibold text-white shadow-xs">
+                      ✓ Engineer / Specialist in Humanities
+                    </div>
+                  </div>
+
+                  <p className="text-[10px] text-slate-400 pt-1">
+                    Torii builds a submission-ready packet with auto-filled government forms and official page citations.
+                  </p>
+                </div>
+              )}
+
+              {/* Law UI Mockup */}
+              {currentProduct.type === "law-ui" && (
+                <div className="space-y-2.5 font-inter text-[11px] p-3 rounded-lg bg-paper border border-silver">
+                  <div className="flex items-center justify-between font-mono text-[10px] text-stone">
+                    <span>Research Query · Contract Clause §14</span>
+                    <span className="text-action-blue font-bold">100% Cited</span>
+                  </div>
+                  <p className="text-[11px] text-graphite font-semibold">
+                    Summary: Indemnity cap applies to direct damages only [Ref: Precedent §4.2].
+                  </p>
+                  <div className="rounded bg-white p-2 text-[10px] text-slate border border-silver font-mono">
+                    "Searched 100k+ matter files → extracted 3 precedent clauses with paragraph citations."
+                  </div>
+                </div>
+              )}
+
+              {/* Learning UI Mockup */}
+              {currentProduct.type === "learning-ui" && (
+                <div className="space-y-2.5 font-inter text-[11px] p-3 rounded-lg bg-paper border border-silver">
+                  <div className="flex items-center justify-between font-mono text-[10px] text-stone">
+                    <span>Syllabus Adaptive Quiz</span>
+                    <span className="text-emerald-700 font-bold">15k Active Learners</span>
+                  </div>
+                  <p className="text-[11px] text-graphite font-semibold">
+                    Module 3: Neural Network Optimization & Backprop
+                  </p>
+                  <div className="rounded bg-white p-2 text-[10px] text-slate border border-silver">
+                    Generated 5 adaptive practice questions tailored to recent quiz performance.
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Bottom Window Bar */}
             <div className="grid grid-cols-3 border-t border-silver bg-paper divide-x divide-silver text-center">
               <div className="py-2.5 px-2">
-                <p className="font-cal text-[16px] font-extrabold text-emerald-700">01 Live</p>
+                <p className="font-cal text-[16px] font-extrabold text-emerald-700">01 Live App</p>
                 <p className="font-inter text-[9px] font-bold text-stone uppercase truncate">ai.noruvalabs.com</p>
               </div>
               <div className="py-2.5 px-2">
-                <p className="font-cal text-[16px] font-extrabold text-graphite">03</p>
-                <p className="font-inter text-[9px] font-bold text-stone uppercase truncate">Coming Soon</p>
+                <p className="font-cal text-[16px] font-extrabold text-graphite">Torii Suite</p>
+                <p className="font-inter text-[9px] font-bold text-stone uppercase truncate">Immigration Filing</p>
               </div>
               <div className="py-2.5 px-2">
                 <p className="font-cal text-[16px] font-extrabold text-graphite">65k+</p>
                 <p className="font-inter text-[9px] font-bold text-stone uppercase truncate">Sessions Run</p>
               </div>
             </div>
-          </div>
-
-          {/* Floating Parallax Badge */}
-          <div
-            className="absolute -right-3 -bottom-5 hidden sm:flex items-center gap-2 rounded-md border border-silver bg-white px-3 py-1.5 shadow-md font-inter text-[11px] font-bold text-graphite"
-            style={{ transform: `translate3d(0, ${p * 0.08}px, 0)` }}
-          >
-            <span className="h-2 w-2 rounded-full bg-action-blue" />
-            <span>SOC 2 Type II Certified</span>
           </div>
         </div>
       </div>
