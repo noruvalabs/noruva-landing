@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Gavel, GraduationCap, Plane, Terminal, UserCheck } from "lucide-react";
+import { ArrowRight, Check, Gavel, GraduationCap, Plane, Terminal, UserCheck, Building2, ShieldCheck, Briefcase, Cpu, Globe2, Scale, Zap } from "lucide-react";
 import { useScrollY } from "@/hooks/use-scroll-motion";
 
 const LOG = [
@@ -122,20 +122,31 @@ export function Hero() {
   );
 }
 
-const LOGOS = ["Northbeam", "Kestrel", "Fielded", "Vantiq", "Orbital", "Halden", "Provolt"];
+const LOGOS = [
+  { name: "Northbeam", icon: Building2 },
+  { name: "Kestrel", icon: ShieldCheck },
+  { name: "Fielded", icon: Briefcase },
+  { name: "Vantiq", icon: Cpu },
+  { name: "Orbital", icon: Globe2 },
+  { name: "Halden", icon: Scale },
+  { name: "Provolt", icon: Zap },
+];
 
 export function LogoMarquee() {
   return (
-    <section className="py-6">
-      <p className="container-page mb-4 text-center font-inter text-caption text-stone">
+    <section className="py-8 bg-paper/40">
+      <p className="container-page mb-6 text-center font-inter text-[11px] font-bold tracking-[0.06em] uppercase text-stone">
         Trusted by hiring teams, immigration consultancies and law firms
       </p>
       <div className="mx-auto max-w-[1200px] overflow-hidden px-6 [mask-image:linear-gradient(to_right,transparent,#000_8%,#000_92%,transparent)]">
-        <div className="flex w-max animate-[marquee_38s_linear_infinite] gap-14 pr-14">
+        <div className="flex w-max animate-[marquee_38s_linear_infinite] gap-6 pr-6">
           {[...LOGOS, ...LOGOS].map((l, i) => (
-            <span key={i} className="font-cal text-heading-sm whitespace-nowrap text-stone">
-              {l}
-            </span>
+            <div key={i} className="flex items-center gap-3 rounded-md border border-silver bg-white px-5 py-3 shadow-xs">
+              <l.icon className="h-4 w-4 text-action-blue shrink-0" />
+              <span className="font-cal text-[15px] font-bold text-graphite whitespace-nowrap">
+                {l.name}
+              </span>
+            </div>
           ))}
         </div>
       </div>
