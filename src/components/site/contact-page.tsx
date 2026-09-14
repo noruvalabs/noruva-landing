@@ -19,32 +19,35 @@ export function ContactPage() {
     setFeedbackMsg("");
 
     try {
-      const body = new URLSearchParams({
-        "form-name": "contact",
-        name: formData.name,
-        email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-      }).toString();
-
-      const res = await fetch("/", {
+      // Send to Netlify serverless function
+      let res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
-      if (res.ok || res.status === 200 || res.status === 302) {
+      // Fallback directly to function path if /api rewrite is pending
+      if (res.status === 404) {
+        res = await fetch("/.netlify/functions/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+      }
+
+      const result = await res.json().catch(() => ({}));
+
+      if (res.ok && (result.success || res.status === 200)) {
         setStatus("success");
         setFeedbackMsg(t.contact.successMsg);
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        // Fallback gracefully on static preview environments
-        setStatus("success");
-        setFeedbackMsg(t.contact.successMsg);
+        setStatus("error");
+        setFeedbackMsg(result.error || t.contact.errorMsg || "Failed to send message. Please email support@noruvalabs.com directly.");
       }
     } catch {
-      setStatus("success");
-      setFeedbackMsg(t.contact.successMsg);
+      setStatus("error");
+      setFeedbackMsg(t.contact.errorMsg || "Failed to send message. Please email support@noruvalabs.com directly.");
     }
   };
 
