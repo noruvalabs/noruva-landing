@@ -2,11 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { Header } from '../components/site/header';
 import { Footer } from '../components/site/sections';
-import { ALL_POSTS } from '../lib/blog-data';
-import { ArrowRight, Clock, Calendar } from 'lucide-react';
-
-const FEATURED = ALL_POSTS[0];
-const POSTS = ALL_POSTS.slice(1);
+import { BlogPage } from '../components/site/blog-page';
 ---
 
 <Base
@@ -15,95 +11,7 @@ const POSTS = ALL_POSTS.slice(1);
 >
   <div class="min-h-screen overflow-x-clip bg-paper">
     <Header client:load />
-    <main class="relative vertical-lines">
-      <section class="relative overflow-hidden pt-32 pb-20">
-        <div class="pointer-events-none absolute inset-0 glow-purple" />
-        <div class="container-page relative">
-          <h1 class="text-[32px] leading-[1.1] tracking-[0.4px] text-graphite sm:text-[42px] md:text-heading-lg lg:text-display font-bold font-cal">
-            Blog
-          </h1>
-          <p class="mt-4 max-w-lg text-subheading text-slate">
-            Insights on agentic AI, product development and engineering from the Noruva Labs team.
-          </p>
-        </div>
-      </section>
-
-      <div class="section-separator w-full" />
-
-      <!-- Featured Article -->
-      <section class="container-page py-12 sm:py-20">
-        <a href={`/blog/${FEATURED.slug}`} class="group block">
-          <article class="card-surface overflow-hidden transition-all duration-200 group-hover:border-silver/80">
-            <div class="grid gap-6 p-6 sm:gap-8 sm:p-8 md:grid-cols-[1fr_1.4fr]">
-              <div class="flex items-center justify-center rounded-xl bg-silver/40 border border-silver/80 p-10">
-                <span class="font-cal text-[64px] font-extrabold text-action-blue/30">01</span>
-              </div>
-              <div class="flex flex-col justify-center">
-                <div class="flex items-center gap-3">
-                  <span class="rounded-md bg-silver/60 border border-silver/80 px-2.5 py-0.5 font-inter text-caption font-semibold text-graphite">{FEATURED.tag}</span>
-                  <span class="flex items-center gap-1.5 font-inter text-caption text-stone">
-                    <Calendar class="h-3.5 w-3.5" /> {FEATURED.date}
-                  </span>
-                  <span class="flex items-center gap-1.5 font-inter text-caption text-stone">
-                    <Clock class="h-3.5 w-3.5" /> {FEATURED.readTime}
-                  </span>
-                </div>
-                <h2 class="mt-4 text-heading text-graphite group-hover:text-action-blue transition-colors md:text-heading-lg font-bold font-cal">{FEATURED.title}</h2>
-                <p class="mt-3 max-w-lg text-body text-slate leading-relaxed">{FEATURED.body}</p>
-                <span class="mt-5 inline-flex items-center gap-1.5 text-body-sm font-semibold text-action-blue">
-                  Read article <ArrowRight class="h-4 w-4" />
-                </span>
-              </div>
-            </div>
-          </article>
-        </a>
-      </section>
-
-      <div class="section-separator w-full" />
-
-      <!-- Articles Grid -->
-      <section class="container-page py-12 sm:py-20">
-        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {POSTS.map((post) => (
-            <a href={`/blog/${post.slug}`} class="group block">
-              <article class="card-surface flex h-full flex-col p-6 transition-all duration-200 group-hover:-translate-y-1">
-                <div class="flex items-center gap-3">
-                  <span class="rounded-md bg-silver/60 border border-silver/80 px-2.5 py-0.5 font-inter text-caption text-slate">{post.tag}</span>
-                  <span class="flex items-center gap-1.5 font-inter text-caption text-stone">
-                    <Clock class="h-3 w-3" /> {post.readTime}
-                  </span>
-                </div>
-                <h3 class="mt-4 text-heading-sm text-graphite group-hover:text-action-blue transition-colors leading-snug font-bold font-cal">{post.title}</h3>
-                <p class="mt-2 flex-1 text-body-sm text-slate leading-relaxed">{post.body}</p>
-                <div class="mt-5 flex items-center justify-between pt-4 border-t border-silver/60">
-                  <span class="font-inter text-caption text-stone">{post.date}</span>
-                  <span class="flex items-center gap-1 text-caption font-semibold text-action-blue">
-                    Read article <ArrowRight class="h-3 w-3" />
-                  </span>
-                </div>
-              </article>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section class="container-page pb-16 sm:pb-24">
-        <div class="rounded-2xl border border-silver bg-white p-8 text-center shadow-lg sm:p-12">
-          <h2 class="text-heading text-graphite font-bold font-cal">Stay up to date</h2>
-          <p class="mt-2 text-body text-slate">Get notified when we publish new engineering and product updates.</p>
-          <div class="mt-6 flex flex-wrap justify-center gap-3">
-            <input
-              type="email"
-              placeholder="you@company.com"
-              class="w-full rounded-lg border border-silver bg-paper px-4 py-2.5 text-body text-graphite outline-none transition-colors focus:border-action-blue focus:ring-2 focus:ring-action-blue/20 sm:w-64"
-            />
-            <button class="btn-pill btn-ink">
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </section>
-    </main>
-    <Footer />
+    <BlogPage client:load />
+    <Footer client:load />
   </div>
 </Base>

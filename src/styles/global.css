@@ -101,6 +101,16 @@
   }
 }
 
+.animate-marquee-slow {
+  animation: marquee 55s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-slow:hover,
+.marquee-paused {
+  animation-play-state: paused !important;
+}
+
 @layer base {
   * {
     border-color: var(--color-border);

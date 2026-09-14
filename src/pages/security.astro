@@ -1,0 +1,134 @@
+---
+import Base from '../layouts/Base.astro';
+import { Header } from '../components/site/header';
+import { Footer } from '../components/site/sections';
+import { ShieldCheck, Lock, Server, FileCheck, EyeOff, KeyRound, Check, ArrowRight } from 'lucide-react';
+
+const PILLARS = [
+  {
+    title: "Zero Model Training on Customer Data",
+    desc: "Your data is strictly yours. We maintain explicit contractual and technical guarantees that no customer meeting transcripts, immigration documents, or legal queries are ever used to train foundation models.",
+    icon: EyeOff,
+  },
+  {
+    title: "SOC 2 Type II Certified",
+    desc: "Our systems and internal organizational controls undergo rigorous independent third-party audits examining security, confidentiality, and processing integrity.",
+    icon: FileCheck,
+  },
+  {
+    title: "Bank-Grade Encryption",
+    desc: "All data in transit is encrypted using TLS 1.3 with modern cipher suites. Data at rest is encrypted using AES-256 with regularly rotated customer-specific keys.",
+    icon: Lock,
+  },
+  {
+    title: "Private VPC & Dedicated Deployments",
+    desc: "For enterprise agentic systems built with Autonova, we support air-gapped VPC deployments within AWS, GCP, Azure, or your on-premises infrastructure.",
+    icon: Server,
+  },
+  {
+    title: "Ephemeral Audio Streaming",
+    desc: "NoruvaAI streams audio chunks in real-time memory buffers. Audio frames are converted to tokens and immediately purged from RAM without persistent disk storage.",
+    icon: KeyRound,
+  },
+  {
+    title: "Enterprise SSO & Granular RBAC",
+    desc: "Integrate with SAML 2.0, Okta, Azure Active Directory, and Google Workspace with granular team roles, audit logging, and automated user provisioning (SCIM).",
+    icon: ShieldCheck,
+  },
+];
+
+const COMPLIANCE_BADGES = [
+  { name: "SOC 2 Type II", status: "Audited & Verified" },
+  { name: "ISO / IEC 27001", status: "Certified" },
+  { name: "GDPR Compliant", status: "European Union" },
+  { name: "APPI Japan", status: "Personal Info Protection" },
+  { name: "HIPAA Capable", status: "Available for Enterprise" },
+];
+---
+
+<Base
+  title="Security & Compliance — Noruva Labs"
+  description="Explore the security, privacy, and compliance standards at Noruva Labs. SOC 2 Type II, zero model training on customer data, and enterprise VPC deployment."
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <!-- Hero -->
+      <section class="relative overflow-hidden pt-32 pb-20">
+        <div class="pointer-events-none absolute inset-0 glow-purple" />
+        <div class="container-page relative">
+          <span class="inline-flex items-center gap-2 rounded-full bg-emerald-100 border border-emerald-300 px-3.5 py-1 font-inter text-caption font-bold text-emerald-800 shadow-xs">
+            <ShieldCheck class="h-3.5 w-3.5 text-emerald-600" />
+            Enterprise-Grade Protection
+          </span>
+          <h1 class="mt-5 text-[34px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
+            Built for confidentiality.
+            <br />
+            <span class="text-emerald-700 underline decoration-emerald-300/80 underline-offset-4">Compliant by design.</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-subheading text-slate leading-relaxed">
+            High-stakes workflows require uncompromised privacy. From Fortune 500 legal counsel to immigration law firms, organizations trust Noruva Labs to safeguard their data.
+          </p>
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- Compliance Standards Grid -->
+      <section class="container-page py-12 bg-white/40">
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          {COMPLIANCE_BADGES.map((b) => (
+            <div class="card-surface p-4 text-center border-silver bg-white shadow-xs">
+              <span class="font-cal text-[16px] font-bold text-graphite block">{b.name}</span>
+              <span class="text-[11px] font-mono text-emerald-700 font-semibold">{b.status}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- Security Pillars -->
+      <section class="container-page py-16 md:py-24">
+        <div class="max-w-xl mb-12">
+          <span class="font-inter text-caption tracking-[0.08em] text-stone uppercase font-bold">Security Architecture</span>
+          <h2 class="mt-2 text-[28px] sm:text-[34px] font-bold font-cal text-graphite">
+            Six layers of defense
+          </h2>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {PILLARS.map((p) => (
+            <div class="card-surface p-6 bg-white/80 border-silver shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <div class="h-10 w-10 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center mb-4">
+                  <p.icon class="h-5 w-5" />
+                </div>
+                <h3 class="font-cal text-[18px] font-bold text-graphite mb-2">{p.title}</h3>
+                <p class="text-body-sm text-slate leading-relaxed">{p.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Security Inquiries / SOC 2 Report Request -->
+        <div class="mt-14 rounded-xl bg-graphite p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 class="font-cal text-[22px] font-bold">Request our SOC 2 Type II Audit Report</h3>
+            <p class="mt-1 text-body-sm text-slate-300 max-w-xl">
+              Qualified enterprise security and legal teams can access our third-party audit reports and security architecture documentation under NDA.
+            </p>
+          </div>
+          <a
+            href="mailto:security@noruvalabs.com?subject=SOC%202%20Report%20Request"
+            class="btn-pill bg-white text-graphite hover:bg-zinc-100 font-bold text-[14px] px-6 py-3 shadow-md shrink-0 flex items-center gap-2"
+          >
+            <span>Contact Security Team</span>
+            <ArrowRight class="h-4 w-4" />
+          </a>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>

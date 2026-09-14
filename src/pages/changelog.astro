@@ -1,0 +1,143 @@
+---
+import Base from '../layouts/Base.astro';
+import { Header } from '../components/site/header';
+import { Footer } from '../components/site/sections';
+import { History, Sparkles, Tag, ExternalLink, ArrowRight } from 'lucide-react';
+
+const RELEASES = [
+  {
+    version: "v2.8.0",
+    date: "September 2026",
+    badge: "Major Launch",
+    title: "Torii Immigration Assistant is Live",
+    summary: "Public launch of Torii Immigration (visa.noruvalabs.com) supporting 120+ global visa categories, automated document checklists, and submission-ready government packets.",
+    highlights: [
+      "Live branching intake mapping visa eligibility across Japanese Ministry of Justice & international routes.",
+      "Automated official form population and document expiry alert engine.",
+      "Multi-lingual intake support (English, Japanese, Vietnamese, and Chinese).",
+    ],
+    link: "https://visa.noruvalabs.com/",
+    linkText: "Try Torii Visa Live ↗",
+  },
+  {
+    version: "v2.5.0",
+    date: "August 2026",
+    badge: "Enterprise",
+    title: "Autonova Enterprise Agent Engine",
+    summary: "Rolled out our custom multi-agent deployment platform for enterprise clients with tool execution, deterministic safety evaluations, and human approval gates.",
+    highlights: [
+      "Custom tool-calling adapters for Salesforce, Jira, Slack, and internal SQL databases.",
+      "Human-in-the-loop review interface for financial and legal approvals.",
+      "Isolated VPC deployment support on AWS and Google Cloud Platform.",
+    ],
+    link: "https://autonova-website.vercel.app/",
+    linkText: "Explore Autonova ↗",
+  },
+  {
+    version: "v2.4.2",
+    date: "July 2026",
+    badge: "Performance",
+    title: "NoruvaAI Copilot: Sub-400ms Real-Time Transcription",
+    summary: "Major performance upgrade to the NoruvaAI real-time meeting copilot audio streaming pipeline across Google Meet, Zoom, and Webex.",
+    highlights: [
+      "Latency reduced to 380ms from audio ingestion to suggested answer generation.",
+      "Added native coding assessment support (LeetCode, HackerRank question identification).",
+      "One-click automated action item export directly to Jira and Linear.",
+    ],
+    link: "https://ai.noruvalabs.com/en",
+    linkText: "Try NoruvaAI Live ↗",
+  },
+  {
+    version: "v2.1.0",
+    date: "May 2026",
+    badge: "Beta",
+    title: "Law Assistant Citation Verification Engine",
+    summary: "Introduced our precedent-grounded research assistant capable of parsing 100k+ legal matter records with mandatory paragraph-level citations.",
+    highlights: [
+      "Clause bank extraction for rapid contract redlining against firm playbooks.",
+      "Zero-hallucination verification gate rejecting ungrounded model outputs.",
+    ],
+    link: "/products/law",
+    linkText: "View Law Suite Details →",
+  },
+];
+---
+
+<Base
+  title="Changelog — Noruva Labs"
+  description="Keep track of recent product updates, new feature launches, and performance enhancements across Noruva Labs software."
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <!-- Hero -->
+      <section class="relative overflow-hidden pt-32 pb-20">
+        <div class="pointer-events-none absolute inset-0 glow-purple" />
+        <div class="container-page relative">
+          <span class="inline-flex items-center gap-2 rounded-full bg-silver/60 border border-silver px-3.5 py-1 font-inter text-caption font-bold text-graphite shadow-xs">
+            <History class="h-3.5 w-3.5 text-action-blue" />
+            Product Releases
+          </span>
+          <h1 class="mt-5 text-[34px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
+            Changelog &
+            <br />
+            <span class="text-action-blue underline decoration-action-blue/30 underline-offset-4">product updates.</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-subheading text-slate leading-relaxed">
+            Follow our weekly releases and performance upgrades across NoruvaAI Copilot, Torii Immigration, and our custom enterprise agent systems.
+          </p>
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- Timeline Releases -->
+      <section class="container-page py-16 md:py-24">
+        <div class="max-w-3xl space-y-12">
+          {RELEASES.map((rel) => (
+            <article class="card-surface p-6 sm:p-8 border-silver bg-white/90 shadow-sm relative">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-silver/60 pb-3 mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-[13px] font-bold text-action-blue bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200">
+                    {rel.version}
+                  </span>
+                  <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-silver/60 text-stone border border-silver">
+                    {rel.badge}
+                  </span>
+                </div>
+                <span class="text-[12px] font-mono font-medium text-stone">{rel.date}</span>
+              </div>
+
+              <h2 class="font-cal text-[22px] font-bold text-graphite">{rel.title}</h2>
+              <p class="mt-2 text-body text-slate leading-relaxed">{rel.summary}</p>
+
+              <div class="mt-5 space-y-2">
+                <p class="text-[11px] font-bold text-stone uppercase tracking-wider">Key Highlights:</p>
+                <ul class="space-y-1.5">
+                  {rel.highlights.map((h) => (
+                    <li class="text-body-sm text-graphite flex items-start gap-2">
+                      <span class="text-action-blue font-bold">✓</span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-silver/50 flex justify-end">
+                <a
+                  href={rel.link}
+                  target={rel.link.startsWith("http") ? "_blank" : undefined}
+                  rel={rel.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                  class="font-inter text-caption font-bold text-action-blue hover:underline inline-flex items-center gap-1"
+                >
+                  <span>{rel.linkText}</span>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>
