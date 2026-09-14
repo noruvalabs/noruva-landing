@@ -1,0 +1,155 @@
+---
+import Base from '../layouts/Base.astro';
+import { Header } from '../components/site/header';
+import { Footer } from '../components/site/sections';
+import { Briefcase, MapPin, Clock, ArrowRight, CheckCircle2, Laptop, HeartHandshake, Zap, Sparkles } from 'lucide-react';
+
+const JOBS = [
+  {
+    title: "Marketing Expert",
+    dept: "Growth & Marketing",
+    location: "Tokyo, Japan / Remote (Worldwide)",
+    type: "Full-Time",
+    desc: "Lead global marketing strategy, product positioning, and high-impact growth campaigns across NoruvaAI Copilot, Torii Immigration, and our custom AI solutions. Drive user acquisition, social media expansion, developer evangelism, and B2B client pipelines.",
+    skills: ["Growth Marketing", "B2B SaaS", "Social Media Strategy", "Product Marketing", "SEO & Performance", "Content & Brand"],
+  },
+];
+
+const PERKS = [
+  {
+    title: "Global Remote or Tokyo Office",
+    desc: "Work from our Minato-ku Tokyo office or anywhere across flexible time zones. We provide full visa sponsorship in Japan.",
+    icon: MapPin,
+  },
+  {
+    title: "Top-Tier Gear & Setup Budget",
+    desc: "Latest Apple MacBook Pro or high-spec Linux workstation, 4K monitors, and $1,500 home office or ergonomics budget.",
+    icon: Laptop,
+  },
+  {
+    title: "Health & Comprehensive Coverage",
+    desc: "Full healthcare insurance, Japanese national social insurance (Shakai Hoken), and mental health support allowances.",
+    icon: HeartHandshake,
+  },
+  {
+    title: "High Autonomy & Impact",
+    desc: "Small, senior engineering teams with zero bureaucracy. Your code ships to live customers within your first week.",
+    icon: Zap,
+  },
+];
+---
+
+<Base
+  title="Careers — Noruva Labs"
+  description="Explore career opportunities at Noruva Labs. We are currently hiring a Marketing Expert to lead global growth and brand strategy."
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <!-- Hero -->
+      <section class="relative overflow-hidden pt-32 pb-20">
+        <div class="pointer-events-none absolute inset-0 glow-purple" />
+        <div class="container-page relative">
+          <span class="inline-flex items-center gap-2 rounded-full bg-silver/60 border border-silver px-3.5 py-1 font-inter text-caption font-bold text-graphite shadow-xs">
+            <Briefcase class="h-3.5 w-3.5 text-action-blue" />
+            We Are Hiring
+          </span>
+          <h1 class="mt-5 text-[34px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
+            Drive global growth for
+            <br />
+            <span class="text-action-blue underline decoration-action-blue/30 underline-offset-4">applied software.</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-subheading text-slate leading-relaxed">
+            We are looking for a creative and data-driven Marketing Expert to lead our product positioning, user acquisition, and multi-channel brand growth across our software suite.
+          </p>
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- Open Roles -->
+      <section class="container-page py-16 md:py-24">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+          <div>
+            <span class="font-inter text-caption tracking-[0.08em] text-stone uppercase font-bold">Open Positions</span>
+            <h2 class="mt-2 text-[28px] sm:text-[34px] font-bold font-cal text-graphite">
+              Current job openings
+            </h2>
+          </div>
+          <p class="text-body-sm text-slate">
+            Don't see an exact match? Reach out at <a href="mailto:careers@noruvalabs.com" class="text-action-blue font-bold hover:underline">careers@noruvalabs.com</a>
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          {JOBS.map((job) => (
+            <div class="card-surface p-6 sm:p-8 bg-white/80 border-silver shadow-xs hover:shadow-md transition-all hover:border-graphite/40">
+              <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                <div class="max-w-2xl">
+                  <div class="flex flex-wrap items-center gap-2.5 mb-2">
+                    <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-silver/60 text-stone border border-silver">
+                      {job.dept}
+                    </span>
+                    <span class="text-[11px] font-bold text-emerald-700 px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200">
+                      {job.type}
+                    </span>
+                  </div>
+                  <h3 class="font-cal text-[20px] sm:text-[22px] font-bold text-graphite">{job.title}</h3>
+                  <p class="mt-2 text-body-sm text-slate leading-relaxed">{job.desc}</p>
+                  <div class="mt-4 flex flex-wrap gap-1.5">
+                    {job.skills.map((skill) => (
+                      <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-paper border border-silver text-slate">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row md:flex-col items-start md:items-end gap-3 shrink-0 pt-2 md:pt-0">
+                  <span class="text-[12px] font-medium text-stone flex items-center gap-1.5">
+                    <MapPin class="h-3.5 w-3.5 text-action-blue" />
+                    {job.location}
+                  </span>
+                  <a
+                    href="mailto:careers@noruvalabs.com?subject=Application:%20"
+                    class="btn-pill bg-graphite text-white hover:bg-zinc-800 text-[13px] font-bold px-4 py-2 shadow-xs flex items-center gap-1.5"
+                  >
+                    <span>Apply for Role</span>
+                    <ArrowRight class="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- Perks -->
+      <section class="container-page py-16 md:py-24">
+        <div class="max-w-xl mb-12">
+          <span class="font-inter text-caption tracking-[0.08em] text-stone uppercase font-bold">Why Noruva Labs</span>
+          <h2 class="mt-2 text-[28px] sm:text-[34px] font-bold font-cal text-graphite">
+            Benefits & engineering culture
+          </h2>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {PERKS.map((p) => (
+            <div class="card-surface p-6 bg-white/70 border-silver shadow-xs flex flex-col justify-between">
+              <div>
+                <div class="h-10 w-10 rounded-lg bg-silver/60 border border-silver flex items-center justify-center text-action-blue mb-4">
+                  <p.icon class="h-5 w-5" />
+                </div>
+                <h3 class="font-cal text-[17px] font-bold text-graphite mb-2">{p.title}</h3>
+                <p class="text-body-sm text-slate leading-relaxed">{p.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>

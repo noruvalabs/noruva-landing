@@ -1,0 +1,133 @@
+---
+import Base from '../layouts/Base.astro';
+import { Header } from '../components/site/header';
+import { Footer } from '../components/site/sections';
+import { Activity, CheckCircle2, Server, Clock, ShieldCheck, AlertCircle } from 'lucide-react';
+
+const SERVICES = [
+  {
+    name: "NoruvaAI Real-Time Audio Streaming API",
+    status: "Operational",
+    latency: "382ms",
+    uptime: "99.99%",
+  },
+  {
+    name: "Torii Immigration Web Platform (visa.noruvalabs.com)",
+    status: "Operational",
+    latency: "145ms",
+    uptime: "99.98%",
+  },
+  {
+    name: "Autonova Enterprise Multi-Agent Cluster",
+    status: "Operational",
+    latency: "410ms",
+    uptime: "99.97%",
+  },
+  {
+    name: "Law Assistant Precedent Index & Citations",
+    status: "Operational",
+    latency: "210ms",
+    uptime: "99.99%",
+  },
+  {
+    name: "Global API Edge Ingestion & WebSockets",
+    status: "Operational",
+    latency: "28ms",
+    uptime: "100.0%",
+  },
+  {
+    name: "Authentication, SAML 2.0 & SSO Gateway",
+    status: "Operational",
+    latency: "45ms",
+    uptime: "100.0%",
+  },
+];
+
+const METRICS = [
+  { label: "Overall Uptime (90 Days)", val: "99.98%" },
+  { label: "Mean Audio Latency", val: "< 400ms" },
+  { label: "Active Regional Clusters", val: "Tokyo, US-East, EU-Central" },
+  { label: "Unresolved Incidents", val: "0" },
+];
+---
+
+<Base
+  title="System Status — Noruva Labs"
+  description="Real-time uptime, response latencies, and service health metrics for Noruva Labs APIs and web applications."
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <!-- Hero -->
+      <section class="relative overflow-hidden pt-32 pb-20">
+        <div class="pointer-events-none absolute inset-0 glow-purple" />
+        <div class="container-page relative">
+          <div class="inline-flex items-center gap-2 rounded-full bg-emerald-100 border border-emerald-300 px-3.5 py-1 font-inter text-caption font-bold text-emerald-800 shadow-xs mb-4">
+            <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            All Systems Operational
+          </div>
+          <h1 class="text-[34px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
+            System status &
+            <br />
+            <span class="text-emerald-700 underline decoration-emerald-300/80 underline-offset-4">service health.</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-subheading text-slate leading-relaxed">
+            Live telemetry and uptime statistics across our production real-time meeting inference clusters, immigration forms builder, and enterprise APIs.
+          </p>
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- Metrics Bar -->
+      <section class="container-page py-12 bg-white/50">
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {METRICS.map((m) => (
+            <div class="card-surface p-5 border-silver bg-white shadow-xs text-center">
+              <span class="font-cal text-[22px] font-extrabold text-graphite block">{m.val}</span>
+              <span class="text-[12px] font-inter text-slate mt-1 block">{m.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- Service Health Table -->
+      <section class="container-page py-16 md:py-24">
+        <div class="max-w-4xl">
+          <h2 class="text-heading text-graphite font-bold font-cal mb-6">Component Status</h2>
+
+          <div class="card-surface border-silver bg-white shadow-sm overflow-hidden divide-y divide-silver/60">
+            {SERVICES.map((s) => (
+              <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-paper/30 transition-colors">
+                <div class="flex items-center gap-3">
+                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0" />
+                  <span class="font-inter text-[14px] sm:text-[15px] font-bold text-graphite">{s.name}</span>
+                </div>
+
+                <div class="flex items-center gap-6 self-end sm:self-auto text-[12px] font-mono">
+                  <span class="text-stone">Latency: <strong class="text-graphite font-bold">{s.latency}</strong></span>
+                  <span class="text-stone">Uptime: <strong class="text-emerald-700 font-bold">{s.uptime}</strong></span>
+                  <span class="rounded bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 text-[11px] font-bold">
+                    {s.status}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Past Incidents -->
+          <div class="mt-14">
+            <h3 class="font-cal text-[20px] font-bold text-graphite mb-4">Past Incidents (Past 90 Days)</h3>
+            <div class="card-surface p-6 border-silver bg-white shadow-xs text-center text-slate text-body-sm">
+              <CheckCircle2 class="h-6 w-6 text-emerald-600 mx-auto mb-2" />
+              No outages or degraded service incidents reported in the last 90 days.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>

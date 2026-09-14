@@ -1,0 +1,162 @@
+---
+import Base from '../layouts/Base.astro';
+import { Header } from '../components/site/header';
+import { Footer } from '../components/site/sections';
+import { BookOpen, Terminal, Code2, Cpu, ArrowRight, Check, Key, Shield, Layers } from 'lucide-react';
+
+const SECTIONS = [
+  {
+    title: "NoruvaAI Real-Time Streaming WebSocket",
+    badge: "Live Protocol",
+    desc: "Ingest live audio streams from meeting clients or telephony services with 400ms end-to-end question detection and answer synthesis.",
+    endpoint: "wss://api.noruvalabs.com/v1/meetings/stream",
+    code: `import { NoruvaStreamClient } from "@noruva/sdk";
+
+const client = new NoruvaStreamClient({
+  apiKey: process.env.NORUVA_API_KEY,
+});
+
+const session = await client.createMeetingSession({
+  platform: "zoom",
+  targetLanguage: "en",
+  realtimeSummaries: true,
+});
+
+session.on("questionDetected", (q) => {
+  console.log("Question:", q.transcript);
+  console.log("Suggested Response:", q.suggestedAnswer);
+});`,
+  },
+  {
+    title: "Torii Immigration Route Intake API",
+    badge: "v1.2 REST",
+    desc: "Evaluate applicant criteria across 120+ international visa pathways and generate auto-filled official government application packets.",
+    endpoint: "POST https://api.noruvalabs.com/v1/immigration/assess",
+    code: `curl -X POST https://api.noruvalabs.com/v1/immigration/assess \\
+  -H "Authorization: Bearer $NORUVA_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "applicantNationality": "USA",
+    "targetCountry": "JPN",
+    "category": "highly_skilled_professional",
+    "pointsCalculated": 85
+  }'`,
+  },
+  {
+    title: "Autonova Enterprise Agent Dispatcher",
+    badge: "Multi-Agent Engine",
+    desc: "Deploy autonomous enterprise agents with deterministic tool calling, approvals gates, and CRM/ERP integrations.",
+    endpoint: "POST https://api.noruvalabs.com/v1/agents/execute",
+    code: `from noruva import AgentEngine
+
+engine = AgentEngine(api_key="noruva_live_...")
+
+agent = engine.deploy_agent(
+    model="claude-3-5-sonnet",
+    tools=["salesforce_sync", "slack_notify", "contract_indexer"],
+    require_human_approval=["fund_transfer", "contract_sign"]
+)
+
+response = agent.run("Analyze Q3 enterprise churn risk and notify team")`,
+  },
+];
+
+const SDK_LIST = [
+  { name: "TypeScript / Node.js", tag: "npm install @noruva/sdk", lang: "npm" },
+  { name: "Python 3.10+", tag: "pip install noruva", lang: "pip" },
+  { name: "Go Client", tag: "go get github.com/noruva/noruva-go", lang: "go" },
+  { name: "CLI Tool", tag: "curl -sSL noruva.dev/install.sh | sh", lang: "sh" },
+];
+---
+
+<Base
+  title="Documentation — Noruva Labs"
+  description="Developer documentation, REST & WebSocket API references, SDKs, and code samples for Noruva Labs products."
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <!-- Hero -->
+      <section class="relative overflow-hidden pt-32 pb-20">
+        <div class="pointer-events-none absolute inset-0 glow-purple" />
+        <div class="container-page relative">
+          <span class="inline-flex items-center gap-2 rounded-full bg-silver/60 border border-silver px-3.5 py-1 font-inter text-caption font-bold text-graphite shadow-xs">
+            <BookOpen class="h-3.5 w-3.5 text-action-blue" />
+            Developer Platform
+          </span>
+          <h1 class="mt-5 text-[34px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
+            Developer APIs &
+            <br />
+            <span class="text-action-blue underline decoration-action-blue/30 underline-offset-4">integration guides.</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-subheading text-slate leading-relaxed">
+            Integrate real-time meeting intelligence, automated visa intake workflows, and custom enterprise agentic pipelines directly into your software stack.
+          </p>
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- SDKs -->
+      <section class="container-page py-12 bg-white/40">
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {SDK_LIST.map((sdk) => (
+            <div class="card-surface p-4 border-silver bg-white shadow-xs flex flex-col justify-between">
+              <div>
+                <span class="font-cal text-[15px] font-bold text-graphite block">{sdk.name}</span>
+                <code class="mt-2 text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2 py-1 rounded block border border-emerald-200">
+                  {sdk.tag}
+                </code>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- API Reference & Code Examples -->
+      <section class="container-page py-16 md:py-24">
+        <div class="space-y-12">
+          {SECTIONS.map((sec) => (
+            <div class="card-surface p-6 sm:p-8 border-silver bg-white/90 shadow-sm">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-silver/60 pb-4 mb-6">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h2 class="font-cal text-[22px] font-bold text-graphite">{sec.title}</h2>
+                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      {sec.badge}
+                    </span>
+                  </div>
+                  <p class="mt-1 text-body-sm text-slate">{sec.desc}</p>
+                </div>
+                <code class="text-[11px] font-mono text-stone bg-paper px-3 py-1 rounded border border-silver shrink-0 self-start md:self-auto">
+                  {sec.endpoint}
+                </code>
+              </div>
+
+              <!-- Code Preview Window -->
+              <div class="rounded-lg bg-zinc-950 p-4 sm:p-5 text-zinc-100 font-mono text-[12px] leading-relaxed overflow-x-auto shadow-inner border border-zinc-800">
+                <pre><code>{sec.code}</code></pre>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-16 text-center">
+          <p class="text-body text-slate">
+            Need an enterprise API key or custom endpoint rate limits?
+          </p>
+          <a
+            href="/contact"
+            class="mt-4 inline-flex items-center gap-2 btn-pill bg-graphite text-white hover:bg-zinc-800 font-bold text-[14px] px-6 py-2.5 shadow-md"
+          >
+            <span>Request Enterprise API Access</span>
+            <ArrowRight class="h-4 w-4" />
+          </a>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>

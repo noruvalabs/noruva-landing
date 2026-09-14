@@ -1,0 +1,150 @@
+---
+import Base from '../layouts/Base.astro';
+import { Header } from '../components/site/header';
+import { Footer } from '../components/site/sections';
+import { Building2, ShieldCheck, Zap, Globe2, Sparkles, CheckCircle2, ArrowRight, Terminal } from 'lucide-react';
+
+const VALUES = [
+  {
+    title: "Software First, AI Where It Earns It",
+    desc: "We don't wrap foundation models in thin UIs. We engineer full-stack workflows with deterministic business logic, strict verification gates, and AI only where it delivers genuine value.",
+    icon: Terminal,
+  },
+  {
+    title: "Zero Tolerance for Hallucinations",
+    desc: "Whether filing Japanese immigration packets or extracting contract indemnity caps, our systems require 100% citation grounding back to official sources and matter records.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Sub-400ms Real-Time Latency",
+    desc: "From live Zoom and Google Meet audio stream parsing in NoruvaAI to instant route matching in Torii, our systems are optimized for immediate human interaction.",
+    icon: Zap,
+  },
+  {
+    title: "Enterprise Data Isolation",
+    desc: "Zero customer data is ever retained for public model training. All customer embeddings and inference payloads remain private, auditable, and SOC 2 / GDPR compliant.",
+    icon: Globe2,
+  },
+];
+
+const TIMELINE = [
+  {
+    year: "2024",
+    title: "Founded in Tokyo, Japan",
+    body: "Established headquarters in Minato-ku, Tokyo, with an initial focus on real-time call audio transcription and meeting intelligence.",
+  },
+  {
+    year: "2025",
+    title: "NoruvaAI Copilot Launch",
+    body: "Launched our real-time meeting copilot across Zoom, Google Meet, and Webex, serving over 48,000 structured sessions.",
+  },
+  {
+    year: "2026",
+    title: "Torii Immigration Suite Goes Live",
+    body: "Rolled out Torii Immigration Assistant (visa.noruvalabs.com) supporting 120+ global visa routes with auto-filled government forms.",
+  },
+  {
+    year: "Today",
+    title: "Multi-Product Suite & Agentic Services",
+    body: "Expanding law and education products while deploying production agentic AI systems (Autonova) for enterprise clients worldwide.",
+  },
+];
+---
+
+<Base
+  title="About Us — Noruva Labs"
+  description="Learn about Noruva Labs — an applied AI engineering lab in Minato-ku, Tokyo building specialized software for meetings, immigration, law, and enterprise agents."
+>
+  <div class="min-h-screen overflow-x-clip bg-paper">
+    <Header client:load />
+    <main class="relative vertical-lines">
+      <!-- Hero -->
+      <section class="relative overflow-hidden pt-32 pb-20">
+        <div class="pointer-events-none absolute inset-0 glow-purple" />
+        <div class="container-page relative">
+          <span class="inline-flex items-center gap-2 rounded-full bg-silver/60 border border-silver px-3.5 py-1 font-inter text-caption font-bold text-graphite shadow-xs">
+            <Building2 class="h-3.5 w-3.5 text-action-blue" />
+            Minato-ku, Tokyo, Japan
+          </span>
+          <h1 class="mt-5 text-[34px] leading-[1.1] tracking-tight text-graphite sm:text-[44px] md:text-heading-lg lg:text-display font-bold font-cal">
+            Engineered software,
+            <br />
+            <span class="text-action-blue underline decoration-action-blue/30 underline-offset-4">grounded in reality.</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-subheading text-slate leading-relaxed">
+            Noruva Labs is an engineering company building specialized software assistants for high-stakes workflows — meeting intelligence, immigration filing, legal drafting, and custom enterprise agent systems.
+          </p>
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- Mission & Philosophy -->
+      <section class="container-page py-16 md:py-24">
+        <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+          <div>
+            <span class="font-inter text-caption tracking-[0.08em] text-stone uppercase font-bold">Our Philosophy</span>
+            <h2 className="mt-3 text-[28px] sm:text-[34px] font-bold font-cal text-graphite leading-tight">
+              We don't build generic chatbots. We build domain software.
+            </h2>
+            <p class="mt-5 text-body text-slate leading-relaxed">
+              Most AI products today are superficial wrappers around generative models. When applied to legal documents, visa applications, or critical team meetings, generic models fail on accuracy, latency, and compliance.
+            </p>
+            <p class="mt-4 text-body text-slate leading-relaxed">
+              At Noruva Labs, our philosophy is software first. We design deep domain logic, deterministic verification layers, and real-time streaming architectures before integrating modern LLMs. The result is software that teams can trust with their legal compliance, hiring, and business data.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="/contact" class="btn-pill bg-graphite text-white hover:bg-zinc-800 text-[14px] font-bold px-6 py-2.5 shadow-md flex items-center gap-1.5">
+                <span>Talk to Our Engineers</span>
+                <ArrowRight class="h-4 w-4" />
+              </a>
+              <a href="https://ai.noruvalabs.com/en" target="_blank" rel="noopener noreferrer" class="btn-pill btn-ghost text-[14px] font-semibold px-5 py-2.5">
+                Explore NoruvaAI Live ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            {VALUES.map((v) => (
+              <div class="card-surface p-6 bg-white/70 border-silver shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                  <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-silver/60 border border-silver text-graphite mb-4">
+                    <v.icon class="h-5 w-5 text-action-blue" />
+                  </div>
+                  <h3 class="font-cal text-[17px] font-bold text-graphite">{v.title}</h3>
+                  <p class="mt-2 text-body-sm text-slate leading-relaxed">{v.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div class="section-separator w-full" />
+
+      <!-- Timeline & Milestones -->
+      <section class="container-page py-16 md:py-24">
+        <div class="max-w-xl">
+          <span class="font-inter text-caption tracking-[0.08em] text-stone uppercase font-bold">Our Journey</span>
+          <h2 class="mt-3 text-[28px] sm:text-[36px] font-bold font-cal text-graphite leading-tight">
+            Milestones & continuous delivery
+          </h2>
+          <p class="mt-3 text-body text-slate">
+            How we evolved from a Tokyo audio engineering group into a multi-product software company.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-4">
+          {TIMELINE.map((t, idx) => (
+            <div class="card-surface p-6 bg-white/80 border-silver shadow-sm relative">
+              <span class="font-cal text-[26px] font-extrabold text-action-blue block mb-2">{t.year}</span>
+              <h3 class="font-cal text-[17px] font-bold text-graphite mb-2">{t.title}</h3>
+              <p class="text-body-sm text-slate leading-relaxed">{t.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Base>
